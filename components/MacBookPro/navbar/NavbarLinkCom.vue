@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NuxtLink v-if="isIcon == false" class="text-black" :to="link">{{ linkName }}</NuxtLink>
+        <NuxtLink :class="title == true ? 'title':''" :to="link">{{ linkName }}</NuxtLink>
     </div>
 </template>
 <script setup>
@@ -11,11 +11,17 @@ defineProps({
     linkName:{
         default:"Link"
     },
+    title:{
+        default:false
+    }
 })
 </script>
 <style lang="scss" scoped>
 a{
     font-size: 12px;
+}
+.title{
+    font-size:21px;
 }
 svg{
     height: 18px;
