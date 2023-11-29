@@ -1,14 +1,19 @@
 <template>
-	<div>
-        <img alt="sliderImage" :src="image">
+	<div class="sliderContainer rounded-3xl">
+        <img class="w-full h-full object-cover rounded-3xl" alt="sliderImage" :src="image">
 	</div>
 </template>
 <script setup>
 defineProps({
     image:{
-        default:"",
-        type:String
+        default:""
     }
 })
 </script>
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.sliderContainer{
+    width:1280px;
+    height: 680px;
+    transition: 250ms;
+}
+</style>
