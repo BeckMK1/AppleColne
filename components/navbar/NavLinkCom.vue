@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="flex items-center">
         <NuxtLink v-if="isIcon == false" class="text-black" :to="link">{{ linkName }}</NuxtLink>
-        <NuxtLink v-if="isIcon == true" class="text-black linkIcon" :to="link"><font-awesome-icon :icon="icon" /></NuxtLink>
+        <NuxtLink v-if="isIcon == true" class="text-black linkIcon flex items-center" :to="link"><font-awesome-icon :icon="icon" /></NuxtLink>
     </div>
 </template>
 <script setup>

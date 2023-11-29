@@ -1,6 +1,6 @@
 <template>
     <div class="defaultNavbar w-screen bg-white">
-        <div class="flex 2xl:max-w-5xl justify-between mx-auto py-2 items-center">
+        <div class="flex 2xl:max-w-5xl justify-between mx-auto py-3 items-center">
             <NavbarNavLinkCom :isIcon="true" link="#" icon="fa-brands fa-apple" />
             <NavbarNavLinkCom link="#" linkName="Store" />
             <NavbarNavLinkCom link="#" linkName="Mac" />

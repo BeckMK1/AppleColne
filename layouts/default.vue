@@ -2,7 +2,9 @@
     <div class="bg-white w-full min-h-screen pageContainer overflow-x-hidden">
     <NavbarCom></NavbarCom>
     <MacBookProNavbarCom v-if="isSrolled == true" class="navbarDefault" :class="navbarAnimate == true ? 'navbarDown' : 'navbarUp'"></MacBookProNavbarCom>
+    <div>
         <slot />
+    </div>
     </div>
 </template>
 <script setup>
