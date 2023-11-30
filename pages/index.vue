@@ -2,9 +2,22 @@
 <div>
     <MacBookProSectionsHeroCom></MacBookProSectionsHeroCom>
     <MacBookProSectionsSection1Com></MacBookProSectionsSection1Com>
+    <MacBookProSectionsSection2Com></MacBookProSectionsSection2Com>
+    <MacBookProSectionsSection3Com></MacBookProSectionsSection3Com>
 </div>
 </template>
-<script setup></script>
+<script setup>
+import { useStore } from '@/stores/store'
+const store = useStore()
+const checkPopup = computed(()=>store.popupOpen)
+watch(checkPopup, async (newValue) =>{
+    if(newValue == true){
+        document.body.style.overflowY = "hidden";
+    }else{
+        document.body.style.overflowY = "auto";
+    }
+})
+</script>
 <style lang="scss">
 *{
     font-family: 'Roboto', sans-serif;
@@ -18,5 +31,8 @@
 .sectionTitle{
     font-size: 56px;
     font-weight: 500;
+}
+.contentMid{
+    max-width: 66%;
 }
 </style>

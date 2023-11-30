@@ -32,9 +32,6 @@ onMounted(()=>{
 })
 </script>
 <style lang="scss" scoped>
-.pageContainer{
-    height: 300vh;
-}
 .navbarDefault{
     transform: translateY(-100%);
     display:none;

@@ -1,6 +1,6 @@
 <template>
 	<div>
-        <div class="NavIndicator bg-zinc-500 w-2 h-2 overflow-hidden" :class="isActive == true ? 'navActive':'navInactive' "><div class="SlideTimer bg-zinc-700 h-2" :style="{width:timerCount + 'px'}" v-if="isActive == true"></div></div>
+        <div class="NavIndicator bg-zinc-500 w-2 h-2 overflow-hidden cursor-pointer" :class="isActive == true ? 'navActive':'navInactive' "><div class="SlideTimer bg-zinc-700 h-2" :style="{width:timerCount + 'px'}" v-if="isActive == true"></div></div>
 	</div>
 </template>
 <script setup>
