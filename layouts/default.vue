@@ -1,35 +1,38 @@
 <template>
     <div class="bg-white w-full min-h-screen pageContainer overflow-x-hidden">
     <NavbarCom></NavbarCom>
-    <MacBookProNavbarCom v-if="isSrolled == true" class="navbarDefault" :class="navbarAnimate == true ? 'navbarDown' : 'navbarUp'"></MacBookProNavbarCom>
+    <MacBookProNavbarCom v-if="isSrolled == true, isPopup == false" class="navbarDefault" :class="navbarAnimate == true ? 'navbarDown' : 'navbarUp'"></MacBookProNavbarCom>
     <div>
         <slot />
     </div>
     </div>
 </template>
 <script setup>
-const isSrolled = ref(false)
-const navbarAnimate = ref (false)
-function CheckScroll(){
-    window.addEventListener("scroll", () =>{
-        if(window.scrollY > 300){
-            if(isSrolled.value != true){
-                navbarAnimate.value = true
-                isSrolled.value = true
+    import { useStore } from '@/stores/store'
+    const store = useStore()
+    const isPopup = computed(()=>store.popupOpen)
+    const isSrolled = ref(false)
+    const navbarAnimate = ref (false)
+    function CheckScroll(){
+        window.addEventListener("scroll", () =>{
+            if(window.scrollY > 300){
+                if(isSrolled.value != true){
+                    navbarAnimate.value = true
+                    isSrolled.value = true
+                }
+            } else{
+                if(isSrolled.value != false){
+                    navbarAnimate.value = false
+                    setTimeout(()=>{
+                            isSrolled.value = false
+                    },260)
+                }
             }
-        } else{
-            if(isSrolled.value != false){
-                navbarAnimate.value = false
-                setTimeout(()=>{
-                        isSrolled.value = false
-                },260)
-            }
-        }
+        })
+    }
+    onMounted(()=>{
+        CheckScroll()
     })
-}
-onMounted(()=>{
-    CheckScroll()
-})
 </script>
 <style lang="scss" scoped>
 .navbarDefault{

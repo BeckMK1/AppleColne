@@ -28,8 +28,9 @@
 				<p>Up til x GB sammlet RAM</p>
 			</div>
 		</div>
+		<h2 class="sectionTitle text-white pt-48">Uo modo autem philosophus loquitur.</h2>
+		<ElementsImageExplodeCom></ElementsImageExplodeCom>
 	</div>
-
 </template>
 <script setup></script>
 <style lang="scss" scoped>

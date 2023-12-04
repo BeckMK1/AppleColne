@@ -1,5 +1,5 @@
 <template>
-	<div id="section3" class=" bg-black relative">
+	<div id="section3" class=" bg-black relative blackBg">
         <div class="pt-24 contentContainer mx-auto">
             <h2 class="sectionTitle text-white">Partem quandam tuetur.</h2>
             <div>
@@ -8,19 +8,19 @@
                 </div>
             </div>
         </div>
-        <ElementsPopupCom v-if="isPopup == true"></ElementsPopupCom>
+        <Transition name="popUpFade">
+            <ElementsPopupCom class="popupDefault" popupContent="aboutChip" v-if="isPopup == true"></ElementsPopupCom>
+        </Transition>
         <div @click="openPopup" v-if="isPopupBtn == true" class="PopupBtn cursor-pointer w-fit px-2 py-2 fixed bottom-4 left-1/2 -translate-x-1/2 flex gap-4 items-center"><p class="pl-2">Læs mere om chip</p><div  class=" bg-blue-500 plusContainer rounded-full flex items-center justify-center"><font-awesome-icon icon="fa-solid fa-plus" /></div></div>
 	</div>
 </template>
 <script setup>
-
 const isPopupBtn = ref(false)
 import { useStore } from '@/stores/store'
 const store = useStore()
 const isPopup = computed(()=>store.popupOpen)
 function openPopup(){
     store.popupOpen = true
-
 }
 function setObserver(){
 	const section = document.querySelector("#section3");
@@ -39,6 +39,13 @@ let callback = (entries, observer) => {
 let observer =  new IntersectionObserver(callback, options);
 observer.observe(section);
 }
+watch(isPopup, async (newValue, oldValue) =>{
+    if(newValue == true){
+        isPopupBtn.value = false
+    }else{
+        isPopupBtn.value = true
+    }
+})
 onMounted(()=>{
     setObserver()
 })
@@ -64,5 +71,26 @@ opacity: 0.8;
     .plusContainer{
         padding: 0.5rem 0.5rem;
     }
+}
+.popupDefault{
+    transition: opacity 1s;
+}
+.popUpFade-enter-from{
+    opacity: 0;
+}
+.popUpFade-enter-to{
+    opacity: 1;
+}
+.v-enter-active{
+    transition: opacity 250ms ease-in;
+}
+.popUpFade-leave-from{
+    opacity: 1;
+}
+.popUpFade-leave-to{
+    opacity: 0;
+}
+.v-leave-active{
+    transition: opacity 250ms ease-out;
 }
 </style>

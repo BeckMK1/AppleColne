@@ -31,8 +31,14 @@ watch(checkPopup, async (newValue) =>{
 .sectionTitle{
     font-size: 56px;
     font-weight: 500;
+    line-height: normal;
 }
 .contentMid{
     max-width: 66%;
+}
+.navWhite{
+    a{
+        color: white;
+    }
 }
 </style>
