@@ -17,9 +17,19 @@
 					<font-awesome-icon v-if="isAutoPlay == true" icon="fa-solid fa-pause" />
 				</div>
 			</div>
-			<div class="flex overflow-hidden">
-				<div v-for="sliderImage in sliderImages" @click="setSlideActive(sliderImage.image, sliderImage.id)">
-					<ElementsSliderCatagoriCom :name="sliderImage.name" :isActive="sliderImage.isActive" v-if="navTypes == 'section4Slider'"></ElementsSliderCatagoriCom>
+			<div class="flex justify-center" v-if="navTypes == 'section4Slider'">
+				<div @click="scrollCatagoryLeft" class=" cursor-pointer">
+					<font-awesome-icon icon="fa-solid fa-chevron-left" />
+				</div>
+				<div class="overflow-hidden w-2/3">
+					<div id="catagorySlider" class="flex overflow-visible">
+						<div class="catagoryContainer" v-for="sliderImage in sliderImages" @click="setSlideActive(sliderImage.image, sliderImage.id)">
+							<ElementsSliderCatagoriCom @click="scrollCatagoryRightOne" :name="sliderImage.name" :isActive="sliderImage.isActive"></ElementsSliderCatagoriCom>
+						</div>
+					</div>
+				</div>
+				<div @click="scrollCatagoryRight" class=" cursor-pointer">
+					<font-awesome-icon icon="fa-solid fa-chevron-right" />
 				</div>
 			</div>
 	</div>
@@ -47,7 +57,8 @@ const nextIndex = ref(0)
 const isAutoPlay = ref(false)
 const IsNavigation = ref(false)
 const navFixed = ref(true)
-// rewrite to work with auto play
+const catagoryCurrPos = ref(0)
+
 function setSlideActive(currentSlide, imageId){
 	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(sliderImage.isActive == true && sliderImage.image != currentSlide){
@@ -69,6 +80,7 @@ function setSlideActive(currentSlide, imageId){
 		}
 	}
 }
+// auto scroll
 function scrollnext(){
 	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(sliderImage.isActive == true){
@@ -135,6 +147,33 @@ let callback = (entries, observer) => {
 }
 let observer =  new IntersectionObserver(callback, options);
 observer.observe(nav);
+}
+function scrollCatagoryRight(){
+	const catagoryContainer = document.getElementById("catagorySlider")
+	const catagory = document.querySelector(".catagoryContainer .catagory");
+	const catagoryWidth = catagory.offsetWidth;
+	catagoryCurrPos.value = -catagoryWidth * 4
+	catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value }px)`
+}
+function scrollCatagoryLeft(){
+	const catagoryContainer = document.getElementById("catagorySlider")
+	const catagory = document.querySelector(".catagoryContainer .catagory");
+	const catagoryWidth = catagory.offsetWidth;
+		catagoryCurrPos.value = catagoryWidth * 4
+		catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value}px)`
+		if(catagoryCurrPos.value > 0){
+			catagoryContainer.style.transform = `translateX(${0}px)`
+		}
+}
+function scrollCatagoryRightOne(){
+	const catagoryContainer = document.getElementById("catagorySlider")
+	const catagory = document.querySelector(".catagoryContainer .catagory");
+	const catagoryWidth = catagory.offsetWidth;
+	catagoryCurrPos.value -= catagoryWidth;
+	catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value}px)`
+	if(catagoryCurrPos.value > 0){
+		catagoryContainer.style.transform = `translateX(${0}px)`
+	}
 }
 onMounted(()=>{
 	setObserver()

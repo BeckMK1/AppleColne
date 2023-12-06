@@ -7,6 +7,7 @@
     <MacBookProSectionsSection3Com></MacBookProSectionsSection3Com>
     <MacBookProSectionsSection4Com></MacBookProSectionsSection4Com>
     </div>
+    <MacBookProSectionsSection5Com></MacBookProSectionsSection5Com>
 </div>
 </template>
 <script setup>

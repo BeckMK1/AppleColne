@@ -1,5 +1,5 @@
 <template>
-	<div class="overflow-hidden">
+	<div class="">
 		<h2 class="contentMid">Confusioque virtutum tamen</h2>
 		<p class="mainText pt-12 contentMid ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus est exemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludus esset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
 		<div class="chipsContainer contentMid flex justify-between w-full pt-12">
