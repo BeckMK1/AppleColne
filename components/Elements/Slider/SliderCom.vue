@@ -1,12 +1,12 @@
 <template>
 	<div class=" relative">
-			<div id="sliderContainer" class="flex flex-row-reverse slider gap-24 pb-24 ">
+			<div :id="sliderId" :class="sliderLeft == true ? 'flex-row-reverse' : 'flex-row'" class="flex slider gap-24 pb-24 ">
 					<div class="slideSize" :id="sliderImage.id" v-for="sliderImage in sliderImages">
 					<ElementsSliderImageCom :image="sliderImage.image"></ElementsSliderImageCom>
 				</div>
 			</div>
 			<div id="sliderNavigation"></div>
-			<div  :class="IsNavigation == true ? 'sliderNavShow' : 'sliderNavShowHide', navFixed == true ? 'fixed bottom-4 left-1/2 -translate-x-1/2':''" class="flex justify-center gap-3 items-center" >
+			<div v-if="navTypes == 'section1Slider'"  :class="IsNavigation == true ? 'sliderNavShow' : 'sliderNavShowHide', navFixed == true ? 'fixed bottom-4 left-1/2 -translate-x-1/2':''" class="flex justify-center gap-3 items-center" >
 				<div class="sliderNav flex flex-row-reverse gap-4 w-fit px-8 py-6 rounded-3xl items-center">
 					<div  @click="setSlideActive(sliderImage.image, sliderImage.id)" v-for="sliderImage in sliderImages">
 						<ElementsSliderNavCom :isAutoPlay="isAutoPlay" @sendCount="scrollnext" :isActive="sliderImage.isActive"></ElementsSliderNavCom>
@@ -17,48 +17,39 @@
 					<font-awesome-icon v-if="isAutoPlay == true" icon="fa-solid fa-pause" />
 				</div>
 			</div>
+			<div class="flex overflow-hidden">
+				<div v-for="sliderImage in sliderImages" @click="setSlideActive(sliderImage.image, sliderImage.id)">
+					<ElementsSliderCatagoriCom :name="sliderImage.name" :isActive="sliderImage.isActive" v-if="navTypes == 'section4Slider'"></ElementsSliderCatagoriCom>
+				</div>
+			</div>
 	</div>
 </template>
 <script setup>
-const sliderImages = ref([
-{
-	image:"/_nuxt/Assets/Images/slider1/image1.jpg",
-	isActive:true,
-	id:"image1"
-},
-{
-	image:"/_nuxt/Assets/Images/slider1/image2.jpg",
-	isActive:false,
-	id:"image2"
-},
-{
-	image:"/_nuxt/Assets/Images/slider1/image3.jpg",
-	isActive:false,
-	id:"image3"
-},
-{
-	image:"/_nuxt/Assets/Images/slider1/image4.jpg",
-	isActive:false,
-	id:"image4"
-},
-{
-	image:"/_nuxt/Assets/Images/slider1/image5.jpg",
-	isActive:false,
-	id:"image5"
-},
-{
-	image:"/_nuxt/Assets/Images/slider1/image6.jpg",
-	isActive:false,
-	id:"image6"
-},
-])
+const props = defineProps({
+	navTypes: {
+		default:'',
+		type:String
+	},
+	sliderImages:{
+		default:[],
+		type:Array
+	},
+	sliderId:{
+		default:"",
+		type:String
+	},
+	sliderLeft:{
+		default:true,
+		type:Boolean
+	}
+})
 const nextIndex = ref(0)
 const isAutoPlay = ref(false)
 const IsNavigation = ref(false)
 const navFixed = ref(true)
 // rewrite to work with auto play
 function setSlideActive(currentSlide, imageId){
-	for(let [index ,sliderImage] of sliderImages.value.entries()){
+	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(sliderImage.isActive == true && sliderImage.image != currentSlide){
 			sliderImage.isActive = false
 		}
@@ -68,33 +59,41 @@ function setSlideActive(currentSlide, imageId){
 		if(sliderImage.isActive == true){
 		const slide = document.getElementById(imageId);
 		const slideWidth = slide.offsetWidth + 96;
-		const slideContainer =  document.querySelector("#sliderContainer");
+		const slideContainer =  document.querySelector('#' +  props.sliderId);
 		let curSlide = index;
-		slideContainer.style.transform = `translateX(${slideWidth * curSlide}px)`
+		if(props.sliderLeft == true){
+			slideContainer.style.transform = `translateX(${slideWidth * curSlide}px)`
+		}else{
+			slideContainer.style.transform = `translateX(${-slideWidth * curSlide}px)`
+		}
 		}
 	}
 }
 function scrollnext(){
-	for(let [index ,sliderImage] of sliderImages.value.entries()){
+	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(sliderImage.isActive == true){
 			nextIndex.value = index + 1
 			sliderImage.isActive = false
 		}
 		if(index == nextIndex.value){
+
 			sliderImage.isActive = true
 			const slide = document.getElementById(sliderImage.id);
 			const slideWidth = slide.offsetWidth + 96;
-			const slideContainer =  document.querySelector("#sliderContainer");
+			const slideContainer =  document.querySelector('#' + props.sliderId);
 			let curSlide = index;
-			slideContainer.style.transform = `translateX(${slideWidth * curSlide}px)`
+
+			if(props.sliderLeft == true){
+				slideContainer.style.transform = `translateX(${slideWidth * curSlide}px)`
+			}
 		}
-		if(nextIndex.value == sliderImages.value.length){
+		if(nextIndex.value == props.sliderImages.length){
 			nextIndex.value = 0
 		}
 	}
 }
 function resetScroll(){
-	for(let [index ,sliderImage] of sliderImages.value.entries()){
+	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(index == 0){
 				sliderImage.isActive = true
 				const slide = document.getElementById(sliderImage.id);

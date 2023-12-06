@@ -34,7 +34,8 @@ const navWhiteText = ref(false)
         }
 		let callback = (entries, observer) => {
 		entries.forEach((entry) =>{
-			if(entry.intersectionRatio > 0.80){
+            console.log(entry.intersectionRatio )
+			if(entry.intersectionRatio >= 0.10 ){
                 navWhiteText.value = true;
 			}else {
                 navWhiteText.value = false;
@@ -42,7 +43,7 @@ const navWhiteText = ref(false)
 		})
 		}
 		let observer =  new IntersectionObserver(callback, options);
-		observer.observe(blackSections);
+		    observer.observe(blackSections);
 	}
 	onMounted(()=>{
 		setNavObserver()

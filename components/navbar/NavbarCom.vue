@@ -22,6 +22,6 @@
 <style lang="scss" scoped>
 .defaultNavbar{
     position: relative;
-    z-index: 3;
+    z-index: 99;
 }
 </style>

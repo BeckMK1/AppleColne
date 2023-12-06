@@ -56,7 +56,7 @@ onMounted(()=>{
     width: auto;
     top: 15%;
     left: 21%;
-    transition: 1s ease;
+    transition: 2s ease-out;
 }
 .exploade{
     .image1{

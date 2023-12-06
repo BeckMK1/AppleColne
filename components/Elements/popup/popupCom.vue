@@ -1,5 +1,5 @@
 <template>
-	<div class="popupContainer flex flex-col items-center w-screen h-full fixed top-0 overflow-y-scroll">
+	<div class="popupContainer flex flex-col items-center w-screen h-full fixed top-0 overflow-y-scroll z-50">
         <div :class="isScrolled == true ? 'containerScroll':''" class="popup h-auto bg-black mt-24 rounded-3xl relative">
             <div @click="closePopup" :class="isScrolled == true ? 'isScrolled' : 'notScrolled'" class="closePopup cursor-pointer bg-zinc-600 w-fit rounded-full flex justify-center items-center"><font-awesome-icon icon="fa-solid fa-x" /></div>
             <div class="overflow-hidden imageContainer rounded-3xl relative">
