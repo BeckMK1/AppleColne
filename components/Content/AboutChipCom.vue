@@ -99,6 +99,14 @@
 *{
 	color: white;
 }
+.mainText{
+	color: hsla(0, 0%, 100%, 0.7);
+	font-size: 21px;
+	font-weight: 600;
+	.heightlight{
+		color: hsla(0, 0%, 100%, 1);
+	}
+}
 .chip{
 	font-size: 21px;
 	font-weight: 600;

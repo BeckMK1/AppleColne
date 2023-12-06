@@ -1,9 +1,70 @@
 <template>
-	<div class="contentMid">
-        <h2 class="w-2/3">Lorem ipsum dolor sit amet consec. Adipiscingelit.</h2>
-        <img src="/_nuxt/Assets/Images/ExploadeImages/ExploadeImageMain.png" alt="">
-	</div>
+        <div class="contentMid">
+                <h2 class="w-2/3 mb-24">Lorem ipsum dolor sit amet consec. Adipiscingelit.</h2>
+        </div>
+        <img class="" src="/_nuxt/Assets/Images/ExploadeImages/ExploadimageMain.png" alt="">
+        <div class="contentMid pb-24">
+                <p class="headText pt-12 ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus estexemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludusesset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
+        </div>
+        <div class=" bg-zinc-100 w-full h-56 mb-4"></div>
+        <div class="flex justify-between px-6 displaySplitText">
+                <div>
+                        <p>1</p>
+                        <p>Ista explanatio naturae nempe</p>
+                </div>
+                <div>
+                        <p>2</p>
+                        <p>Ista explanatio naturae nempe</p>
+                </div>
+                <div>
+                        <p>3</p>
+                        <p>Ista explanatio naturae nempe</p>
+                </div>
+        </div>
 </template>
-<script setup></script>
+<script setup>
+function setTextObserver() {
+        const textSections = document.querySelectorAll(".ovserveContent");
+        let options = {
+                threshold: 0.0
+        };
+        let callback = (entries, observer) => {
+                entries.forEach((entry) => {
+                        if (entry.isIntersecting == true) {
+                                entry.target.classList.add("isObserved")
+                        } else {
+                                entry.target.classList.remove("isObserved")
+                        }
+                })
+        }
+        let observer = new IntersectionObserver(callback, options);
+        for (let textSection of textSections) {
+                observer.observe(textSection);
+        }
+}
+onMounted(() => {
+        setTextObserver()
+})
+</script>
 <style lang="scss" scoped>
+.headText{
+        font-size: 24px;
+	font-weight: 600;
+	.heightlight{
+		color: hsla(0, 0%, 70%, 1);
+	}   
+}
+.mainText{
+        font-size: 21px;
+	font-weight: 600;
+	.heightlight{
+		color: hsla(0, 0%, 70%, 1);
+	}
+}
+.displaySplitText{
+        p{
+                font-size: 21px;
+                font-weight: 500;
+        }
+}
 </style>

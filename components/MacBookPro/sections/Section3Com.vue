@@ -9,7 +9,7 @@
             </div>
         </div>
         <Transition name="popUpFade">
-            <ElementsPopupCom class="popupDefault" popupContent="aboutChip" v-if="isPopup == true"></ElementsPopupCom>
+            <ElementsPopupCom class="popupDefault" :popupContent="popupContent" v-if="isPopup == true"></ElementsPopupCom>
         </Transition>
         <div @click="openPopup" v-if="isPopupBtn == true" :class="isPopupReletive == true ? 'relative' : 'fixed'" class="PopupBtn cursor-pointer w-fit px-2 py-2 fixed bottom-4 left-1/2 -translate-x-1/2 flex gap-4 items-center"><p class="pl-2">Læs mere om chip</p><div  class=" bg-blue-500 plusContainer rounded-full flex items-center justify-center"><font-awesome-icon icon="fa-solid fa-plus" /></div></div>
         <div class="popupBtnBox"></div>
@@ -18,11 +18,13 @@
 <script setup>
 const isPopupBtn = ref(false)
 const isPopupReletive = ref(false)
+const popupContent = ref("")
 import { useStore } from '@/stores/store'
 const store = useStore()
 const isPopup = computed(()=>store.popupOpen)
 function openPopup(){
     store.popupOpen = true
+    popupContent.value = 'aboutChip'
 }
 function setPopupBtnObserver(){
 	const section = document.querySelector("#section3");

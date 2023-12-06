@@ -7,6 +7,7 @@
             </div>
             <div class="popupContent contentMid mx-auto pt-52">
                 <ContentPopupsPopupChipCom v-if="popupContent == 'aboutChip'"></ContentPopupsPopupChipCom>
+                <ContentPopupsPopupScreenCom v-if="popupContent == 'aboutScreen'"></ContentPopupsPopupScreenCom>
             </div>
         </div>
 	</div>
