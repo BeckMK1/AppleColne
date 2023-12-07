@@ -1,13 +1,13 @@
 <template>
-	<div class="popupContainer flex flex-col items-center w-screen h-full fixed top-0 overflow-y-scroll z-50">
-        <div :class="isScrolled == true ? 'containerScroll':''" class="popup h-auto bg-black mt-24 rounded-3xl relative">
+	<div :class="content == 'aboutScreen' ? 'popupContainerDark' : ''" class="popupContainer flex flex-col items-center w-screen h-full fixed top-0 overflow-y-scroll z-50">
+        <div :class="isScrolled == true ? 'containerScroll':'', content == 'aboutChip' ? 'bg-black':'bg-white'" class="popup h-auto mt-24 rounded-3xl relative">
             <div @click="closePopup" :class="isScrolled == true ? 'isScrolled' : 'notScrolled'" class="closePopup cursor-pointer bg-zinc-600 w-fit rounded-full flex justify-center items-center"><font-awesome-icon icon="fa-solid fa-x" /></div>
             <div class="overflow-hidden imageContainer rounded-3xl relative">
                 <img src="/_nuxt/Assets/Images/slider1/image1.jpg" class=" absolute top-0" alt="">
             </div>
             <div class="popupContent contentMid mx-auto pt-52">
-                <ContentPopupsPopupChipCom v-if="popupContent == 'aboutChip'"></ContentPopupsPopupChipCom>
-                <ContentPopupsPopupScreenCom v-if="popupContent == 'aboutScreen'"></ContentPopupsPopupScreenCom>
+                <ContentPopupsPopupChipCom v-if="content == 'aboutChip'"></ContentPopupsPopupChipCom>
+                <ContentPopupsPopupScreenCom v-if="content == 'aboutScreen'"></ContentPopupsPopupScreenCom>
             </div>
         </div>
 	</div>
@@ -16,12 +16,7 @@
 import { useStore } from '@/stores/store'
 const store = useStore()
 const isScrolled = ref(false)
-defineProps({
-    popupContent:{
-        default:'',
-        type:String
-    }
-})
+const content = computed(()=>store.popupContent)
 function closePopup(){
     store.popupOpen = false
 }
@@ -40,9 +35,13 @@ onMounted(()=>{
 })
 </script>
 <style lang="scss" scoped>
+
     .popupContainer{
         background-color: rgba(251,251,253,0.2);
     backdrop-filter: saturate(110%) blur(100px);
+    }
+    .popupContainerDark{
+        background-color: hsla(0, 0%, 85%, 0.2);
     }
     .popup{
        width: 80%;

@@ -34,7 +34,6 @@ const navWhiteText = ref(false)
         }
 		let callback = (entries, observer) => {
 		entries.forEach((entry) =>{
-            console.log(entry.intersectionRatio )
 			if(entry.intersectionRatio >= 0.10 ){
                 navWhiteText.value = true;
 			}else {

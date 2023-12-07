@@ -7,18 +7,19 @@
                 </div>
             </div>
         </div>
+        <div @click="openPopup" v-if="isPopupBtn == true" :class="isPopupReletive == true ? 'relative mt-24' : 'fixed'" class="PopupBtn cursor-pointer w-fit px-2 py-2 fixed bottom-4 left-1/2 -translate-x-1/2 flex gap-4 items-center"><p class="pl-2">Læs mere om screen</p><div  class=" bg-blue-500 plusContainer rounded-full flex items-center justify-center"><font-awesome-icon icon="fa-solid fa-plus" /></div></div>
+        <div class="popupBtnBox"></div>
 	</div>
 </template>
 <script setup>
 const isPopupBtn = ref(false)
 const isPopupReletive = ref(false)
-const popupContent = ref("")
 import { useStore } from '@/stores/store'
 const store = useStore()
 const isPopup = computed(()=>store.popupOpen)
 function openPopup(){
     store.popupOpen = true
-    popupContent.value = 'aboutScreen'
+    store.popupContent = 'aboutScreen'
 }
 function setPopupBtnObserver(){
 	const section = document.querySelector("#section5");
@@ -38,7 +39,7 @@ let observer =  new IntersectionObserver(callback, options);
 observer.observe(section);
 }
 function setPopupBtnPosObserver(){
-	const section = document.querySelector(".popupBtnBox");
+	const section = document.querySelector("#section5 .popupBtnBox");
 	let options = {
     threshold: 0.0
   };
@@ -68,13 +69,14 @@ onMounted(()=>{
 </script>
 <style lang="scss" scoped>
 .PopupBtn{
-    background-color: hsla(0, 0%, 20%, 0.7);
-    backdrop-filter: saturate(180%) blur(20px);
-    color: white;
+    background-color: hsla(0, 0%, 95%, 0.5);
+    backdrop-filter: saturate(150%) blur(20px);
+    color: black;
     border-radius: 3rem;
     z-index: 99;
     .fa-plus{
         height: 20px;
+        color: white;
     }
     .plusContainer{
         padding: 0.5rem 0.5rem;

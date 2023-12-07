@@ -8,6 +8,11 @@
     <MacBookProSectionsSection4Com></MacBookProSectionsSection4Com>
     </div>
     <MacBookProSectionsSection5Com></MacBookProSectionsSection5Com>
+    <MacBookProSectionsSection6Com></MacBookProSectionsSection6Com>
+    <MacBookProSectionsSection7Com></MacBookProSectionsSection7Com>
+    <Transition name="popUpFade">
+            <ElementsPopupCom class="popupDefault" v-if="checkPopup == true"></ElementsPopupCom>
+    </Transition>
 </div>
 </template>
 <script setup>
@@ -73,5 +78,26 @@ opacity: 0.8;
 }
 .InnerContent{
     width: 980px;
+}
+.popupDefault{
+    transition: opacity 1s;
+}
+.popUpFade-enter-from{
+    opacity: 0;
+}
+.popUpFade-enter-to{
+    opacity: 1;
+}
+.v-enter-active{
+    transition: opacity 250ms ease-in;
+}
+.popUpFade-leave-from{
+    opacity: 1;
+}
+.popUpFade-leave-to{
+    opacity: 0;
+}
+.v-leave-active{
+    transition: opacity 250ms ease-out;
 }
 </style>
