@@ -6,6 +6,7 @@
                 <ContentCompareLaptopCom></ContentCompareLaptopCom>
             </div>
         </div>
+        <ElementsGoToLinkBtnCom sectionId="section7"></ElementsGoToLinkBtnCom>
     </div>
 </div>
 </template>
