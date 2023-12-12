@@ -7,6 +7,7 @@
                     :look-at="[0, 2, 0]"
                 />
                 <Suspense>
+                    <ElementsModelsLaptopModel></ElementsModelsLaptopModel>
                 </Suspense>
             </TresCanvas>
         </div>

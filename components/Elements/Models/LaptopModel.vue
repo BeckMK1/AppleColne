@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 	<div>
         <primitive :object="model" />
 	</div>
@@ -10,4 +10,3 @@
         "@/Assets/models/ASUSLaptop.blend"
     )
 </script>
-<style lang="scss" scoped></style>
