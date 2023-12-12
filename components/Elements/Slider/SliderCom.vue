@@ -5,8 +5,7 @@
 					<ElementsSliderImageCom :image="sliderImage.image"></ElementsSliderImageCom>
 				</div>
 			</div>
-			<div id="sliderNavigation"></div>
-			<div v-if="navTypes == 'section1Slider'"  :class="IsNavigation == true ? 'sliderNavShow' : 'sliderNavShowHide', navFixed == true ? 'fixed bottom-4 left-1/2 -translate-x-1/2':''" class="flex justify-center gap-3 items-center" >
+			<div v-if="navTypes == 'section1Slider'"  :class="IsNavigation == true ? 'sliderNavShow' : 'sliderNavShowHide', isSliderNavReletive == true ? 'relative' : 'fixed', navFixed == true ? 'fixed bottom-4 left-1/2 -translate-x-1/2':''" class="flex justify-center gap-3 items-center" >
 				<div class="sliderNav flex flex-row-reverse gap-4 w-fit px-8 py-6 rounded-3xl items-center">
 					<div  @click="setSlideActive(sliderImage.image, sliderImage.id)" v-for="sliderImage in sliderImages">
 						<ElementsSliderNavCom :isAutoPlay="isAutoPlay" @sendCount="scrollnext" :isActive="sliderImage.isActive"></ElementsSliderNavCom>
@@ -17,14 +16,15 @@
 					<font-awesome-icon v-if="isAutoPlay == true" icon="fa-solid fa-pause" />
 				</div>
 			</div>
+			<div id="sliderNavigation"></div>
 			<div class="flex justify-center" v-if="navTypes == 'section4Slider'">
 				<div @click="scrollCatagoryLeft" class=" cursor-pointer">
 					<font-awesome-icon icon="fa-solid fa-chevron-left" />
 				</div>
 				<div class="overflow-hidden w-2/3">
 					<div id="catagorySlider" class="flex overflow-visible">
-						<div class="catagoryContainer" v-for="sliderImage in sliderImages" @click="setSlideActive(sliderImage.image, sliderImage.id)">
-							<ElementsSliderCatagoriCom @click="scrollCatagoryRightOne" :name="sliderImage.name" :isActive="sliderImage.isActive"></ElementsSliderCatagoriCom>
+						<div class="catagoryContainer" v-for="(sliderImage, index) in sliderImages" @click="setSlideActive(sliderImage.image, sliderImage.id)">
+							<ElementsSliderCatagoriCom @click="scrollCatagoryRightOne(index)" :name="sliderImage.name" :isActive="sliderImage.isActive"></ElementsSliderCatagoriCom>
 						</div>
 					</div>
 				</div>
@@ -58,7 +58,8 @@ const isAutoPlay = ref(false)
 const IsNavigation = ref(false)
 const navFixed = ref(true)
 const catagoryCurrPos = ref(0)
-
+const catagorOneCurrPos = ref(0)
+const isSliderNavReletive = ref(false)
 function setSlideActive(currentSlide, imageId){
 	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(sliderImage.isActive == true && sliderImage.image != currentSlide){
@@ -66,6 +67,7 @@ function setSlideActive(currentSlide, imageId){
 		}
 		if(sliderImage.isActive != true && sliderImage.image == currentSlide){
 			sliderImage.isActive = true
+			nextIndex.value = index
 		}
 		if(sliderImage.isActive == true){
 		const slide = document.getElementById(imageId);
@@ -87,8 +89,11 @@ function scrollnext(){
 			nextIndex.value = index + 1
 			sliderImage.isActive = false
 		}
+		if(nextIndex.value >= props.sliderImages.length){
+			nextIndex.value = 0
+		}
 		if(index == nextIndex.value){
-
+			console.log("run")
 			sliderImage.isActive = true
 			const slide = document.getElementById(sliderImage.id);
 			const slideWidth = slide.offsetWidth + 96;
@@ -98,62 +103,65 @@ function scrollnext(){
 			if(props.sliderLeft == true){
 				slideContainer.style.transform = `translateX(${slideWidth * curSlide}px)`
 			}
+		}else {
+			sliderImage.isActive = false
 		}
-		if(nextIndex.value == props.sliderImages.length){
-			nextIndex.value = 0
-		}
-	}
-}
+	}}
 function resetScroll(){
 	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(index == 0){
 				sliderImage.isActive = true
 				const slide = document.getElementById(sliderImage.id);
 			const slideWidth = slide.offsetWidth + 96;
-			const slideContainer =  document.querySelector("#sliderContainer");
+			const slideContainer =  document.querySelector('#' + props.sliderId);
 			let curSlide = index;
 			slideContainer.style.transform = `translateX(${slideWidth * curSlide}px)`
 			}
 	}
 }
-function setObserver(){
-	const nav = document.querySelector("#sliderNavigation");
+function setSliderNavObserver(){
+	const section = document.getElementById("section1")
 	let options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: buildThresholdList(),
+    threshold: 0.0
   };
-  function buildThresholdList() {
-  let thresholds = [];
-  let numSteps = 20;
-
-  for (let i = 1.0; i <= numSteps; i++) {
-    let ratio = i / numSteps;
-    thresholds.push(ratio);
-  }
-  thresholds.push(0);
-  return thresholds;
-}
-let prevRatio = 0.0
 let callback = (entries, observer) => {
   entries.forEach((entry) =>{
-	if(entry.intersectionRatio > prevRatio){
+	if(entry.isIntersecting == true){
 		IsNavigation.value = true
 	}else{
 		IsNavigation.value = false
 	}
-		prevRatio = entry.intersectionRatio
  })
 }
 let observer =  new IntersectionObserver(callback, options);
-observer.observe(nav);
+observer.observe(section);
+}
+function setSliderNavPosObserver(){
+	const section = document.querySelector( "#section1 #sliderNavigation");
+	let options = {
+    threshold: 0.0
+  };
+let callback = (entries, observer) => {
+  entries.forEach((entry) =>{
+	if(entry.isIntersecting == true){
+		isSliderNavReletive.value = true
+	}else{
+		isSliderNavReletive.value = false
+	}
+ })
+}
+let observer =  new IntersectionObserver(callback, options);
+observer.observe(section);
 }
 function scrollCatagoryRight(){
 	const catagoryContainer = document.getElementById("catagorySlider")
 	const catagory = document.querySelector(".catagoryContainer .catagory");
 	const catagoryWidth = catagory.offsetWidth;
-	catagoryCurrPos.value = -catagoryWidth * 4
-	catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value }px)`
+	const catagoryContainerWidth = catagoryContainer.offsetWidth;
+	if(catagoryCurrPos.value < catagoryContainerWidth){
+		catagoryCurrPos.value = -catagoryWidth * 4
+		catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value }px)`
+	}
 }
 function scrollCatagoryLeft(){
 	const catagoryContainer = document.getElementById("catagorySlider")
@@ -165,18 +173,41 @@ function scrollCatagoryLeft(){
 			catagoryContainer.style.transform = `translateX(${0}px)`
 		}
 }
-function scrollCatagoryRightOne(){
+function scrollCatagoryRightOne(clickIndex){
 	const catagoryContainer = document.getElementById("catagorySlider")
 	const catagory = document.querySelector(".catagoryContainer .catagory");
 	const catagoryWidth = catagory.offsetWidth;
+	const catagoryContainerWidth = catagoryContainer.offsetWidth;
+	let currentIndex = "";
+	let nextIndex = "";
+	let prevIndex = "";
 	catagoryCurrPos.value -= catagoryWidth;
-	catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value}px)`
-	if(catagoryCurrPos.value > 0){
-		catagoryContainer.style.transform = `translateX(${0}px)`
+	for(let [index, sliderImage] of props.sliderImages.entries()){
+		if(sliderImage.isActive == true){
+			currentIndex = index
+			nextIndex = index + 1
+			prevIndex = index - 1
+			if(catagoryCurrPos.value < catagoryContainerWidth ){
+			if(clickIndex == nextIndex){
+				catagorOneCurrPos.value -= catagoryWidth
+				catagoryContainer.style.transform = `translateX(${catagorOneCurrPos.value}px)`
+			}
+			if(clickIndex == prevIndex){
+				catagorOneCurrPos.value += catagoryWidth
+				catagoryContainer.style.transform = `translateX(${catagorOneCurrPos.value}px)`
+
+				if(catagorOneCurrPos > 0){
+					catagoryContainer.style.transform = `translateX(${0}px)`
+					catagorOneCurrPos == 0
+				}
+			}
+			}
+		}
 	}
 }
 onMounted(()=>{
-	setObserver()
+	setSliderNavObserver()
+	setSliderNavPosObserver()
 })
 watch(nextIndex, async (newValue,)=>{
 	if(newValue == 0){
@@ -240,15 +271,38 @@ svg{
 .sliderNavShow{
 	opacity: 1;
 	transition: 1s ease;
+	// .sliderNav{
+	// 	gap: 0;
+	// 	border-radius: 100%;
+	// 	padding: 1.5rem 1.7rem;
+	// 	z-index: 2;
+	// 	position: relative;
+	// 	animation: navShow 2s ease forwards;
+	// 	&::after{
+	// 		content:"";
+	// 		display: block;
+	// 		position: absolute;
+	// 		transform: translateX(50%);
+	// 		background-color: rgb(59 130 246);
+	// 		height: 20px;
+	// 		width: 20px;
+	// 		border-radius: 100%;
+	// 	}
+	// 	div{
+	// 		opacity: 0;
+	// 		width: 0;
+	// 	}
+	// }
+	// .btnContainer{
+	// 	transform: translateX(-120%);
+	// }
 }
 .sliderNavShowHide{
 	opacity: 0;
 	transition: 1s ease;
 }
 #sliderNavigation{
-	position: absolute;
-	top: 15%;
-	height: 200px;
+	height: 100px;
 	background-color: transparent;
 	width: 100px;
 }
