@@ -53,7 +53,7 @@ const navWhiteText = ref(false)
     background-color: rgba(251,251,253,0.7);
     backdrop-filter: saturate(180%) blur(20px);
     box-shadow: 1px -3px 5px black;
-    z-index: 99;
+    z-index: 2;
 }
 .navWhite{
     background-color: rgba(251,251,253,0.1);
