@@ -138,7 +138,7 @@
 const isModel16 = ref(true)
 const countBarObserved1 = ref(false)
 const countBarObserved2 = ref(false)
-	function setObserver(){
+	function setCountObserver(){
 		const textSections = document.querySelectorAll(".ovserveContent");
 		let options = {
 		threshold: 0.0
@@ -152,10 +152,10 @@ const countBarObserved2 = ref(false)
 			}
 			if(entry.target.classList.contains("observerOp") == true && entry.isIntersecting == true){
 				if(entry.target.classList.contains("bars1") == true){
-					resetBar()
+					countBarObserved1.value = true
 				}
 				if(entry.target.classList.contains("bars2") == true){
-					resetBar()
+					countBarObserved2.value = true
 				}
 
 				entry.target.classList.remove("isObserved")
@@ -174,7 +174,7 @@ const countBarObserved2 = ref(false)
 		},50);
 	}
 	onMounted(()=>{
-		setObserver()
+		setCountObserver()
 	})
 </script>
 <style lang="scss" scoped>
@@ -212,11 +212,11 @@ const countBarObserved2 = ref(false)
 .ovserveContent{
 	opacity: 0;
 	transform: translateY(50px);
-	transition: 550ms ease-in;
+	transition: 550ms ease;
 	&.isObserved{
 		opacity: 1;
 		transform: translateY(0);
-		transition: 550ms ease-in;
+		transition: 550ms ease;
 	}
 	&.observerOp{
 		opacity: 1;

@@ -6,7 +6,11 @@
         <div class="contentMid pb-24">
                 <p class="headText pt-12 ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus estexemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludusesset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
         </div>
-        <div class=" bg-zinc-100 w-full h-56 mb-4"></div>
+        <div class=" bg-zinc-100 w-full screenSplitContainer py-12 mb-4 overflow-hidden">
+                <div class="splitScreen">
+                <ElementsImageSplitCom :isObserved="isObserved"></ElementsImageSplitCom>
+                </div>
+        </div>
         <div class="flex justify-between px-6 displaySplitText">
                 <div>
                         <p>1</p>
@@ -23,6 +27,24 @@
         </div>
 </template>
 <script setup>
+const isObserved = ref(false)
+function setScreenObserver() {
+        const screenSection = document.querySelector(".screenSplitContainer");
+        let options = {
+                threshold: 0.0
+        };
+        let callback = (entries, observer) => {
+                entries.forEach((entry) => {
+                        if (entry.isIntersecting == true) {
+                                isObserved.value = true
+                        } else {
+                                isObserved.value = false
+                        }
+                })
+        }
+        let observer = new IntersectionObserver(callback, options);
+        observer.observe(screenSection);
+}
 function setTextObserver() {
         const textSections = document.querySelectorAll(".ovserveContent");
         let options = {
@@ -44,6 +66,7 @@ function setTextObserver() {
 }
 onMounted(() => {
         setTextObserver()
+        setScreenObserver()
 })
 </script>
 <style lang="scss" scoped>
@@ -65,6 +88,15 @@ onMounted(() => {
         p{
                 font-size: 21px;
                 font-weight: 500;
+        }
+}
+.screenSplitContainer{
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+        .splitScreen{
+                position: absolute;
+                bottom: -261px;
         }
 }
 </style>

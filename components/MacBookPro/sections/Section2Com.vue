@@ -1,7 +1,7 @@
 <template>
 	<div class="h-screen relative flex justify-center mb-32">
 		<div class="modelContainer overflow-hidden">
-			<div :class="isBig == true ? 'selectedBig' : 'selectedSmall'" class="flex justify-between slideContainer">
+			<div :class="isBig == true ? 'selectedBig' : 'selectedSmall'" class="flex flex-row-reverse justify-between slideContainer">
 				<div :class="isBig == true ? 'boxSelected' : ''" class="boxContainer overflow-hidden">
 				<TresCanvas clear-color="#fff">
 					<TresPerspectiveCamera :position="[0, 5, 10]" />
@@ -44,10 +44,10 @@ import { OrbitControls, FBXModel} from '@tresjs/cientos'
 	height: 1000px;
 }
 .selectedBig{
-	transform: translateX(0);
+	transform: translateX(-49%);
 }
 .selectedSmall{
-	transform: translateX(-50%);
+	transform: translateX(0%);
 }
 .slideContainer{
 	transition: 1s;

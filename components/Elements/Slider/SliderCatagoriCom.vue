@@ -1,5 +1,5 @@
 <template>
-    <div :class="isActive == true ? 'border-zinc-400':'border-zinc-700'" class=" border-b border-solid  catagory">
+    <div :class="isActive == true ? 'border-zinc-400':'border-zinc-700'" class=" border-b border-solid  catagory select-none">
         <p>{{ name }}</p>
     </div>
 </template>

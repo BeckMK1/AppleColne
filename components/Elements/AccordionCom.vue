@@ -24,10 +24,6 @@ import { useStore } from '@/stores/store'
 const store = useStore()
 const currentOpen = computed(()=>store.accordionOpen);
 const open = ref(false);
-
-function openAccordion(){
-
-}
 watch(currentOpen, async(newValue, oldValue)=>{
     const accordion = document.getElementById(props.name);
     if(newValue == props.name){

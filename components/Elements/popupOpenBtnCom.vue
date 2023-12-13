@@ -48,7 +48,7 @@ observer.observe(section);
 function setPopupBtnPosObserver(){
 	const section = document.querySelector( "#" + props.sectionId + " .popupBtnBox");
 	let options = {
-    threshold: 0.0
+    threshold: 0.1
   };
 let callback = (entries, observer) => {
   entries.forEach((entry) =>{

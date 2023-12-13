@@ -58,8 +58,8 @@ const isAutoPlay = ref(false)
 const IsNavigation = ref(false)
 const navFixed = ref(true)
 const catagoryCurrPos = ref(0)
-const catagorOneCurrPos = ref(0)
 const isSliderNavReletive = ref(false)
+const catagoryActiveArr = ref([])
 function setSlideActive(currentSlide, imageId){
 	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(sliderImage.isActive == true && sliderImage.image != currentSlide){
@@ -153,57 +153,45 @@ let callback = (entries, observer) => {
 let observer =  new IntersectionObserver(callback, options);
 observer.observe(section);
 }
-function scrollCatagoryRight(){
-	const catagoryContainer = document.getElementById("catagorySlider")
-	const catagory = document.querySelector(".catagoryContainer .catagory");
-	const catagoryWidth = catagory.offsetWidth;
-	const catagoryContainerWidth = catagoryContainer.offsetWidth;
-	if(catagoryCurrPos.value < catagoryContainerWidth){
-		catagoryCurrPos.value = -catagoryWidth * 4
-		catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value }px)`
-	}
-}
-function scrollCatagoryLeft(){
-	const catagoryContainer = document.getElementById("catagorySlider")
-	const catagory = document.querySelector(".catagoryContainer .catagory");
-	const catagoryWidth = catagory.offsetWidth;
-		catagoryCurrPos.value = catagoryWidth * 4
-		catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value}px)`
-		if(catagoryCurrPos.value > 0){
-			catagoryContainer.style.transform = `translateX(${0}px)`
-		}
-}
-function scrollCatagoryRightOne(clickIndex){
-	const catagoryContainer = document.getElementById("catagorySlider")
-	const catagory = document.querySelector(".catagoryContainer .catagory");
-	const catagoryWidth = catagory.offsetWidth;
-	const catagoryContainerWidth = catagoryContainer.offsetWidth;
-	let currentIndex = "";
-	let nextIndex = "";
-	let prevIndex = "";
-	catagoryCurrPos.value -= catagoryWidth;
+function setActiveCatgory(){
 	for(let [index, sliderImage] of props.sliderImages.entries()){
-		if(sliderImage.isActive == true){
-			currentIndex = index
-			nextIndex = index + 1
-			prevIndex = index - 1
-			if(catagoryCurrPos.value < catagoryContainerWidth ){
-			if(clickIndex == nextIndex){
-				catagorOneCurrPos.value -= catagoryWidth
-				catagoryContainer.style.transform = `translateX(${catagorOneCurrPos.value}px)`
-			}
-			if(clickIndex == prevIndex){
-				catagorOneCurrPos.value += catagoryWidth
-				catagoryContainer.style.transform = `translateX(${catagorOneCurrPos.value}px)`
-
-				if(catagorOneCurrPos > 0){
-					catagoryContainer.style.transform = `translateX(${0}px)`
-					catagorOneCurrPos == 0
-				}
-			}
-			}
+		if(index < 3){
+			catagoryActiveArr.value.push(index)
 		}
 	}
+}
+setActiveCatgory()
+function scrollCatagoryRightOne(currImage){
+	const catagoryContainer = document.getElementById("catagorySlider")
+	const catagory = document.querySelector(".catagoryContainer .catagory");
+	const catagoryWidth = catagory.offsetWidth;
+	const catagoryContainerWidth = catagoryContainer.offsetWidth;
+	let nextIndex;
+	let prevIndex;
+	for (let [catindex, catNum] of catagoryActiveArr.value.entries()){
+		if(catindex == 0){
+			prevIndex = catNum
+		}
+		if(catindex == 2){
+			nextIndex = catNum
+		}	
+	}
+		if(nextIndex == currImage && currImage != props.sliderImages.length){
+			catagoryCurrPos.value -= catagoryWidth;
+			catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value}px)`
+			catagoryActiveArr.value.shift()
+			catagoryActiveArr.value.push(currImage + 1)
+		}
+		if(prevIndex == currImage && currImage != 0){
+			catagoryCurrPos.value += catagoryWidth;
+			catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value}px)`
+			catagoryActiveArr.value.pop()
+			catagoryActiveArr.value.unshift(currImage - 1)
+		}
+		// if(catagoryCurrPos.value > 0){
+		// 		catagoryCurrPos.value = 0
+		// 		catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value}px)`
+		// 	}
 }
 onMounted(()=>{
 	setSliderNavObserver()
