@@ -1,17 +1,21 @@
 <template>
         <div class="contentMid">
-                <h2 class="w-2/3 mb-24">Lorem ipsum dolor sit amet consec. Adipiscingelit.</h2>
+                <div class="contentMid-inner">
+                        <h2 class="w-2/3 mb-24">Lorem ipsum dolor sit amet consec. Adipiscingelit.</h2>
+                </div>
         </div>
         <img class="" src="/_nuxt/Assets/Images/ExploadeImages/ExploadimageMain.png" alt="">
         <div class="contentMid pb-24">
-                <p class="headText pt-12 ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus estexemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludusesset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
+                <div class="contentMid-inner">
+                        <p class="headText pt-12 ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus estexemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludusesset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
+                </div>
         </div>
-        <div class=" bg-zinc-100 w-full screenSplitContainer py-12 mb-4 overflow-hidden">
+        <div class=" bg-zinc-100 w-full screenSplitContainer contentMid py-12 mb-4 overflow-hidden">
                 <div class="splitScreen">
                 <ElementsImageSplitCom :isObserved="isObserved"></ElementsImageSplitCom>
                 </div>
         </div>
-        <div class="flex justify-between px-6 displaySplitText">
+        <div class="flex justify-between contentMid px-6 displaySplitText">
                 <div>
                         <p>1</p>
                         <p>Ista explanatio naturae nempe</p>

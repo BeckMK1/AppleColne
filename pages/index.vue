@@ -47,11 +47,38 @@ h2{
     font-weight: 500;
     line-height: normal;
 }
-.contentMid{
-    max-width: 80%;
+.contentBig{
+    max-width: 1030px;
     margin: 0 auto;
+    @media (max-width:1300px) {
+        max-width: 100%;
+        margin: 0 15px;
+    }
+}
+.contentMid{
+    max-width: 980px;
+    margin: 0 auto;
+    @media (max-width:1300px) {
+        max-width: 100%;
+        margin: 0;
+        padding: 0 15px;
+    }
+}
+.contentMid-inner{
+    max-width: 898px;
+    margin: 0 auto;
+    @media (max-width:1300px) {
+        max-width: 100%;
+    }
 }
 .navWhite{
+    .mobileMenu{
+        div{
+            a{
+                color: black;
+            }
+        }
+    }
     a{
         color: white;
     }
@@ -71,13 +98,15 @@ h2{
 	}
 }
 .contentContainer{
-    width:1280px;
+    max-width:1280px;
+    @media (max-width:1300px) {
+        max-width: 100%;
+        margin: 0;
+        padding: 0 15px;
+    }
 }
 .sectionTitle{
 opacity: 0.8;
-}
-.InnerContent{
-    width: 980px;
 }
 .popupDefault{
     transition: opacity 1s;

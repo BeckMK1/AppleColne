@@ -2,7 +2,7 @@
 	<div id="section4" class=" bg-black relative">
         <div class="pt-2 contentContainer mx-auto">
             <div>
-                <div class="InnerContent mx-auto py-32">
+                <div class=" mx-auto py-32">
                     <ContentAboutBatteryCom></ContentAboutBatteryCom>
                 </div>
             </div>

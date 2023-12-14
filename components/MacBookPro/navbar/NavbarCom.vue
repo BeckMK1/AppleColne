@@ -1,19 +1,26 @@
 <template>
     <div :class="navWhiteText == true ? 'navWhite': ''" class="fixed w-screen fixedNavBg top-0">
-        <div class="flex 2xl:max-w-5xl justify-between mx-auto py-2 items-center">
-            <div class="w-1/2">
+        <div class="flex 2xl:max-w-5xl justify-between mx-auto py-2 md:px-0 px-4 items-center">
+            <div class="w-1/2 pl-4">
                 <MacBookProNavbarLinkCom :title="true" class="font-bold" link="#" linkName="MacBook Pro" />
             </div>
-            <MacBookProNavbarLinkCom link="#" linkName="Oversigt" />
-            <MacBookProNavbarLinkCom link="#" linkName="Tekniske Specifikationer" />
-            <MacBookProNavbarLinkCom link="#" linkName="Sammenlign" />
-            <MacBookProNavbarLinkCom link="#" linkName="Ny på Mac" />
-            <MacBookProNavbarLinkCom class="flex items-center bg-blue-600 px-3 py-1 rounded-2xl text-white" link="#" linkName="Køb" /> 
+            <div :class="isMobile == true ? 'mobileMenu' : '', isMobileNav == true ? 'menuOpen' : 'menuClose'" class="flex flex-col justify-center lg:justify-between lg:flex-row lg:gap-12 gap-1 pr-4">
+                <MacBookProNavbarLinkCom link="#" linkName="Oversigt" />
+                <MacBookProNavbarLinkCom link="#" linkName="Tekniske Specifikationer" />
+                <MacBookProNavbarLinkCom link="#" linkName="Sammenlign" />
+                <MacBookProNavbarLinkCom link="#" linkName="Ny på Mac" />
+            </div>
+            <div class="flex gap-4 items-center">
+                <font-awesome-icon v-if="isMobile == true" @click="isMobileNav = !isMobileNav" :class="isMobileNav == true ? 'arrowOpen' : 'arrowClose'" class="mobileMenuArrow" icon="fa-solid fa-chevron-down" />
+                <MacBookProNavbarLinkCom class="flex items-center bg-blue-600 px-3 py-1 rounded-2xl text-white mr-4" link="#" linkName="Køb" />
+            </div>
         </div>
     </div>
 </template>
 <script setup>
 const navWhiteText = ref(false)
+const isMobileNav = ref(false)
+const isMobile = ref(false)
 	function setNavObserver(){
 		const blackSections = document.querySelector(".blackBg");
         let options = {
@@ -34,7 +41,7 @@ const navWhiteText = ref(false)
         }
 		let callback = (entries, observer) => {
 		entries.forEach((entry) =>{
-			if(entry.intersectionRatio >= 0.10 ){
+			if(entry.intersectionRatio > 0.05 ){
                 navWhiteText.value = true;
 			}else {
                 navWhiteText.value = false;
@@ -44,8 +51,24 @@ const navWhiteText = ref(false)
 		let observer =  new IntersectionObserver(callback, options);
 		    observer.observe(blackSections);
 	}
+    function sizeIsMobile(){
+        const mobile = window.matchMedia("(max-width: 1024px)")
+        if(mobile.matches){
+            isMobile.value = true
+        }else {
+            isMobile.value = false
+        }
+        window.addEventListener("resize", ()=>{
+            if(mobile.matches){
+                isMobile.value = true
+            }else {
+                isMobile.value = false
+            }
+        })
+    }
 	onMounted(()=>{
 		setNavObserver()
+        sizeIsMobile()
 	})
 </script> 
 <style lang="scss" scoped>
@@ -61,4 +84,40 @@ const navWhiteText = ref(false)
         color: white;
     }
 }
+@media (max-width:1024px) {
+    .mobileMenu{
+        position: absolute;
+        left: 0;
+        top:48px;
+        width: 100%;
+        padding: 0 3rem;
+        background-color: white;
+        transition: height 550ms ease;
+        div{
+            a{
+                color: black !important;
+            }
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        }
+    }
+    .menuOpen{
+    height:250px;
+    overflow: hidden;
+    transition: height 550ms ease;
+    }
+    .menuClose{
+       height: 0px;
+        overflow: hidden;
+        padding: 0 3rem;
+        transition: height 550ms ease;
+    }
+}
+.mobileMenuArrow{
+    transition: 550ms ease;
+}
+.arrowOpen{
+    transform: scaleY(-1);
+}
+
 </style>

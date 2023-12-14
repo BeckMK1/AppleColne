@@ -7,7 +7,7 @@
         </div>
         <div class="content overflow-hidden max-h-full">
             <div class="inner">
-                <p>I stante, hoc natura videlicet vult, salvam esse se, quod concedimus; Te ipsum, dignissimum maioribus tuis, voluptasne induxit, ut adolescentulus eriperes P.</p>
+                <p>I stante, hoc natura videlicet vult, salvam esse se, quod concedimus; Te ipsum, dignissimum maioribus tuis, voluptasne induxit, ut adolescentulus eriperes P, dignissimum maioribus tuis.</p>
             </div>
         </div>
     </div>

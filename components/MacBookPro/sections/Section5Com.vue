@@ -2,7 +2,7 @@
 	<div id="section5">
         <div class="pt-2 contentContainer mx-auto">
             <div>
-                <div class="InnerContent mx-auto py-32">
+                <div class=" mx-auto py-32">
                     <ContentAboutScreenCom></ContentAboutScreenCom>
                 </div>
                 <ElementsPopupOpenBtnCom sectionId="section5" popupContent="aboutScreen"></ElementsPopupOpenBtnCom>
