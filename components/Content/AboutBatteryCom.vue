@@ -63,7 +63,7 @@
 							<h4>14" Laptop</h4>
 							<p>X3-chip eller X3 Max-chip</p>
 							<hr class=" border-zinc-500 w-full">
-							<img class="" src="/Images/assets/Images/laptopDarkGrayAndBlack.png" alt=""/>
+							<img class="" src="/Images/laptopDarkGrayAndBlack.png" alt=""/>
 							<div class="flex justify-between mt-1 mb-12 modelColor">
 								<p class=" text-sm">Black</p>
 								<p class=" text-sm">Grey</p>
