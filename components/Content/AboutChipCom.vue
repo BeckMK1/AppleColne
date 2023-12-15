@@ -7,7 +7,7 @@
 				<div class="chipsContainer  flex flex-col md:flex-row gap-8 justify-between w-full pt-12">
 					<div class="chip flex md:flex-col flex-row items-center gap-8">
 						<div>
-							<NuxtImg src="/chips/chip1.png"/>
+							<img src="/Images/chips/chip1.png"/>
 						</div>
 						<p>X-core CPU</p>
 						<p>X-core GPU</p>
@@ -15,7 +15,7 @@
 					</div>
 					<div class="chip flex md:flex-col flex-row  items-center gap-8">
 						<div>
-							<NuxtImg src="/chips/Chip2.png" />
+							<img src="/Images/chips/Chip2.png" />
 						</div>
 						<p>X-core CPU</p>
 						<p>X-core GPU</p>
@@ -23,7 +23,7 @@
 					</div>
 					<div class="chip flex md:flex-col flex-row  items-center gap-8">
 						<div>
-							<NuxtImg src="/chips/Chip3.png" />
+							<img src="/Images/chips/Chip3.png" />
 						</div>
 						<p>X-core CPU</p>
 						<p>X-core GPU</p>

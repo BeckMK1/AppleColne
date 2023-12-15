@@ -1,7 +1,7 @@
 <template>
     <div class=" relative">
         <div class=" relative">
-            <NuxtImg class=" relative blankLaptop" src="laptopScreenBlank.png" />
+            <img class=" relative blankLaptop" src="/Images/laptopScreenBlank.png" />
             <div :id="videoId" class=" absolute top-0 laptopVideo">
                 <video muted>
                     <source src="@/assets/video/space.mp4" type="video/mp4">

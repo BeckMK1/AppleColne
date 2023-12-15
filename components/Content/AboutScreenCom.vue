@@ -4,7 +4,7 @@
                         <h2 class="w-2/3 mb-24">Lorem ipsum dolor sit amet consec. Adipiscingelit.</h2>
                 </div>
         </div>
-        <NuxtImg class="" src="ExploadeImages/ExploadimageMain.png" />
+        <img class="" src="/ImagesExploadeImages/ExploadimageMain.png" />
         <div class="contentMid pb-24">
                 <div class="contentMid-inner">
                         <p class="headText pt-12 xl:pb-0 pb-12 ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus estexemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludusesset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>

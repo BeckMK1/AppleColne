@@ -4,28 +4,28 @@
             <ul class="splitWrapper" :class="isObserved == true ? 'split' : ''">
                 <div class="splitNumContainer">
                     <div class="splitNum"><p>1</p></div>
-                    <NuxtImg class="numImage" src="lineImageScreen.png" />
+                    <img class="numImage" src="/Images/lineImageScreen.png" />
                 </div>
                 <div class="imageWrapper">
-                    <NuxtImg class="splitImage" src="splitImage/splitScreenBlue.png" />
+                    <img class="splitImage" src="/Images/splitImage/splitScreenBlue.png" />
                 </div>
             </ul>
             <ul class="splitWrapper" :class="isObserved == true ? 'split' : ''">
                 <div class="splitNumContainer">
                     <div class="splitNum"><p>2</p></div>
-                    <NuxtImg class="numImage" src="screenNum.png" />
+                    <img class="numImage" src="/Images/screenNum.png" />
                 </div>
                 <div class="imageWrapper">
-                    <NuxtImg class="splitImage" src="splitImage/splitScreenWhite.png" />
+                    <img class="splitImage" src="/Images/splitImage/splitScreenWhite.png" />
                 </div>
             </ul>
             <ul class="splitWrapper" :class="isObserved == true ? 'split' : ''">
                 <div class="splitNumContainer">
                     <div class="splitNum"><p>3</p></div>
-                    <NuxtImg class="numImage" src="lineImageScreen.png" />
+                    <img class="numImage" src="/Images/lineImageScreen.png" />
                 </div>
                 <div class="imageWrapper">
-                    <NuxtImg class="splitImage" src="splitImage/splitScreenDisplay.png" />
+                    <img class="splitImage" src="/Images/splitImage/splitScreenDisplay.png" />
                 </div>
             </ul>
         </div>

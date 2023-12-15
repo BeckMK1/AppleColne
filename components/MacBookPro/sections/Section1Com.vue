@@ -11,32 +11,32 @@
 <script setup>
 const sliderImages = ref([
 {
-	image:"slider1/image1.jpg",
+	image:"Images/slider1/image1.jpg",
 	isActive:true,
 	id:"image1"
 },
 {
-	image:"slider1/image2.jpg",
+	image:"Images/slider1/image2.jpg",
 	isActive:false,
 	id:"image2"
 },
 {
-	image:"slider1/image3.jpg",
+	image:"Images/slider1/image3.jpg",
 	isActive:false,
 	id:"image3"
 },
 {
-	image:"slider1/image4.jpg",
+	image:"Images/slider1/image4.jpg",
 	isActive:false,
 	id:"image4"
 },
 {
-	image:"slider1/image5.jpg",
+	image:"Images/slider1/image5.jpg",
 	isActive:false,
 	id:"image5"
 },
 {
-	image:"slider1/image6.jpg",
+	image:"Images/slider1/image6.jpg",
 	isActive:false,
 	id:"image6"
 },

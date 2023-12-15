@@ -7,7 +7,7 @@
                     </div>
                     <div class="flex md:flex-row items-center md:items-start gap-3 md:gap-0 flex-col pb-52">
                         <div class="w-1/2 md:absolute">
-                            <NuxtImg class="audioImage" src="ExploadeImages/ExploadimageMain.png" />
+                            <img class="audioImage" src="/Images/ExploadeImages/ExploadimageMain.png" />
                         </div>
                         <div class="w-1/2"></div>
                         <div class=" flex flex-col gap-20 w-1/2">
@@ -33,10 +33,10 @@
             </div>
             <div class=" laptopSlide my-24" :class="isObserved == true ? 'laptopSlideIN': ''">
                 <div class=" laptopSideLeft">
-                    <NuxtImg src="/LaptopSideView.png" />
+                    <img src="/Images/LaptopSideView.png" />
                 </div>
                 <div class=" laptopSideRight">
-                    <NuxtImg src="/LaptopSideView.png" />
+                    <img src="/Images/LaptopSideView.png" />
                 </div>
             </div>
             <div class="contentMid">
@@ -72,7 +72,7 @@
                     <ElementsAccordionCom @click="accordionOpen(accordion.name)" v-for="accordion in accordions" :name="accordion.name" class="mb-4"></ElementsAccordionCom>
                 </div>
                 <div class="md:w-1/2 w-full accordionImageContainer">
-                        <NuxtImg class="accordionImage" :class="accordion.name == currentAccordion ? 'accordionImageShow': 'accordionImageHide' "  v-show="accordion.name == currentAccordion" v-for='accordion in accordions' :src="accordion.image" />
+                        <img class="accordionImage" :class="accordion.name == currentAccordion ? 'accordionImageShow': 'accordionImageHide' "  v-show="accordion.name == currentAccordion" v-for='accordion in accordions' :src="accordion.image" />
                 </div>
             </div>
         </div>
@@ -83,9 +83,9 @@ import { useStore } from '/stores/store'
 const store = useStore()
 const isObserved = ref(false)
 const accordions = ref([
-    {name:'phoneAndLaptop', image:'ExploadeImages/ExploadimageMain.png'},
-    {name:'tabletAndLaptop', image:'slider1/image1.jpg'},
-    {name:'watchAndLaptop', image:'slider1/image2.jpg'},
+    {name:'phoneAndLaptop', image:'images/ExploadeImages/ExploadimageMain.png'},
+    {name:'tabletAndLaptop', image:'iamges/slider1/image1.jpg'},
+    {name:'watchAndLaptop', image:'images/slider1/image2.jpg'},
 ])
 const currentAccordion = computed(()=> store.accordionOpen)
 function accordionOpen(name){

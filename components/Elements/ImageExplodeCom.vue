@@ -1,14 +1,14 @@
 <template>
 	<div class=" relative w-full h-full">
         <div class="mainImage flex justify-center items-center absolute z-0">
-        <NuxtImg class="" src="ExploadeImages/ExploadimageMain.png" />
+        <img class="" src="/Images/ExploadeImages/ExploadimageMain.png" />
         </div>
         <div :class="isExploade == true ? 'exploade' : ''" class="reletive top-0 left-0 imageContainer">
-            <NuxtImg class="absolute image image1" src="ExploadeImages/ImageViewer.jpg" />
-            <NuxtImg class="absolute image image2" src="ExploadeImages/Notes.jpg" />
-            <NuxtImg class="absolute image image3"  src="ExploadeImages/Photoshop.jpg" />
-            <NuxtImg class="absolute image image4" src="ExploadeImages/VsCode.jpg" />
-            <NuxtImg class="absolute image image5" src="ExploadeImages/Teams.jpg" />
+            <img class="absolute image image1" src="/Images/ExploadeImages/ImageViewer.jpg" />
+            <img class="absolute image image2" src="/Images/ExploadeImages/Notes.jpg" />
+            <img class="absolute image image3"  src="/Images/ExploadeImages/Photoshop.jpg" />
+            <img class="absolute image image4" src="/Images/ExploadeImages/VsCode.jpg" />
+            <img class="absolute image image5" src="/Images/ExploadeImages/Teams.jpg" />
         </div>
 	</div>
 </template>

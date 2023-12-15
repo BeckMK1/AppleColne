@@ -3,7 +3,7 @@
         <div :class="isScrolled == true ? 'containerScroll':'', content == 'aboutChip' ? 'bg-black':'bg-white'" class="popup h-auto mt-24 rounded-3xl relative">
             <div @click="closePopup" :class="isScrolled == true ? 'isScrolled' : 'notScrolled'" class="closePopup cursor-pointer bg-zinc-600 w-fit rounded-full flex justify-center items-center"><font-awesome-icon icon="fa-solid fa-x" /></div>
             <div class="overflow-hidden imageContainer rounded-3xl relative">
-                <NuxtImg src="/slider1/image1.jpg" class=" absolute top-0" alt="" />
+                <img src="/Images/slider1/image1.jpg" class=" absolute top-0" alt="" />
 
             </div>
             <div class="popupContent contentMid mx-auto pt-52">

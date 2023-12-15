@@ -7,7 +7,7 @@
 			</div>
 			<div class="imageContainer colorContainer mb-4">
 				<div class="image">
-					<NuxtImg class="mx-auto" src="LaptopScreenWindows.png" />
+					<img class="mx-auto" src="/ImagesLaptopScreenWindows.png" />
 				</div>
 			</div>
 			<div class="flex justify-end text-sm mb-12 font-medium">
@@ -47,7 +47,7 @@
 			</div>
 			<div class="imageContainer colorContainer mb-4">
 				<div class="image">
-					<NuxtImg class="mx-auto" src="LaptopScreenWindows.png" />
+					<img class="mx-auto" src="/ImagesLaptopScreenWindows.png" />
 				</div>
 			</div>
 			<div class="flex flex-col specs gap-6 ovserveContent containerInner mx-auto mb-12"> 
@@ -95,7 +95,7 @@
 			</div>
 			<div class="imageContainer colorContainer mb-4">
 				<div class="image">
-					<NuxtImg class="mx-auto" src="LaptopScreenWindows.png" />
+					<img class="mx-auto" src="/ImagesLaptopScreenWindows.png" />
 				</div>
 			</div>
 			<div class="flex justify-end text-sm mb-12 font-medium">

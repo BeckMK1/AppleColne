@@ -48,13 +48,13 @@
 							<h4>14" Laptop</h4>
 							<p>X3-chip</p>
 							<hr class=" border-zinc-500 w-full">
-							<NuxtImg src="/laptopBlackAndWhite.png" alt=""/>
+							<img src="/Images/laptopBlackAndWhite.png" alt=""/>
 							<div class="flex justify-between mt-1 mb-12 modelColor">
 								<p class=" text-sm">Black</p>
 								<p class=" text-sm">Sølv</p>
 							</div>
 							<div class="logoContainer flex gap-3 mb-12">
-								<NuxtImg src="/x3Logo.png" alt=""/>
+								<img src="/Images/x3Logo.png" alt=""/>
 							</div>
 							<p class="mainText mb-12">Sironem dicis et Philodemum</p>
 							<p class="mainText">Id esse laudabile</p>
@@ -63,14 +63,14 @@
 							<h4>14" Laptop</h4>
 							<p>X3-chip eller X3 Max-chip</p>
 							<hr class=" border-zinc-500 w-full">
-							<NuxtImg class="" src="/assets/Images/laptopDarkGrayAndBlack.png" alt=""/>
+							<img class="" src="/Images/assets/Images/laptopDarkGrayAndBlack.png" alt=""/>
 							<div class="flex justify-between mt-1 mb-12 modelColor">
 								<p class=" text-sm">Black</p>
 								<p class=" text-sm">Grey</p>
 							</div>
 							<div class="logoContainer flex gap-3 mb-12">
-								<NuxtImg src="/x3MaxLogo.png" alt=""/>
-								<NuxtImg src="/x3ProLogo.png" alt=""/>
+								<img src="/Images/x3MaxLogo.png" alt=""/>
+								<img src="/Images/x3ProLogo.png" alt=""/>
 							</div>
 							<p class="mainText mb-12">Sironem dicis et Philodemum</p>
 							<p class="mainText">Id esse laudabile</p>
@@ -79,14 +79,14 @@
 							<h4>16" Laptop</h4>
 							<p>X3-chip eller X3 Max-chip</p>
 							<hr class=" border-zinc-500 w-full">
-							<NuxtImg src="/laptopDarkGrayAndBlack.png" />
+							<img src="/Images/laptopDarkGrayAndBlack.png" />
 							<div class="flex justify-between mt-1 mb-12 modelColor">
 								<p class=" text-sm">Black</p>
 								<p class=" text-sm">Grey</p>
 							</div>
 							<div class="logoContainer flex gap-3 mb-12">
-								<NuxtImg src="/x3MaxLogo.png" />
-								<NuxtImg src="/x3ProLogo.png" />
+								<img src="/Images/x3MaxLogo.png" />
+								<img src="/Images/x3ProLogo.png" />
 							</div>
 							<p class="mainText mb-12">Sironem dicis et Philodemum</p>
 							<p class="mainText">Id esse laudabile</p>
@@ -100,37 +100,37 @@
 <script setup>
 const sliderImages = ref([
 {
-	image:"slider1/image1.jpg",
+	image:"Images/slider1/image1.jpg",
 	isActive:true,
 	id:"batteryImage1",
 	name:"Softwareudvikling"
 },
 {
-	image:"slider1/image2.jpg",
+	image:"Images/slider1/image2.jpg",
 	isActive:false,
 	id:"batteryImage2",
 	name:"Fotoredigering"
 },
 {
-	image:"slider1/image3.jpg",
+	image:"Images/slider1/image3.jpg",
 	isActive:false,
 	id:"batteryImage3",
 	name:"STEM"
 },
 {
-	image:"slider1/image4.jpg",
+	image:"Images/slider1/image4.jpg",
 	isActive:false,
 	id:"batteryImage4",
 	name:"Grafisk design"
 },
 {
-	image:"slider1/image5.jpg",
+	image:"Images/slider1/image5.jpg",
 	isActive:false,
 	id:"batteryImage5",
 	name:"Produktivitet"
 },
 {
-	image:"slider1/image6.jpg",
+	image:"Images/slider1/image6.jpg",
 	isActive:false,
 	id:"batteryImage6",
 	name:"3D-rendering"
