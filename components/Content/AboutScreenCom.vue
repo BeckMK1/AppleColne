@@ -7,7 +7,7 @@
         <img class="" src="/_nuxt/Assets/Images/ExploadeImages/ExploadimageMain.png" alt="">
         <div class="contentMid pb-24">
                 <div class="contentMid-inner">
-                        <p class="headText pt-12 ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus estexemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludusesset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
+                        <p class="headText pt-12 xl:pb-0 pb-12 ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus estexemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludusesset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
                 </div>
         </div>
         <div class=" bg-zinc-100 w-full screenSplitContainer contentMid py-12 mb-4 overflow-hidden">

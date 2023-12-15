@@ -72,13 +72,6 @@ h2{
     }
 }
 .navWhite{
-    .mobileMenu{
-        div{
-            a{
-                color: black;
-            }
-        }
-    }
     a{
         color: white;
     }
@@ -128,5 +121,13 @@ opacity: 0.8;
 }
 .v-leave-active{
     transition: opacity 250ms ease-out;
+}
+@media (max-width:768px){
+    h2{
+        font-size: 3rem;
+    }
+    #section2{
+        display: none;
+    }
 }
 </style>

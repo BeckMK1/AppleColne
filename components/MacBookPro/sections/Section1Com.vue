@@ -1,9 +1,11 @@
 <template>
 	<div id="section1">
-        <div class="mx-auto xl:max-w-screen-xl pb-4">
+        <div class="mx-auto xl:max-w-screen-xl pb-4 pl-4">
             <h2 class="sectionTitle ">Imus igitur contenti his. Verum audiamus.</h2>
         </div>
-        <ElementsSliderCom :sliderId="sliderName" :sliderImages="sliderImages" navTypes="section1Slider"></ElementsSliderCom>
+		<div class=" pl-4 lg-pl-0">
+        	<ElementsSliderCom :sliderId="sliderName" :sliderImages="sliderImages" navTypes="section1Slider"></ElementsSliderCom>
+		</div>
 	</div>
 </template>
 <script setup>

@@ -27,6 +27,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/vue-fontawesome": "^3.0.5",
     "@nuxt/kit": "npm:@nuxt/kit-nightly@latest",
+    "@nuxtjs/robots": "^3.0.0",
     "@pinia/nuxt": "^0.5.1",
     "@tresjs/cientos": "^3.6.0",
     "@tresjs/nuxt": "^2.0.0",

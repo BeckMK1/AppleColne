@@ -41,7 +41,7 @@
 		</div>
 		<img class="screenImage" src="/_nuxt/Assets/Images/ExploadeImages/ExploadimageMain.png" alt="">
 		<div class="contentMid ">
-			<p class="w-1/2 mainText"><span class="heightlight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ea possunt paria non esse. Equidem e Cn. Apud ceteros autem philosophos, qui quaesivit aliquid, tacet; Duo Reges: constructio interrete. Quid Zeno?</span></p>
+			<p class="lg:w-1/2 mainText w-full"><span class="heightlight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ea possunt paria non esse. Equidem e Cn. Apud ceteros autem philosophos, qui quaesivit aliquid, tacet; Duo Reges: constructio interrete. Quid Zeno?</span></p>
 		</div>
 	</div>
 </template>
@@ -82,5 +82,10 @@
 .screenImage{
 	width: auto;
 	height: 700px;
+}
+@media (max-width:1300px) {
+	.screenImage{
+		height: auto;
+	}
 }
 </style>

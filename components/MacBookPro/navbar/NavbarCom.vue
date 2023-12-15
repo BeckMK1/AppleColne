@@ -1,7 +1,7 @@
 <template>
     <div :class="navWhiteText == true ? 'navWhite': ''" class="fixed w-screen fixedNavBg top-0">
         <div class="flex 2xl:max-w-5xl justify-between mx-auto py-2 md:px-0 px-4 items-center">
-            <div class="w-1/2 pl-4">
+            <div class="w-1/3 pl-4">
                 <MacBookProNavbarLinkCom :title="true" class="font-bold" link="#" linkName="MacBook Pro" />
             </div>
             <div :class="isMobile == true ? 'mobileMenu' : '', isMobileNav == true ? 'menuOpen' : 'menuClose'" class="flex flex-col justify-center lg:justify-between lg:flex-row lg:gap-12 gap-1 pr-4">
@@ -9,8 +9,9 @@
                 <MacBookProNavbarLinkCom link="#" linkName="Tekniske Specifikationer" />
                 <MacBookProNavbarLinkCom link="#" linkName="Sammenlign" />
                 <MacBookProNavbarLinkCom link="#" linkName="Ny på Mac" />
+                <MacBookProNavbarLinkCom class="md:flex items-center bg-blue-600 px-3 py-1 rounded-2xl text-white mr-4 hidden" link="#" linkName="Køb" />
             </div>
-            <div class="flex gap-4 items-center">
+            <div class="flex gap-4 items-center lg:hidden">
                 <font-awesome-icon v-if="isMobile == true" @click="isMobileNav = !isMobileNav" :class="isMobileNav == true ? 'arrowOpen' : 'arrowClose'" class="mobileMenuArrow" icon="fa-solid fa-chevron-down" />
                 <MacBookProNavbarLinkCom class="flex items-center bg-blue-600 px-3 py-1 rounded-2xl text-white mr-4" link="#" linkName="Køb" />
             </div>
@@ -91,14 +92,26 @@ const isMobile = ref(false)
         top:48px;
         width: 100%;
         padding: 0 3rem;
-        background-color: white;
+        background-color: rgba(251,251,253,0.7);
+        backdrop-filter: saturate(180%) blur(20px);
         transition: height 550ms ease;
         div{
-            a{
-                color: black !important;
-            }
             padding-bottom: 0.5rem;
             border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        }
+    }
+    .navWhite{
+        .mobileMenu{
+            background-color: rgba(251,251,253,0.1);
+            div{
+                border-color:rgba(255,  255, 255, 0.5);
+                a{
+                    color: white;
+                }
+            }
+        }
+        .mobileMenuArrow{
+            color: white;
         }
     }
     .menuOpen{

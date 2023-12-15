@@ -14,14 +14,17 @@
 				<p>VS code, Teams, Photoshop</p>
 			</div>
 			<div class="flex flex-col specs gap-6 ovserveContent containerInner mx-auto mb-12">
-				<div class="flex gap-6">
+				<div class="lg:flex gap-6 lg:flex-row hidden">
 					<p>X-core<br/> CPU</p>
 					<p>X-core<br/>  GPU</p>
 					<p>Op til x GB<br/>  RAM</p>
 				</div>
-				<div class="flex gap-6">
+				<div class="flex gap-6 lg:flex-row flex-col">
+					<p class="lg:hidden">X-core<br/> CPU</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<p class="lg:hidden">X-core<br/>  GPU</p>
 					<p>Eaedem res maneant alio modo. Bork Bork Ut optime, secundum naturam affectum esse possit.</p>
+					<p class="lg:hidden">Op til x GB<br/>  RAM</p>
 					<p>Inquies, ista parva sunt. Negat esse eam, inquit, propter se expetendam.</p>
 				</div>
 			</div>
@@ -48,14 +51,17 @@
 				</div>
 			</div>
 			<div class="flex flex-col specs gap-6 ovserveContent containerInner mx-auto mb-12"> 
-				<div class="flex gap-6">
+				<div class="lg:flex gap-6 lg:flex-row hidden">
 					<p>X-core<br/> CPU</p>
 					<p>X-core<br/>  GPU</p>
 					<p>Op til x GB<br/>  RAM</p>
 				</div>
-				<div class="flex gap-6">
+				<div class="flex gap-6 lg:flex-row flex-col">
+					<p class="lg:hidden">X-core<br/> CPU</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<p class="lg:hidden">X-core<br/>  GPU</p>
 					<p>Eaedem res maneant alio modo. Bork Bork Ut optime, secundum naturam affectum esse possit.</p>
+					<p class="lg:hidden">Op til x GB<br/>  RAM</p>
 					<p>Inquies, ista parva sunt. Negat esse eam, inquit, propter se expetendam.</p>
 				</div>
 			</div>
@@ -96,14 +102,17 @@
 				<p>VS code, Teams, Photoshop</p>
 			</div>
 			<div class="flex flex-col specs gap-6 ovserveContent containerInner mx-auto mb-12">
-				<div class="flex gap-6">
+				<div class="lg:flex gap-6 lg:flex-row hidden">
 					<p>X-core<br/> CPU</p>
 					<p>X-core<br/>  GPU</p>
 					<p>Op til x GB<br/>  RAM</p>
 				</div>
-				<div class="flex gap-6">
+				<div class="flex gap-6 lg:flex-row flex-col">
+					<p class="lg:hidden">X-core<br/> CPU</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<p class="lg:hidden">X-core<br/>  GPU</p>
 					<p>Eaedem res maneant alio modo. Bork Bork Ut optime, secundum naturam affectum esse possit.</p>
+					<p class="lg:hidden">Op til x GB<br/>  RAM</p>
 					<p>Inquies, ista parva sunt. Negat esse eam, inquit, propter se expetendam.</p>
 				</div>
 			</div>
@@ -252,5 +261,11 @@ const countBarObserved2 = ref(false)
 }
 .model14Text p{
 	color: white;
+}
+@media (max-width:1300px) {
+	.containerInner{
+		width: 100%;
+		padding: 1rem;
+	}
 }
 </style>

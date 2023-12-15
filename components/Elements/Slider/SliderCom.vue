@@ -155,7 +155,14 @@ observer.observe(section);
 }
 function setActiveCatgory(){
 	for(let [index, sliderImage] of props.sliderImages.entries()){
-		if(index < 3){
+		let currIndex;
+		let maxIndex;
+		if(sliderImage.isActive == true){
+			currIndex = index
+			maxIndex = currIndex + 3
+
+		}
+		if(index >= currIndex && index >= maxIndex){
 			catagoryActiveArr.value.push(index)
 		}
 	}
@@ -259,31 +266,6 @@ svg{
 .sliderNavShow{
 	opacity: 1;
 	transition: 1s ease;
-	// .sliderNav{
-	// 	gap: 0;
-	// 	border-radius: 100%;
-	// 	padding: 1.5rem 1.7rem;
-	// 	z-index: 2;
-	// 	position: relative;
-	// 	animation: navShow 2s ease forwards;
-	// 	&::after{
-	// 		content:"";
-	// 		display: block;
-	// 		position: absolute;
-	// 		transform: translateX(50%);
-	// 		background-color: rgb(59 130 246);
-	// 		height: 20px;
-	// 		width: 20px;
-	// 		border-radius: 100%;
-	// 	}
-	// 	div{
-	// 		opacity: 0;
-	// 		width: 0;
-	// 	}
-	// }
-	// .btnContainer{
-	// 	transform: translateX(-120%);
-	// }
 }
 .sliderNavShowHide{
 	opacity: 0;
@@ -293,5 +275,7 @@ svg{
 	height: 100px;
 	background-color: transparent;
 	width: 100px;
+}
+@media (max-width:1300px) {
 }
 </style>
