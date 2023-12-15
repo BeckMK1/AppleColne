@@ -25,9 +25,6 @@ export default defineNuxtConfig({
   },
   image: {
     dir:'assets/images',
-    domains: [
-      'apple-clone-wine-psi.vercel.app'
-    ],
     provider: 'ipx'
   },
   build: {
