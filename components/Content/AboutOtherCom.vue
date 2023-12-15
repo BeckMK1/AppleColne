@@ -83,9 +83,9 @@ import { useStore } from '/stores/store'
 const store = useStore()
 const isObserved = ref(false)
 const accordions = ref([
-    {name:'phoneAndLaptop', image:'images/ExploadeImages/ExploadimageMain.png'},
-    {name:'tabletAndLaptop', image:'Images/slider1/image1.jpg'},
-    {name:'watchAndLaptop', image:'Images/slider1/image2.jpg'},
+    {name:'phoneAndLaptop', image:'/images/ExploadeImages/ExploadimageMain.png'},
+    {name:'tabletAndLaptop', image:'/Images/slider1/image1.jpg'},
+    {name:'watchAndLaptop', image:'/Images/slider1/image2.jpg'},
 ])
 const currentAccordion = computed(()=> store.accordionOpen)
 function accordionOpen(name){
