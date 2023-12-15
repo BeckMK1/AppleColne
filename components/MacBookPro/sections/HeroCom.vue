@@ -5,7 +5,7 @@
             <h2 class=" text-7xl text-center font-medium"> consectetur.<br /> Adipiscing. </h2>
         </div>
         <div class="flex items-center flex-col">
-            <NuxtImg class="heroPlacehoder mb-6" alt="placeholder" src="@/public/Images/LaptopPlaceholderCropped.png" />
+            <NuxtImg class="heroPlacehoder mb-6" alt="placeholder" src="LaptopPlaceholderCropped.png" />
             <a class="btn-buy mb-6" href="#">Køb</a>
             <p class=" text-xl font-medium">Fra 14.999 kr.</p>
         </div>

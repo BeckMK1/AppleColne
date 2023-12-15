@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@tresjs/nuxt',
     '@nuxtjs/robots',
     '@nuxt/image',
+    '@nuxt/image-edge',
     ['@nuxtjs/google-fonts', {    
     families: {
       Roboto: [100, 300, 400, 500, 700, 900],
@@ -23,9 +24,11 @@ export default defineNuxtConfig({
     },
   },
   image: {
+    dir:'assets/images',
     domains: [
       'apple-clone-wine-psi.vercel.app'
-    ]
+    ],
+    provider: 'ipx'
   },
   build: {
     transpile: ['@fortawesome/vue-fontawesome']
