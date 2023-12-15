@@ -4,7 +4,7 @@
             <div class="contentMid-inner">
                 <div class="flex md:flex-row flex-col gap-24 pb-8">
                     <div class="flex flex-col items-center gap-6">
-                        <img src="/_nuxt/assets/Images/Laptops1.png" alt="">
+                        <NuxtImg src="/Laptops1.png" />
                         <div class="colorContainer flex gap-2">
                             <div class=" bg-black h-3 w-3 rounded-full"></div>
                             <div class=" bg-zinc-400 h-3 w-3 rounded-full"></div>
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center gap-6">
-                        <img src="/_nuxt/assets/Images/Laptops2.png" alt="">
+                        <NuxtImg src="/Laptops2.png" />
                         <div class="colorContainer flex gap-2">
                             <div class=" bg-black h-3 w-3 rounded-full"></div>
                             <div class=" bg-zinc-400 h-3 w-3 rounded-full"></div>
@@ -51,9 +51,9 @@
                 <div class="flex md:flex-row flex-col gap-24 comSpecs">
                     <div class="md:w-1/2 w-full">
                         <div class="chipLogoContainer flex gap-2 justify-center mb-3">
-                            <img src="/_nuxt/assets/Images/X3Logo.png" alt="">
-                            <img src="/_nuxt/assets/Images/X3ProLogo.png" alt="">
-                            <img src="/_nuxt/assets/Images/X3MaxLogo.png" alt="">
+                            <NuxtImg src="/X3Logo.png" />
+                            <NuxtImg src="/X3ProLogo.png" />
+                            <NuxtImg src="/X3MaxLogo.png" />
                         </div>
                         <p class="mb-3">Laptop X3-, X3 Pro- eller M3 Max-chip</p>
                         <p>Op til</p>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="md:w-1/2 w-full">
                         <div class="chipLogoContainer flex gap-2 justify-center mb-3">
-                            <img src="/_nuxt/assets/Images/X2Logo.png" alt="">
+                            <NuxtImg src="/X2Logo.png" />
                         </div>
                         <p class="mb-3">Laptop X2-chip</p>
                         <p>Op til</p>

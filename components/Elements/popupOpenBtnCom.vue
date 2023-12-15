@@ -21,7 +21,7 @@ const props = defineProps({
 })
 const isPopupBtn = ref(false)
 const isPopupReletive = ref(false)
-import { useStore } from '@/stores/store'
+import { useStore } from '/stores/store'
 const store = useStore()
 const isPopup = computed(()=>store.popupOpen)
 function openPopup(){

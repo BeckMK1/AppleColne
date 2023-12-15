@@ -11,32 +11,32 @@
 <script setup>
 const sliderImages = ref([
 {
-	image:"/_nuxt/assets/Images/slider1/image1.jpg",
+	image:"slider1/image1.jpg",
 	isActive:true,
 	id:"image1"
 },
 {
-	image:"/_nuxt/assets/Images/slider1/image2.jpg",
+	image:"slider1/image2.jpg",
 	isActive:false,
 	id:"image2"
 },
 {
-	image:"/_nuxt/assets/Images/slider1/image3.jpg",
+	image:"slider1/image3.jpg",
 	isActive:false,
 	id:"image3"
 },
 {
-	image:"/_nuxt/assets/Images/slider1/image4.jpg",
+	image:"slider1/image4.jpg",
 	isActive:false,
 	id:"image4"
 },
 {
-	image:"/_nuxt/assets/Images/slider1/image5.jpg",
+	image:"slider1/image5.jpg",
 	isActive:false,
 	id:"image5"
 },
 {
-	image:"/_nuxt/assets/Images/slider1/image6.jpg",
+	image:"slider1/image6.jpg",
 	isActive:false,
 	id:"image6"
 },

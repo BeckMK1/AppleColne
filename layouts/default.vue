@@ -8,7 +8,7 @@
     </div>
 </template>
 <script setup>
-    import { useStore } from '@/stores/store'
+    import { useStore } from '/stores/store'
     const store = useStore()
     const isPopup = computed(()=>store.popupOpen)
     const isSrolled = ref(false)

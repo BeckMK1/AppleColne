@@ -20,7 +20,7 @@ const props = defineProps({
     },
 })
 const emits = defineEmits(['sendOpen'])
-import { useStore } from '@/stores/store'
+import { useStore } from '/stores/store'
 const store = useStore()
 const currentOpen = computed(()=>store.accordionOpen);
 const open = ref(false);

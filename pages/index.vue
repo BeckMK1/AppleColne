@@ -16,7 +16,7 @@
 </div>
 </template>
 <script setup>
-import { useStore } from '@/stores/store'
+import { useStore } from '/stores/store'
 const store = useStore()
 const checkPopup = computed(()=>store.popupOpen)
 watch(checkPopup, async (newValue) =>{

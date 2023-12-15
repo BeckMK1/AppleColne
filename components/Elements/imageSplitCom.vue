@@ -4,28 +4,28 @@
             <ul class="splitWrapper" :class="isObserved == true ? 'split' : ''">
                 <div class="splitNumContainer">
                     <div class="splitNum"><p>1</p></div>
-                    <img class="numImage" src="/_nuxt/assets/Images/lineImageScreen.png" alt="">
+                    <NuxtImg class="numImage" src="lineImageScreen.png" />
                 </div>
                 <div class="imageWrapper">
-                    <img class="splitImage" src="/_nuxt/assets/Images/splitImage/splitScreenBlue.png" alt="">
+                    <NuxtImg class="splitImage" src="splitImage/splitScreenBlue.png" />
                 </div>
             </ul>
             <ul class="splitWrapper" :class="isObserved == true ? 'split' : ''">
                 <div class="splitNumContainer">
                     <div class="splitNum"><p>2</p></div>
-                    <img class="numImage" src="/_nuxt/assets/Images/screenNum.png" alt="">
+                    <NuxtImg class="numImage" src="screenNum.png" />
                 </div>
                 <div class="imageWrapper">
-                    <img class="splitImage" src="/_nuxt/assets/Images/splitImage/splitScreenWhite.png" alt="">
+                    <NuxtImg class="splitImage" src="splitImage/splitScreenWhite.png" />
                 </div>
             </ul>
             <ul class="splitWrapper" :class="isObserved == true ? 'split' : ''">
                 <div class="splitNumContainer">
                     <div class="splitNum"><p>3</p></div>
-                    <img class="numImage" src="/_nuxt/assets/Images/lineImageScreen.png" alt="">
+                    <NuxtImg class="numImage" src="lineImageScreen.png" />
                 </div>
                 <div class="imageWrapper">
-                    <img class="splitImage" src="/_nuxt/assets/Images/splitImage/splitScreenDisplay.png" alt="">
+                    <NuxtImg class="splitImage" src="splitImage/splitScreenDisplay.png" />
                 </div>
             </ul>
         </div>
