@@ -1,6 +1,6 @@
 <template>
 	<div>
-        <FBXModel path="/_nuxt/Assets/models/laptop/laptopNew.fbx" />
+        <FBXModel path="/_nuxt/assets/models/laptop/laptopNew.fbx" />
 	</div>
 </template>
 <script setup>

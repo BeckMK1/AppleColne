@@ -1,14 +1,14 @@
 <template>
 	<div class=" relative w-full h-full">
         <div class="mainImage flex justify-center items-center absolute z-0">
-        <img class="" src="/_nuxt/Assets/Images/ExploadeImages/ExploadimageMain.png" alt="">
+        <img class="" src="/_nuxt/assets/Images/ExploadeImages/ExploadimageMain.png" alt="">
         </div>
         <div :class="isExploade == true ? 'exploade' : ''" class="reletive top-0 left-0 imageContainer">
-            <img class="absolute image image1" src="/_nuxt/Assets/Images/ExploadeImages/ImageViewer.jpg" alt="">
-            <img class="absolute image image2" src="/_nuxt/Assets/Images/ExploadeImages/Notes.jpg" alt="">
-            <img class="absolute image image3"  src="/_nuxt/Assets/Images/ExploadeImages/Photoshop.jpg" alt="">
-            <img class="absolute image image4" src="/_nuxt/Assets/Images/ExploadeImages/VsCode.jpg" alt="">
-            <img class="absolute image image5" src="/_nuxt/Assets/Images/ExploadeImages/Teams.jpg" alt="">
+            <img class="absolute image image1" src="/_nuxt/assets/Images/ExploadeImages/ImageViewer.jpg" alt="">
+            <img class="absolute image image2" src="/_nuxt/assets/Images/ExploadeImages/Notes.jpg" alt="">
+            <img class="absolute image image3"  src="/_nuxt/assets/Images/ExploadeImages/Photoshop.jpg" alt="">
+            <img class="absolute image image4" src="/_nuxt/assets/Images/ExploadeImages/VsCode.jpg" alt="">
+            <img class="absolute image image5" src="/_nuxt/assets/Images/ExploadeImages/Teams.jpg" alt="">
         </div>
 	</div>
 </template>

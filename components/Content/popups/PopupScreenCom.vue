@@ -39,7 +39,7 @@
 		<div class="contentMid ">
 			<h3 class="subTitle">Student levantur vitiis</h3>
 		</div>
-		<img class="screenImage" src="/_nuxt/Assets/Images/ExploadeImages/ExploadimageMain.png" alt="">
+		<img class="screenImage" src="/_nuxt/assets/Images/ExploadeImages/ExploadimageMain.png" alt="">
 		<div class="contentMid ">
 			<p class="lg:w-1/2 mainText w-full"><span class="heightlight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ea possunt paria non esse. Equidem e Cn. Apud ceteros autem philosophos, qui quaesivit aliquid, tacet; Duo Reges: constructio interrete. Quid Zeno?</span></p>
 		</div>

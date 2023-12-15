@@ -4,28 +4,28 @@
             <ul class="splitWrapper" :class="isObserved == true ? 'split' : ''">
                 <div class="splitNumContainer">
                     <div class="splitNum"><p>1</p></div>
-                    <img class="numImage" src="/_nuxt/Assets/Images/lineImageScreen.png" alt="">
+                    <img class="numImage" src="/_nuxt/assets/Images/lineImageScreen.png" alt="">
                 </div>
                 <div class="imageWrapper">
-                    <img class="splitImage" src="/_nuxt/Assets/Images/splitImage/splitScreenBlue.png" alt="">
+                    <img class="splitImage" src="/_nuxt/assets/Images/splitImage/splitScreenBlue.png" alt="">
                 </div>
             </ul>
             <ul class="splitWrapper" :class="isObserved == true ? 'split' : ''">
                 <div class="splitNumContainer">
                     <div class="splitNum"><p>2</p></div>
-                    <img class="numImage" src="/_nuxt/Assets/Images/screenNum.png" alt="">
+                    <img class="numImage" src="/_nuxt/assets/Images/screenNum.png" alt="">
                 </div>
                 <div class="imageWrapper">
-                    <img class="splitImage" src="/_nuxt/Assets/Images/splitImage/splitScreenWhite.png" alt="">
+                    <img class="splitImage" src="/_nuxt/assets/Images/splitImage/splitScreenWhite.png" alt="">
                 </div>
             </ul>
             <ul class="splitWrapper" :class="isObserved == true ? 'split' : ''">
                 <div class="splitNumContainer">
                     <div class="splitNum"><p>3</p></div>
-                    <img class="numImage" src="/_nuxt/Assets/Images/lineImageScreen.png" alt="">
+                    <img class="numImage" src="/_nuxt/assets/Images/lineImageScreen.png" alt="">
                 </div>
                 <div class="imageWrapper">
-                    <img class="splitImage" src="/_nuxt/Assets/Images/splitImage/splitScreenDisplay.png" alt="">
+                    <img class="splitImage" src="/_nuxt/assets/Images/splitImage/splitScreenDisplay.png" alt="">
                 </div>
             </ul>
         </div>

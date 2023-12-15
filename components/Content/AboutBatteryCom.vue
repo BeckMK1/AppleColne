@@ -48,13 +48,13 @@
 							<h4>14" Laptop</h4>
 							<p>X3-chip</p>
 							<hr class=" border-zinc-500 w-full">
-							<img src="/_nuxt/Assets/Images/laptopBlackAndWhite.png" alt="">
+							<img src="/_nuxt/assets/Images/laptopBlackAndWhite.png" alt="">
 							<div class="flex justify-between mt-1 mb-12 modelColor">
 								<p class=" text-sm">Black</p>
 								<p class=" text-sm">Sølv</p>
 							</div>
 							<div class="logoContainer flex gap-3 mb-12">
-								<img src="/_nuxt/Assets/Images/x3Logo.png" alt="">
+								<img src="/_nuxt/assets/Images/x3Logo.png" alt="">
 							</div>
 							<p class="mainText mb-12">Sironem dicis et Philodemum</p>
 							<p class="mainText">Id esse laudabile</p>
@@ -63,14 +63,14 @@
 							<h4>14" Laptop</h4>
 							<p>X3-chip eller X3 Max-chip</p>
 							<hr class=" border-zinc-500 w-full">
-							<img class="" src="/_nuxt/Assets/Images/laptopDarkGrayAndBlack.png" alt="">
+							<img class="" src="/_nuxt/assets/Images/laptopDarkGrayAndBlack.png" alt="">
 							<div class="flex justify-between mt-1 mb-12 modelColor">
 								<p class=" text-sm">Black</p>
 								<p class=" text-sm">Grey</p>
 							</div>
 							<div class="logoContainer flex gap-3 mb-12">
-								<img src="/_nuxt/Assets/Images/x3MaxLogo.png" alt="">
-								<img src="/_nuxt/Assets/Images/x3ProLogo.png" alt="">
+								<img src="/_nuxt/assets/Images/x3MaxLogo.png" alt="">
+								<img src="/_nuxt/assets/Images/x3ProLogo.png" alt="">
 							</div>
 							<p class="mainText mb-12">Sironem dicis et Philodemum</p>
 							<p class="mainText">Id esse laudabile</p>
@@ -79,14 +79,14 @@
 							<h4>16" Laptop</h4>
 							<p>X3-chip eller X3 Max-chip</p>
 							<hr class=" border-zinc-500 w-full">
-							<img src="/_nuxt/Assets/Images/laptopDarkGrayAndBlack.png" alt="">
+							<img src="/_nuxt/assets/Images/laptopDarkGrayAndBlack.png" alt="">
 							<div class="flex justify-between mt-1 mb-12 modelColor">
 								<p class=" text-sm">Black</p>
 								<p class=" text-sm">Grey</p>
 							</div>
 							<div class="logoContainer flex gap-3 mb-12">
-								<img src="/_nuxt/Assets/Images/x3MaxLogo.png" alt="">
-								<img src="/_nuxt/Assets/Images/x3ProLogo.png" alt="">
+								<img src="/_nuxt/assets/Images/x3MaxLogo.png" alt="">
+								<img src="/_nuxt/assets/Images/x3ProLogo.png" alt="">
 							</div>
 							<p class="mainText mb-12">Sironem dicis et Philodemum</p>
 							<p class="mainText">Id esse laudabile</p>
@@ -100,37 +100,37 @@
 <script setup>
 const sliderImages = ref([
 {
-	image:"/_nuxt/Assets/Images/slider1/image1.jpg",
+	image:"/_nuxt/assets/Images/slider1/image1.jpg",
 	isActive:true,
 	id:"batteryImage1",
 	name:"Softwareudvikling"
 },
 {
-	image:"/_nuxt/Assets/Images/slider1/image2.jpg",
+	image:"/_nuxt/assets/Images/slider1/image2.jpg",
 	isActive:false,
 	id:"batteryImage2",
 	name:"Fotoredigering"
 },
 {
-	image:"/_nuxt/Assets/Images/slider1/image3.jpg",
+	image:"/_nuxt/assets/Images/slider1/image3.jpg",
 	isActive:false,
 	id:"batteryImage3",
 	name:"STEM"
 },
 {
-	image:"/_nuxt/Assets/Images/slider1/image4.jpg",
+	image:"/_nuxt/assets/Images/slider1/image4.jpg",
 	isActive:false,
 	id:"batteryImage4",
 	name:"Grafisk design"
 },
 {
-	image:"/_nuxt/Assets/Images/slider1/image5.jpg",
+	image:"/_nuxt/assets/Images/slider1/image5.jpg",
 	isActive:false,
 	id:"batteryImage5",
 	name:"Produktivitet"
 },
 {
-	image:"/_nuxt/Assets/Images/slider1/image6.jpg",
+	image:"/_nuxt/assets/Images/slider1/image6.jpg",
 	isActive:false,
 	id:"batteryImage6",
 	name:"3D-rendering"

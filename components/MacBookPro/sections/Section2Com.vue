@@ -7,7 +7,7 @@
 					<TresPerspectiveCamera :position="[0, 5, 10]" />
 					<OrbitControls :enable-zoom="false" />
 					<Suspense>
-						<FBXModel path="/_nuxt/Assets/models/laptop/laptopNew.fbx" />
+						<FBXModel path="/_nuxt/assets/models/laptop/laptopNew.fbx" />
 					</Suspense>
 					<TresDirectionalLight :position="[-4, 8, 4]" :intensity="1.5" cast-shadow />
 				</TresCanvas>
@@ -17,7 +17,7 @@
 					<TresPerspectiveCamera :position="[0, 5, 12]" />
 					<OrbitControls :enable-zoom="false" />
 					<Suspense>
-						<FBXModel path="/_nuxt/Assets/models/laptop/laptopNew.fbx" />
+						<FBXModel path="/_nuxt/assets/models/laptop/laptopNew.fbx" />
 					</Suspense>
 					<TresDirectionalLight :position="[-4, 8, 4]" :intensity="1.5" cast-shadow />
 				</TresCanvas>

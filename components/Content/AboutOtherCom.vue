@@ -7,7 +7,7 @@
                     </div>
                     <div class="flex md:flex-row items-center md:items-start gap-3 md:gap-0 flex-col pb-52">
                         <div class="w-1/2 md:absolute">
-                            <img class="audioImage" src="/_nuxt/Assets/Images/ExploadeImages/ExploadimageMain.png" alt="">
+                            <img class="audioImage" src="/_nuxt/assets/Images/ExploadeImages/ExploadimageMain.png" alt="">
                         </div>
                         <div class="w-1/2"></div>
                         <div class=" flex flex-col gap-20 w-1/2">
@@ -33,10 +33,10 @@
             </div>
             <div class=" laptopSlide my-24" :class="isObserved == true ? 'laptopSlideIN': ''">
                 <div class=" laptopSideLeft">
-                    <img src="/_nuxt/Assets/Images/LaptopSideView.png" alt="">
+                    <img src="/_nuxt/assets/Images/LaptopSideView.png" alt="">
                 </div>
                 <div class=" laptopSideRight">
-                    <img src="/_nuxt/Assets/Images/LaptopSideView.png" alt="">
+                    <img src="/_nuxt/assets/Images/LaptopSideView.png" alt="">
                 </div>
             </div>
             <div class="contentMid">
@@ -83,9 +83,9 @@ import { useStore } from '@/stores/store'
 const store = useStore()
 const isObserved = ref(false)
 const accordions = ref([
-    {name:'phoneAndLaptop', image:'/_nuxt/Assets/Images/ExploadeImages/ExploadimageMain.png'},
-    {name:'tabletAndLaptop', image:'/_nuxt/Assets/Images/slider1/image1.jpg'},
-    {name:'watchAndLaptop', image:'/_nuxt/Assets/Images/slider1/image2.jpg'},
+    {name:'phoneAndLaptop', image:'/_nuxt/assets/Images/ExploadeImages/ExploadimageMain.png'},
+    {name:'tabletAndLaptop', image:'/_nuxt/assets/Images/slider1/image1.jpg'},
+    {name:'watchAndLaptop', image:'/_nuxt/assets/Images/slider1/image2.jpg'},
 ])
 const currentAccordion = computed(()=> store.accordionOpen)
 function accordionOpen(name){

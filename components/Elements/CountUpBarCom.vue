@@ -40,7 +40,7 @@ const props = defineProps({
 })
 </script>
 <style lang="scss" scoped>
-@import"@/Assets/Scss/barColor.scss";
+@import"@/assets/Scss/barColor.scss";
 .count{
 	height: 5px;
 	border-radius: 2rem;
