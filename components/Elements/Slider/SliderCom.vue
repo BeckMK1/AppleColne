@@ -2,7 +2,7 @@
 	<div class=" relative">
 			<div :id="sliderId" :class="sliderLeft == true ? 'flex-row-reverse' : 'flex-row'" class="flex slider gap-24 pb-24 ">
 					<div class="slideSize" :id="sliderImage.id" v-for="sliderImage in sliderImages">
-					<ElementsSliderImageCom :image="sliderImage.image"></ElementsSliderImageCom>
+					<ElementsSliderImageCom :imageCurrent="sliderImage.isActive" :image="sliderImage.image"></ElementsSliderImageCom>
 				</div>
 			</div>
 			<div v-if="navTypes == 'section1Slider'"  :class="IsNavigation == true ? 'sliderNavShow' : 'sliderNavShowHide', isSliderNavReletive == true ? 'relative' : 'fixed', navFixed == true ? 'fixed bottom-4 left-1/2 -translate-x-1/2':''" class="flex justify-center gap-3 items-center" >
@@ -24,7 +24,7 @@
 				<div class="overflow-hidden w-2/3">
 					<div id="catagorySlider" class="flex overflow-visible">
 						<div class="catagoryContainer" v-for="(sliderImage, index) in sliderImages" @click="setSlideActive(sliderImage.image, sliderImage.id)">
-							<ElementsSliderCatagoriCom @click="scrollCatagoryRightOne(index)" :name="sliderImage.name" :isActive="sliderImage.isActive"></ElementsSliderCatagoriCom>
+							<ElementsSliderCatagoriCom @click="sliderNavsCat(index)" :name="sliderImage.name" :isActive="sliderImage.isActive"></ElementsSliderCatagoriCom>
 						</div>
 					</div>
 				</div>
@@ -139,7 +139,7 @@ observer.observe(section);
 function setSliderNavPosObserver(){
 	const section = document.querySelector( "#section1 #sliderNavigation");
 	let options = {
-    threshold: 0.0
+    threshold: 0.1
   };
 let callback = (entries, observer) => {
   entries.forEach((entry) =>{
@@ -153,52 +153,17 @@ let callback = (entries, observer) => {
 let observer =  new IntersectionObserver(callback, options);
 observer.observe(section);
 }
-function setActiveCatgory(){
-	for(let [index, sliderImage] of props.sliderImages.entries()){
-		let currIndex;
-		let maxIndex;
-		if(sliderImage.isActive == true){
-			currIndex = index
-			maxIndex = currIndex + 3
+function sliderNavsCat(catIndex){
+	const catagorySlider = document.querySelector("#catagorySlider")
+	const catWidth = document.querySelector("#catagorySlider .catagoryContainer").offsetWidth;
+	for (let [index, sliderCat] of props.sliderImages.entries()){
 
-		}
-		if(index >= currIndex && index >= maxIndex){
-			catagoryActiveArr.value.push(index)
+		if(index == catIndex){
+			if(index < props.sliderImages.length - 2){
+			catagorySlider.style.transform = `translateX(-${catWidth * catIndex}px)`
+			}
 		}
 	}
-}
-setActiveCatgory()
-function scrollCatagoryRightOne(currImage){
-	const catagoryContainer = document.getElementById("catagorySlider")
-	const catagory = document.querySelector(".catagoryContainer .catagory");
-	const catagoryWidth = catagory.offsetWidth;
-	const catagoryContainerWidth = catagoryContainer.offsetWidth;
-	let nextIndex;
-	let prevIndex;
-	for (let [catindex, catNum] of catagoryActiveArr.value.entries()){
-		if(catindex == 0){
-			prevIndex = catNum
-		}
-		if(catindex == 2){
-			nextIndex = catNum
-		}	
-	}
-		if(nextIndex == currImage && currImage != props.sliderImages.length){
-			catagoryCurrPos.value -= catagoryWidth;
-			catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value}px)`
-			catagoryActiveArr.value.shift()
-			catagoryActiveArr.value.push(currImage + 1)
-		}
-		if(prevIndex == currImage && currImage != 0){
-			catagoryCurrPos.value += catagoryWidth;
-			catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value}px)`
-			catagoryActiveArr.value.pop()
-			catagoryActiveArr.value.unshift(currImage - 1)
-		}
-		// if(catagoryCurrPos.value > 0){
-		// 		catagoryCurrPos.value = 0
-		// 		catagoryContainer.style.transform = `translateX(${catagoryCurrPos.value}px)`
-		// 	}
 }
 onMounted(()=>{
 	setSliderNavObserver()

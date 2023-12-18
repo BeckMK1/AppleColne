@@ -5,7 +5,7 @@
 				<h2 class="">Confusioque virtutum tamen</h2>
 				<p class="mainText pt-12  ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus est exemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludus esset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
 				<div class="chipsContainer  flex flex-col md:flex-row gap-8 justify-between w-full pt-12">
-					<div class="chip flex md:flex-col flex-row items-center gap-8">
+					<div class="chip flex md:flex-col md:items-start flex-row items-center gap-8">
 						<div>
 							<img src="/Images/chips/chip1.png"/>
 						</div>
@@ -13,7 +13,7 @@
 						<p>X-core GPU</p>
 						<p>Up til x GB sammlet RAM</p>
 					</div>
-					<div class="chip flex md:flex-col flex-row  items-center gap-8">
+					<div class="chip flex md:flex-col flex-row md:items-start  items-center gap-8">
 						<div>
 							<img src="/Images/chips/Chip2.png" />
 						</div>
@@ -21,7 +21,7 @@
 						<p>X-core GPU</p>
 						<p>Up til x GB sammlet RAM</p>
 					</div>
-					<div class="chip flex md:flex-col flex-row  items-center gap-8">
+					<div class="chip flex md:flex-col flex-row md:items-start items-center gap-8">
 						<div>
 							<img src="/Images/chips/Chip3.png" />
 						</div>

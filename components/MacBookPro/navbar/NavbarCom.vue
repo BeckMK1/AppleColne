@@ -2,12 +2,13 @@
     <div :class="navWhiteText == true ? 'navWhite': ''" class="fixed w-screen fixedNavBg top-0">
         <div class="flex 2xl:max-w-5xl justify-between mx-auto py-2 md:px-0 px-4 items-center">
             <div class="w-1/3 pl-4">
-                <MacBookProNavbarLinkCom :title="true" class="font-bold" link="#" linkName="MacBook Pro" />
+                <MacBookProNavbarLinkCom :title="true" class="font-bold" link="#topNav" linkName="MacBook Pro" />
             </div>
             <div :class="isMobile == true ? 'mobileMenu' : '', isMobileNav == true ? 'menuOpen' : 'menuClose'" class="flex flex-col justify-center lg:justify-between lg:flex-row lg:gap-12 gap-1 pr-4">
                 <MacBookProNavbarLinkCom link="#" linkName="Oversigt" />
                 <MacBookProNavbarLinkCom link="#" linkName="Tekniske Specifikationer" />
                 <MacBookProNavbarLinkCom link="#" linkName="Sammenlign" />
+                
                 <MacBookProNavbarLinkCom link="#" linkName="Ny på Mac" />
                 <MacBookProNavbarLinkCom class="md:flex items-center bg-blue-600 px-3 py-1 rounded-2xl text-white mr-4 hidden" link="#" linkName="Køb" />
             </div>

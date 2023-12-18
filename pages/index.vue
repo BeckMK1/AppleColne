@@ -31,6 +31,9 @@ watch(checkPopup, async (newValue) =>{
 *{
     font-family: 'Roboto', sans-serif;
 }
+html{
+    scroll-behavior: smooth;
+}
 h2{
 	font-size: 80px;
 	font-weight: 500;

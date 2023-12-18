@@ -63,11 +63,11 @@ onMounted(()=>{
         transform: translateX(425px) translateY(430px);
     }
     .image2{
-        transform: translateX(-300px) translateY(-50px);
+        transform: translateX(-127px) translateY(-50px);
         height: 200px;
     }
     .image3{
-        transform: translateX(-400px) translateY(450px);
+        transform: translateX(-230px) translateY(450px);
         height: 250px;
     }
     .image4{
