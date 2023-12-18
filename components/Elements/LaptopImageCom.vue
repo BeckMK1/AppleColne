@@ -1,7 +1,7 @@
 <template>
     <div class=" relative">
         <div class=" relative">
-            <img class=" relative blankLaptop" src="/Images/laptopScreenBlank.png" />
+            <img class=" relative blankLaptop" src="/Images/LaptopScreenBlank.png" />
             <div :id="videoId" class=" absolute top-0 laptopVideo">
                 <video muted>
                     <source src="@/assets/video/space.mp4" type="video/mp4">

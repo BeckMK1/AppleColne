@@ -7,7 +7,7 @@
                     </div>
                     <div class="flex md:flex-row items-center md:items-start gap-3 md:gap-0 flex-col pb-52">
                         <div class="w-1/2 md:absolute">
-                            <img class="audioImage" src="/Images/ExploadeImages/ExploadimageMain.png" />
+                            <img class="audioImage" src="/Images/ExploadeImages/ExploadImageMain.png" />
                         </div>
                         <div class="w-1/2"></div>
                         <div class=" flex flex-col gap-20 w-1/2">
@@ -83,7 +83,7 @@ import { useStore } from '/stores/store'
 const store = useStore()
 const isObserved = ref(false)
 const accordions = ref([
-    {name:'phoneAndLaptop', image:'/images/ExploadeImages/ExploadimageMain.png'},
+    {name:'phoneAndLaptop', image:'/Images/ExploadeImages/ExploadImageMain.png'},
     {name:'tabletAndLaptop', image:'/Images/slider1/image1.jpg'},
     {name:'watchAndLaptop', image:'/Images/slider1/image2.jpg'},
 ])

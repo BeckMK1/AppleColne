@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center gap-6">
-                        <img src="/Images/Laptops2.png" />
+                        <img src="/Images/laptops2.png" />
                         <div class="colorContainer flex gap-2">
                             <div class=" bg-black h-3 w-3 rounded-full"></div>
                             <div class=" bg-zinc-400 h-3 w-3 rounded-full"></div>
@@ -51,9 +51,9 @@
                 <div class="flex md:flex-row flex-col gap-24 comSpecs">
                     <div class="md:w-1/2 w-full">
                         <div class="chipLogoContainer flex gap-2 justify-center mb-3">
-                            <img src="/Images/X3Logo.png" />
-                            <img src="/Images/X3ProLogo.png" />
-                            <img src="/Images/X3MaxLogo.png" />
+                            <img src="/Images/x3Logo.png" />
+                            <img src="/Images/x3MaxLogo.png" />
+                            <img src="/Images/x3ProLogo.png" />
                         </div>
                         <p class="mb-3">Laptop X3-, X3 Pro- eller M3 Max-chip</p>
                         <p>Op til</p>

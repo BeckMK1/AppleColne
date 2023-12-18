@@ -7,7 +7,7 @@
 			</div>
 			<div class="imageContainer colorContainer mb-4">
 				<div class="image">
-					<img class="mx-auto" src="/ImagesLaptopScreenWindows.png" />
+					<img class="mx-auto" src="/Images/LaptopScreenWindows.png" />
 				</div>
 			</div>
 			<div class="flex justify-end text-sm mb-12 font-medium">

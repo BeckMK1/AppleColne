@@ -1,7 +1,7 @@
 <template>
 	<div class=" relative w-full h-full">
         <div class="mainImage flex justify-center items-center absolute z-0">
-        <img class="" src="/Images/ExploadeImages/ExploadimageMain.png" />
+        <img class="" src="/Images/ExploadeImages/ExploadImageMain.png" />
         </div>
         <div :class="isExploade == true ? 'exploade' : ''" class="reletive top-0 left-0 imageContainer">
             <img class="absolute image image1" src="/Images/ExploadeImages/ImageViewer.jpg" />
