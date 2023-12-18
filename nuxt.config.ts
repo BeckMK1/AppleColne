@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@tresjs/nuxt',
-    '@nuxtjs/robots',
+    ['@nuxtjs/robots', { configPath: "~/config/robots.config" }],
     '@nuxt/image',
     '@nuxt/image-edge',
     ['@nuxtjs/google-fonts', {    
