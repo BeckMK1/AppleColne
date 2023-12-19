@@ -4,7 +4,13 @@ export const useStore = defineStore('baseState', {
       return { 
         popupOpen: false,
         popupContent: '',
-        accordionOpen:'phoneAndLaptop'
+        accordionOpen:'phoneAndLaptop',
+        isMainMobileNav:false
     }
     },
+    actions:{
+      mainNavOn(){
+        this.isMainMobileNav = !this.isMainMobileNav
+      }
+    }
   })

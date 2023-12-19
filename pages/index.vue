@@ -1,25 +1,33 @@
 <template>
-<div>
-    <MacBookProSectionsHeroCom></MacBookProSectionsHeroCom>
-    <MacBookProSectionsSection1Com></MacBookProSectionsSection1Com>
-    <MacBookProSectionsSection2Com></MacBookProSectionsSection2Com>
-    <div class="blackBg">
-    <MacBookProSectionsSection3Com></MacBookProSectionsSection3Com>
-    <MacBookProSectionsSection4Com></MacBookProSectionsSection4Com>
+    <div>
+        <MacBookProSectionsHeroCom></MacBookProSectionsHeroCom>
+        <MacBookProSectionsSection1Com></MacBookProSectionsSection1Com>
+        <MacBookProSectionsSection2Com></MacBookProSectionsSection2Com>
+        <div class="blackBg">
+        <MacBookProSectionsSection3Com></MacBookProSectionsSection3Com>
+        <MacBookProSectionsSection4Com></MacBookProSectionsSection4Com>
+        </div>
+        <MacBookProSectionsSection5Com></MacBookProSectionsSection5Com>
+        <MacBookProSectionsSection6Com></MacBookProSectionsSection6Com>
+        <MacBookProSectionsSection7Com></MacBookProSectionsSection7Com>
+        <Transition name="popUpFade">
+                <ElementsPopupCom class="popupDefault" v-if="checkPopup == true"></ElementsPopupCom>
+        </Transition>
     </div>
-    <MacBookProSectionsSection5Com></MacBookProSectionsSection5Com>
-    <MacBookProSectionsSection6Com></MacBookProSectionsSection6Com>
-    <MacBookProSectionsSection7Com></MacBookProSectionsSection7Com>
-    <Transition name="popUpFade">
-            <ElementsPopupCom class="popupDefault" v-if="checkPopup == true"></ElementsPopupCom>
-    </Transition>
-</div>
 </template>
 <script setup>
 import { useStore } from '/stores/store'
 const store = useStore()
 const checkPopup = computed(()=>store.popupOpen)
+const mainNavOpen = computed(()=>store.isMainMobileNav)
 watch(checkPopup, async (newValue) =>{
+    if(newValue == true){
+        document.body.style.overflowY = "hidden";
+    }else{
+        document.body.style.overflowY = "auto";
+    }
+})
+watch(mainNavOpen, async (newValue) =>{
     if(newValue == true){
         document.body.style.overflowY = "hidden";
     }else{

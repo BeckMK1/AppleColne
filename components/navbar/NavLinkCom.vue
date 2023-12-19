@@ -28,4 +28,10 @@ svg{
     height: 18px;
     color: hsla(0, 0%, 1%, 0.8);
 }
+@media (max-width:768px){
+    a{
+        font-size: 26px;
+        font-weight: bold;
+    }
+}
 </style>

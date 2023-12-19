@@ -8,7 +8,6 @@
                 <MacBookProNavbarLinkCom link="#" linkName="Oversigt" />
                 <MacBookProNavbarLinkCom link="#" linkName="Tekniske Specifikationer" />
                 <MacBookProNavbarLinkCom link="#" linkName="Sammenlign" />
-                
                 <MacBookProNavbarLinkCom link="#" linkName="Ny på Mac" />
                 <MacBookProNavbarLinkCom class="md:flex items-center bg-blue-600 px-3 py-1 rounded-2xl text-white mr-4 hidden" link="#" linkName="Køb" />
             </div>

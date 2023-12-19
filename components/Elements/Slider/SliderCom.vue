@@ -18,17 +18,17 @@
 			</div>
 			<div id="sliderNavigation"></div>
 			<div class="flex justify-center" v-if="navTypes == 'section4Slider'">
-				<div @click="scrollCatagoryLeft" class=" cursor-pointer">
+				<div @click="scrollCatagoryLeft" :class="scrolledZeroed == 'right' ? 'catEndBorderLeft' : '', scrolledZeroed == 'center' ? 'catEndBorderCenter' : '' " class="catEndBorder cursor-pointer">
 					<font-awesome-icon icon="fa-solid fa-chevron-left" />
 				</div>
 				<div class="overflow-hidden w-2/3">
-					<div id="catagorySlider" class="flex overflow-visible">
+					<div id="catagorySlider" class="flex overflow-x-hidden">
 						<div class="catagoryContainer" v-for="(sliderImage, index) in sliderImages" @click="setSlideActive(sliderImage.image, sliderImage.id)">
-							<ElementsSliderCatagoriCom @click="sliderNavsCat(index)" :name="sliderImage.name" :isActive="sliderImage.isActive"></ElementsSliderCatagoriCom>
+							<ElementsSliderCatagoriCom :id="'catNav-' + index" @click="sliderNavsCat(index)" :name="sliderImage.name" :isActive="sliderImage.isActive"></ElementsSliderCatagoriCom>
 						</div>
 					</div>
 				</div>
-				<div @click="scrollCatagoryRight" class=" cursor-pointer">
+				<div @click="scrollCatagoryRight" :class="scrolledZeroed == 'left' ? 'catEndBorderRight' : '', scrolledZeroed == 'center' ? 'catEndBorderCenter' : '' " class="catEndBorder cursor-pointer">
 					<font-awesome-icon icon="fa-solid fa-chevron-right" />
 				</div>
 			</div>
@@ -57,9 +57,8 @@ const nextIndex = ref(0)
 const isAutoPlay = ref(false)
 const IsNavigation = ref(false)
 const navFixed = ref(true)
-const catagoryCurrPos = ref(0)
 const isSliderNavReletive = ref(false)
-const catagoryActiveArr = ref([])
+const scrolledZeroed = ref('left')
 function setSlideActive(currentSlide, imageId){
 	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(sliderImage.isActive == true && sliderImage.image != currentSlide){
@@ -106,7 +105,7 @@ function scrollnext(){
 		}else {
 			sliderImage.isActive = false
 		}
-	}}
+}}
 function resetScroll(){
 	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(index == 0){
@@ -153,16 +152,34 @@ let callback = (entries, observer) => {
 let observer =  new IntersectionObserver(callback, options);
 observer.observe(section);
 }
+function scrollCatagoryLeft(){
+	const catagorySlider = document.querySelector("#catagorySlider");
+	const catWidth = document.querySelector(".catagoryContainer").offsetWidth;
+	catagorySlider.scrollLeft -= catWidth * 3
+}
+function scrollCatagoryRight(){
+	const catagorySlider = document.querySelector("#catagorySlider");
+	const catWidth = document.querySelector(".catagoryContainer").offsetWidth;
+	catagorySlider.scrollLeft += catWidth * 3
+}
 function sliderNavsCat(catIndex){
-	const catagorySlider = document.querySelector("#catagorySlider")
-	const catWidth = document.querySelector("#catagorySlider .catagoryContainer").offsetWidth;
-	for (let [index, sliderCat] of props.sliderImages.entries()){
-
-		if(index == catIndex){
-			if(index < props.sliderImages.length - 2){
-			catagorySlider.style.transform = `translateX(-${catWidth * catIndex}px)`
-			}
-		}
+	const catWidth = document.querySelector("#catNav-" + catIndex);
+	if(catIndex != props.sliderImages.length - 1){
+		catWidth.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+	}
+	checkCatScrollPos()
+}
+function checkCatScrollPos(){
+	const catagorySlider = document.querySelector("#catagorySlider");
+	if(catagorySlider.scrollLeft != 0){
+		scrolledZeroed.value = 'center'
+	}
+	if(catagorySlider.scrollLeft == 0){
+		scrolledZeroed.value = 'left'
+	}
+	console.log(catagorySlider.scrollLeft)
+	if(catagorySlider.scrollLeft > 702){
+		scrolledZeroed.value = 'right'
 	}
 }
 onMounted(()=>{
@@ -240,6 +257,49 @@ svg{
 	height: 100px;
 	background-color: transparent;
 	width: 100px;
+}
+.catEndBorder{
+	transform: translateY(4px);
+	svg{
+		height: 1rem !important;
+		margin-top: 0.5rem;
+		opacity: 50%;
+		display: none;
+	}
+}
+.catEndBorderRight{
+	border-left: 1px solid;
+	border-color: hsl(0, 0%, 30%);
+	svg{
+		margin-left: 0.5rem;
+		display: block;
+	}
+}
+.catEndBorderLeft{
+	border-right: 1px solid;
+	border-color: hsl(0, 0%, 30%);
+	svg{
+		margin-right: 0.5rem;
+		display: block;
+	}
+}
+.catEndBorderCenter{
+	&:nth-child(1){
+		border-right: 1px solid;
+	border-color: hsl(0, 0%, 30%);
+		svg{
+		margin-right: 0.5rem;
+		display: block;
+	}
+	}
+	&:nth-child(3){
+		border-left: 1px solid;
+	border-color: hsl(0, 0%, 30%);
+		svg{
+		margin-left: 0.5rem;
+		display: block;
+	}
+	}
 }
 @media (max-width:1300px) {
 }
