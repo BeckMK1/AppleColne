@@ -53,7 +53,8 @@
                 </div>
                 <div class=" pb-24">
                     <h2>propter ali<br /> quampiam.</h2>
-                </div>
+                </div> 
+                <img class="mb-6" src="/Images/slider1/image2.jpg" />
                     <div class="flex justify-between  pb-24">
                         <div class="w-1/3">
                             <p class="mainText ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Uterque enim summo bono fruitur,</p>

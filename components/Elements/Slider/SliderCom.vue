@@ -16,9 +16,9 @@
 					<font-awesome-icon v-if="isAutoPlay == true" icon="fa-solid fa-pause" />
 				</div>
 			</div>
-			<div id="sliderNavigation"></div>
+			<div  id="sliderNavigation"></div>
 			<div class="flex justify-center" v-if="navTypes == 'section4Slider'">
-				<div @click="scrollCatagoryLeft" :class="scrolledZeroed == 'right' ? 'catEndBorderLeft' : '', scrolledZeroed == 'center' ? 'catEndBorderCenter' : '' " class="catEndBorder cursor-pointer">
+				<div @click="scrollCatagoryLeft" :class="scrolledZeroed == 'left' ? 'catEndBorderLeft' : '', scrolledZeroed == 'center' ? 'catEndBorderCenter' : '' " class="catEndBorder cursor-pointer">
 					<font-awesome-icon icon="fa-solid fa-chevron-left" />
 				</div>
 				<div class="overflow-hidden w-2/3">
@@ -28,7 +28,7 @@
 						</div>
 					</div>
 				</div>
-				<div @click="scrollCatagoryRight" :class="scrolledZeroed == 'left' ? 'catEndBorderRight' : '', scrolledZeroed == 'center' ? 'catEndBorderCenter' : '' " class="catEndBorder cursor-pointer">
+				<div @click="scrollCatagoryRight" :class="scrolledZeroed == 'right' ? 'catEndBorderRight' : '', scrolledZeroed == 'center' ? 'catEndBorderCenter' : '' " class="catEndBorder cursor-pointer">
 					<font-awesome-icon icon="fa-solid fa-chevron-right" />
 				</div>
 			</div>
@@ -156,11 +156,13 @@ function scrollCatagoryLeft(){
 	const catagorySlider = document.querySelector("#catagorySlider");
 	const catWidth = document.querySelector(".catagoryContainer").offsetWidth;
 	catagorySlider.scrollLeft -= catWidth * 3
+	checkCatScrollPos()
 }
 function scrollCatagoryRight(){
 	const catagorySlider = document.querySelector("#catagorySlider");
 	const catWidth = document.querySelector(".catagoryContainer").offsetWidth;
 	catagorySlider.scrollLeft += catWidth * 3
+	checkCatScrollPos()
 }
 function sliderNavsCat(catIndex){
 	const catWidth = document.querySelector("#catNav-" + catIndex);
@@ -171,14 +173,14 @@ function sliderNavsCat(catIndex){
 }
 function checkCatScrollPos(){
 	const catagorySlider = document.querySelector("#catagorySlider");
-	if(catagorySlider.scrollLeft != 0){
+	console.log(catagorySlider.scrollLeft)
+	if(catagorySlider.scrollLeft != 0 && catagorySlider.scrollLeft != 705){
 		scrolledZeroed.value = 'center'
 	}
-	if(catagorySlider.scrollLeft == 0){
+	if(catagorySlider.scrollLeft == 705){
 		scrolledZeroed.value = 'left'
 	}
-	console.log(catagorySlider.scrollLeft)
-	if(catagorySlider.scrollLeft > 702){
+	if(catagorySlider.scrollLeft == 0){
 		scrolledZeroed.value = 'right'
 	}
 }

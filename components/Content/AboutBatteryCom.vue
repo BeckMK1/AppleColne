@@ -36,7 +36,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="contentBig">
+		<div class="contentBig -ml-4 lg:ml-0">
 			<ElementsSliderCom class="mb-24" :sliderLeft="false" :sliderId="sliderName" :sliderImages="sliderImages" navTypes="section4Slider"></ElementsSliderCom>
 		</div>
 		<div class=" bg-[#1D1D1F] w-full rounded-2xl">

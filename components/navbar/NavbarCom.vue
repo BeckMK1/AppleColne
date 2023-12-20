@@ -5,10 +5,10 @@
             <div :class="isMobile == true ? 'mobileMenu' : '', isMobileNav == true ? 'menuOpen' : 'menuClose'" class="flex flex-col md:flex-row md:gap-2 w-full md:px-12 max-w-full md:justify-between mainNavMobile right-0">
                 <NavbarNavLinkCom link="#" linkName="Store" />
                 <NavbarNavLinkCom link="#" linkName="Mac" />
-                <NavbarNavLinkCom link="#" linkName="iPad" />
-                <NavbarNavLinkCom link="#" linkName="iPhone" />
+                <NavbarNavLinkCom link="#" linkName="Pad" />
+                <NavbarNavLinkCom link="#" linkName="Phone" />
                 <NavbarNavLinkCom link="#" linkName="Watch" />
-                <NavbarNavLinkCom link="#" linkName="AirPods" />
+                <NavbarNavLinkCom link="#" linkName="Pods" />
                 <NavbarNavLinkCom link="#" linkName="Tv og hjem" />
                 <NavbarNavLinkCom link="#" linkName="Underholdning" />
                 <NavbarNavLinkCom link="#" linkName="Tilbehør" />

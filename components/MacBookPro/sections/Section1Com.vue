@@ -3,7 +3,7 @@
         <div class="mx-auto xl:max-w-screen-xl pb-4 pl-4">
             <h2 class="sectionTitle ">Imus igitur contenti his. Verum audiamus.</h2>
         </div>
-		<div class=" pl-4 lg-pl-0">
+		<div class=" -ml-4 lg:ml-0">
         	<ElementsSliderCom :sliderId="sliderName" :sliderImages="sliderImages" navTypes="section1Slider"></ElementsSliderCom>
 		</div>
 	</div>

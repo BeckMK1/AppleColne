@@ -1,7 +1,7 @@
 <template>
 	<div id="section3" class=" bg-black relative">
         <div class="pt-24 contentContainer mx-auto">
-            <h2 class="sectionTitle text-white">Partem quandam tuetur.</h2>
+            <h2 class="sectionTitle text-white pt-6">Partem quandam tuetur.</h2>
             <div>
                 <div class="mx-auto pt-32">
                     <ContentAboutChipCom></ContentAboutChipCom>
