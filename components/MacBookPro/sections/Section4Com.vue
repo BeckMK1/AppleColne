@@ -1,5 +1,5 @@
 <template>
-	<div id="section4" class=" bg-black relative">
+	<div id="section4" class=" bg-black relative overflow-hidden">
         <div class="pt-2 contentContainer mx-auto">
             <div>
                 <div class=" mx-auto py-32">

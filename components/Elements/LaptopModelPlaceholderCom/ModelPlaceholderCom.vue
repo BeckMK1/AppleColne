@@ -6,11 +6,11 @@
 			</div>
 		</div>
 		<div class=" bg-zinc-100 p-4 w-fit rounded-3xl flex items-center mx-auto gap-6 mt-12">
-				<div @click="slideArrowLeft()"><font-awesome-icon class=" text-zinc-500" icon="fa-solid fa-chevron-left" /></div>
+				<div @click="slideArrowLeft()"><font-awesome-icon class=" cursor-pointer text-zinc-500" icon="fa-solid fa-chevron-left" /></div>
 					<div class="flex gap-3 w-full">
 						<div v-for="(image, index) in images" :class="image.isActive == true ? 'bg-zinc-500' : 'bg-zinc-300'" @click="slideHolderImage(index)" class="  rounded-full p-1 w-fit h-fit cursor-pointer"></div>
 					</div>
-				<div @click="slideArrowRight()"><font-awesome-icon class=" text-zinc-500" icon="fa-solid fa-chevron-right" /></div>
+				<div @click="slideArrowRight()"><font-awesome-icon class=" cursor-pointer text-zinc-500" icon="fa-solid fa-chevron-right" /></div>
 		</div>
 	</div>
 </template>
@@ -43,35 +43,30 @@
 	}
 	function slideArrowRight(){
 		for(let [index, image] of images.value.entries()){
-			if(image.isActive == true && currentIndex.value != images.value.length){
+			if(image.isActive == true && currentIndex.value != images.value.length - 1){
 				currentIndex.value = index + 1
-			}
-			if(index == currentIndex.value){
-				if(currentIndex.value != images.value.length){
-					image.isActive = true
-					const holderImage = document.querySelector("#holderImage-" + currentIndex.value);
-					holderImage.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
-				}
-				image.isActive = true
-			}else{
-				image.isActive = false
 			}
 		}
 	}
 	function slideArrowLeft(){
 		for(let [index, image] of images.value.entries()){
-			if(image.isActive == true){
+			if(image.isActive == true && currentIndex.value > 0){
 				currentIndex.value = index - 1
 			}
-			if(index == currentIndex.value){
-					image.isActive = true
-					const holderImage = document.querySelector("#holderImage-" + currentIndex.value);
-					holderImage.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+		}
+	}
+	watch(currentIndex, async (newValue)=>{
+		for(let [index, image] of images.value.entries()){
+			if(newValue == index){
+				image.isActive = true
+				const holderImage = document.querySelector("#holderImage-" + newValue);
+				holderImage.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
 			}else{
 				image.isActive = false
 			}
 		}
-	}
+
+	})
 </script>
 <style lang="scss" scoped>
 	.laptopPlaceholder{

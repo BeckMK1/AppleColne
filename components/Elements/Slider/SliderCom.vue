@@ -21,10 +21,10 @@
 				<div @click="scrollCatagoryLeft" :class="scrolledZeroed == 'left' ? 'catEndBorderLeft' : '', scrolledZeroed == 'center' ? 'catEndBorderCenter' : '' " class="catEndBorder cursor-pointer">
 					<font-awesome-icon icon="fa-solid fa-chevron-left" />
 				</div>
-				<div class="overflow-hidden w-2/3">
+				<div class="overflow-x-hidden mx-auto catSliderContainer">
 					<div id="catagorySlider" class="flex overflow-x-hidden">
 						<div class="catagoryContainer" v-for="(sliderImage, index) in sliderImages" @click="setSlideActive(sliderImage.image, sliderImage.id)">
-							<ElementsSliderCatagoriCom :id="'catNav-' + index" @click="sliderNavsCat(index)" :name="sliderImage.name" :isActive="sliderImage.isActive"></ElementsSliderCatagoriCom>
+							<ElementsSliderCatagoriCom class=" w-fit" :id="'catNav-' + index" @click="sliderNavsCat(index)" :name="sliderImage.name" :isActive="sliderImage.isActive"></ElementsSliderCatagoriCom>
 						</div>
 					</div>
 				</div>
@@ -262,6 +262,7 @@ svg{
 }
 .catEndBorder{
 	transform: translateY(4px);
+	min-width: 19px;
 	svg{
 		height: 1rem !important;
 		margin-top: 0.5rem;
@@ -302,6 +303,10 @@ svg{
 		display: block;
 	}
 	}
+}
+.catSliderContainer{
+	max-width: 700px;
+	overflow-x: hidden;
 }
 @media (max-width:1300px) {
 }

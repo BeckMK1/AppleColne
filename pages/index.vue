@@ -41,6 +41,10 @@ watch(mainNavOpen, async (newValue) =>{
 }
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+body{
+    overflow-x: hidden;
 }
 h2{
 	font-size: 80px;
