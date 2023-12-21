@@ -13,10 +13,14 @@
 </script>
 <style lang="scss" scoped>
 	.placeholerImages{
+		height: auto;
+		width: 500px;
+		margin: 0 auto;
 		img{
 			height: auto;
 			width: 500px;
-			padding: 0 3rem;
+			margin: 0 auto;
+			object-fit: contain;
 		}
 	}
 </style>

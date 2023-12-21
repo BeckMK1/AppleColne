@@ -78,6 +78,6 @@
 	width:500px;
 	}
 	.images{
-		min-width: 100vw;
+		min-width: fit-content
 	}
 </style>

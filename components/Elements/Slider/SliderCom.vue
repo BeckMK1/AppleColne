@@ -177,10 +177,10 @@ function checkCatScrollPos(){
 	if(catagorySlider.scrollLeft != 0 && catagorySlider.scrollLeft != 705){
 		scrolledZeroed.value = 'center'
 	}
-	if(catagorySlider.scrollLeft == 705){
+	if(catagorySlider.scrollLeft >= 680){
 		scrolledZeroed.value = 'left'
 	}
-	if(catagorySlider.scrollLeft == 0){
+	if(catagorySlider.scrollLeft <= 20){
 		scrolledZeroed.value = 'right'
 	}
 }

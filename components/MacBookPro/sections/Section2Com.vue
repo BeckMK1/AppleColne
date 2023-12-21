@@ -41,7 +41,7 @@
 </template>
 <script setup>
 const isBig = ref(true)
-const isModel = ref(true)
+const isModel = ref(false)
 import { OrbitControls, FBXModel} from '@tresjs/cientos'
 function checkIsModel(){
 	const mobile = window.matchMedia('(max-width: 1300px)');

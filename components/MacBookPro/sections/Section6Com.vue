@@ -18,7 +18,7 @@
                     <ElementsAccordionCom @click="accordionOpen(accordion.name)" v-for="accordion in accordions" :name="accordion.name" class="mb-4"></ElementsAccordionCom>
                 </div>
                 <div class="md:w-1/2 w-full accordionImageContainer">
-                        <img class="accordionImage" :class="accordion.name == currentAccordion ? 'accordionImageShow': 'accordionImageHide' "  v-show="accordion.name == currentAccordion" v-for='accordion in accordions' :src="accordion.image" />
+                        <img class="accordionImage" :class="accordion.name == currentAccordion ? 'accordionImageShow': 'accordionImageHide'"  v-show="accordion.name == currentAccordion" v-for='accordion in accordions' :src="accordion.image" />
                 </div>
             </div>
                 </div>
