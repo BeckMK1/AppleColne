@@ -114,7 +114,7 @@ onMounted(()=>{
 </script>
 <style lang="scss" scoped>
 .audioImage{
-transform: translateX(-700px);
+transform: translateX(-647px);
 width: 1000px;
     @media (max-width:1300px) {
         transform: translateX(-33%);

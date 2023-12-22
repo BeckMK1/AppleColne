@@ -4,8 +4,10 @@
 			<h2 class=" text-5xl w-1/2">Censent, oportunitatis esse beate vivere.</h2>
 			<NuxtLink class="buyLink text-blue-500 text-xl">Køb Laptop ></NuxtLink>
 		</div>
-		<div class="flex p-12 gap-4 textBoxes">
-				<ElementsTextBoxSliderTextBoxCom v-for="textBox in TextBoxes" :title="textBox.title" :text="textBox.text" :icon="textBox.icon" :link="textBox.link"></ElementsTextBoxSliderTextBoxCom>
+		<div class="textBoxes">
+			<div class=" textBoxes-inner flex gap-4">
+				<ElementsTextBoxSliderTextBoxCom  v-for="textBox in TextBoxes" :title="textBox.title" :text="textBox.text" :icon="textBox.icon" :link="textBox.link"></ElementsTextBoxSliderTextBoxCom>
+			</div>
 		</div>
 		<div class=" flex gap-2 w-fit ml-auto mr-80 sliderNavBtn pt-6">
 			<button :class="isSlideLeft == false ? 'btnActive' : ''" @click="slideLeft"><font-awesome-icon icon="fa-solid fa-chevron-left" /></button>
@@ -44,24 +46,36 @@ const isSlideLeft = ref(false)
 function slideLeft(){
 	if(isSlideLeft.value == true){
 		const textBoxContainer = document.querySelector(".textBoxes");
-		textBoxContainer.style.transform = `translateX(0px)`
+		textBoxContainer.scrollTo({  
+			left: 0,
+			behavior: "smooth",});
 		isSlideLeft.value = false
 	}
 }
 function slideRight(){
 	if(isSlideLeft.value == false){
 		const textBoxContainer = document.querySelector(".textBoxes");
-		const textBoxWidth = document.querySelector('.slideTextBoxes').offsetWidth - 86;
-		textBoxContainer.style.transform = `translateX(-${textBoxWidth}px)`
+		textBoxContainer.scrollTo({  
+			left: 300,
+			behavior: "smooth",});
 		isSlideLeft.value = true
 	}
 }
 </script>
 <style lang="scss" scoped>
 	.textBoxes{
-		width: calc(100vw - 250px);
-		margin-left: 265px;
+		overflow-x: scroll;
+		scrollbar-width:none;
 		transition: 250ms ease-in;
+		scroll-snap-type: x mandatory;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		&-inner{
+			width: fit-content;
+			padding-left:calc(max(45px, (100% - (1280px)) / 2));
+			padding-right:calc(max(45px, (100% - (1280px)) / 2));
+		}
 	}
 	.sliderNavBtn{
 		button{
@@ -72,5 +86,15 @@ function slideRight(){
 				opacity: 50%;
 			}
 		}
+	}
+	@media (max-width:1300px) {
+		.textBoxes{
+			&-inner{
+			padding-top: 1rem;
+			width: fit-content;
+			padding-left:1rem;
+			padding-right:1rem;
+		}
+	}
 	}
 </style>

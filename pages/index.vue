@@ -137,6 +137,11 @@ opacity: 0.8;
 .v-leave-active{
     transition: opacity 250ms ease-out;
 }
+.mobileScrollBtns{
+	.scrollBtn{
+		padding: 0.5rem 1rem;
+	}
+}
 @media (max-width:768px){
     h2{
         font-size: 3rem;

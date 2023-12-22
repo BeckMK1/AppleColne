@@ -3,9 +3,9 @@
 		<div class="contentMid">
 			<div class="contentMid-inner">
 				<h2 class="">Confusioque virtutum tamen</h2>
-				<p class="mainText pt-12  ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus est exemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludus esset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
-				<div class="chipsContainer  flex flex-col md:flex-row gap-8 justify-between w-full pt-12">
-					<div class="chip flex md:flex-col md:items-start flex-row items-center gap-8">
+				<p class="mainText pt-12 ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus est exemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludus esset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
+				<div class="chipsContainer flex gap-8 justify-between w-full pt-12">
+					<div id="firstChip" class="chip flex flex-col items-start gap-8">
 						<div>
 							<img src="/Images/chips/chip1.png"/>
 						</div>
@@ -13,7 +13,7 @@
 						<p>X-core GPU</p>
 						<p>Up til x GB sammlet RAM</p>
 					</div>
-					<div class="chip flex md:flex-col flex-row md:items-start  items-center gap-8">
+					<div class="chip flex flex-col items-start gap-8">
 						<div>
 							<img src="/Images/chips/Chip2.png" />
 						</div>
@@ -21,13 +21,21 @@
 						<p>X-core GPU</p>
 						<p>Up til x GB sammlet RAM</p>
 					</div>
-					<div class="chip flex md:flex-col flex-row md:items-start items-center gap-8">
+					<div id="lastChip" class="chip flex flex-col items-start gap-8">
 						<div>
 							<img src="/Images/chips/Chip3.png" />
 						</div>
 						<p>X-core CPU</p>
 						<p>X-core GPU</p>
 						<p>Up til x GB sammlet RAM</p>
+					</div>
+				</div>
+				<div class="mobileScrollBtns flex gap-4 w-fit ml-auto mt-4">
+					<div @click="scrollLeftChips()" class="scrollLeft scrollBtn bg-zinc-500 rounded-full cursor-pointer">
+						<font-awesome-icon icon="fa-solid fa-chevron-left" />
+					</div>
+					<div @click="scrollRightChips()" class="scrollRight scrollBtn  bg-zinc-500 rounded-full cursor-pointer">
+						<font-awesome-icon icon="fa-solid fa-chevron-right" />
 					</div>
 				</div>
 				<h2 class="sectionTitle text-white pt-48">Uo modo autem philosophus loquitur.</h2>
@@ -103,6 +111,14 @@
 		observer.observe(textSection);
 		}
 	}
+	function scrollRightChips(){
+		const lastChip = document.getElementById('lastChip');
+		lastChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' })
+	}
+	function scrollLeftChips(){
+		const lastChip = document.getElementById('firstChip');
+		lastChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' })
+	}
 	onMounted(()=>{
 		setTextObserver()
 	})
@@ -119,7 +135,12 @@
 		color: hsla(0, 0%, 100%, 1);
 	}
 }
+.chipsContainer{
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
 .chip{
+	min-width: 191px;
 	font-size: 21px;
 	font-weight: 600;
 	&:nth-child(1){

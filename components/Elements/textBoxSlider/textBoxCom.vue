@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-white p-8 rounded-3xl slideTextBoxes">
+	<div :id="boxId" class="bg-white p-8 rounded-3xl slideTextBoxes">
 		<div>
 			<font-awesome-icon :icon="icon" />
 			<h3>{{ title }}</h3>
@@ -25,10 +25,18 @@ const props = defineProps({
 	link:{
 		default:'',
 		type:String
+	},
+	boxId:{
+		default:'',
+		type:String
 	}
 })
 </script>
 <style lang="scss" scoped>
+	.slideTextBoxes{
+		min-width: 372px;
+		scroll-snap-align: center;
+	}
 	h3{
 		font-size: 24px;
 		font-weight: 500;

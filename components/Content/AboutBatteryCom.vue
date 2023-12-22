@@ -39,12 +39,12 @@
 		<div class="contentBig -ml-4 lg:ml-0">
 			<ElementsSliderCom class="mb-24" :sliderLeft="false" :sliderId="sliderName" :sliderImages="sliderImages" navTypes="section4Slider"></ElementsSliderCom>
 		</div>
-		<div class=" bg-[#1D1D1F] w-full rounded-2xl">
+		<div class=" bg-[#1D1D1F] overflow-hidden rounded-2xl">
 			<div class="contentMid py-16">
 				<div class="contentMid-inner">
 					<h3 class=" w-fit laptopModelTitle">Qui permulcet sensum</h3>
-					<div class=" flex md:flex-row flex-col justify-between laptopModel">
-						<div class="model md:block flex mb:pb-0 pb-12 flex-col items-center">
+					<div class=" flex flex-row gap-4 justify-between laptopModel">
+						<div id="modelFrist" class="model md:block flex mb:pb-0 pb-12 flex-col items-center">
 							<h4>14" Laptop</h4>
 							<p>X3-chip</p>
 							<hr class=" border-zinc-500 w-full">
@@ -75,7 +75,7 @@
 							<p class="mainText mb-12">Sironem dicis et Philodemum</p>
 							<p class="mainText">Id esse laudabile</p>
 						</div>
-						<div class="model md:block flex mb:pb-0 pb-12 flex-col items-center">
+						<div id="modelLast" class="model md:block flex mb:pb-0 pb-12 pr-4 flex-col items-center">
 							<h4>16" Laptop</h4>
 							<p>X3-chip eller X3 Max-chip</p>
 							<hr class=" border-zinc-500 w-full">
@@ -93,6 +93,14 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div class="mobileScrollBtns flex gap-4 w-fit ml-auto mt-4">
+			<div @click="modelsScrollLeft" class="scrollLeft scrollBtn bg-zinc-500 rounded-full cursor-pointer">
+				<font-awesome-icon icon="fa-solid fa-chevron-left" />
+			</div>
+			<div @click="modelsScrollRight" class="scrollRight scrollBtn  bg-zinc-500 rounded-full cursor-pointer">
+				<font-awesome-icon icon="fa-solid fa-chevron-right" />
 			</div>
 		</div>
 	</div>
@@ -137,6 +145,14 @@ const sliderImages = ref([
 },
 ])
 const sliderName = ref("batterySlider")
+function modelsScrollLeft(){
+	const fristModel = document.getElementById('modelFrist')
+	fristModel.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' })
+}
+function modelsScrollRight(){
+	const fristModel = document.getElementById('modelLast')
+	fristModel.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' })
+}
 </script>
 <style lang="scss" scoped>
 .mainText{
