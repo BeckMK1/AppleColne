@@ -39,69 +39,71 @@
 		<div class="contentBig -ml-4 lg:ml-0">
 			<ElementsSliderCom class="mb-24" :sliderLeft="false" :sliderId="sliderName" :sliderImages="sliderImages" navTypes="section4Slider"></ElementsSliderCom>
 		</div>
-		<div class=" bg-[#1D1D1F] overflow-hidden rounded-2xl">
-			<div class="contentMid py-16">
+		<div class="lapTopModelsContainer -mx-7 md:mx-0 bg-[#1D1D1F] overflow-hidden rounded-2xl">
+			<div class="contentMid">
 				<div class="contentMid-inner">
-					<h3 class=" w-fit laptopModelTitle">Qui permulcet sensum</h3>
-					<div class=" flex flex-row gap-4 justify-between laptopModel">
-						<div id="modelFrist" class="model md:block flex mb:pb-0 pb-12 flex-col items-center">
-							<h4>14" Laptop</h4>
-							<p>X3-chip</p>
-							<hr class=" border-zinc-500 w-full">
-							<img src="/Images/LaptopBlackAndWhite.png" alt=""/>
-							<div class="flex justify-between mt-1 mb-12 modelColor">
-								<p class=" text-sm">Black</p>
-								<p class=" text-sm">Sølv</p>
+					<h3 class=" w-fit laptopModelTitle p-11">Qui permulcet sensum</h3>
+					<div class="laptopModel overflow-x-scroll">
+						<div class="laptopModel-inner flex flex-row gap-8 ">
+							<div id="modelFrist" class="model md:block flex mb:pb-0 pb-12 flex-col">
+								<h4>14" Laptop</h4>
+								<p>X3-chip</p>
+								<hr class=" border-zinc-500 w-full">
+								<img src="/Images/LaptopBlackAndWhite.png" alt=""/>
+								<div class="flex justify-between mt-1 mb-12 modelColor">
+									<p class=" text-sm">Black</p>
+									<p class=" text-sm">Sølv</p>
+								</div>
+								<div class="logoContainer flex gap-3 mb-12">
+									<img src="/Images/x3Logo.png" alt=""/>
+								</div>
+								<p class="mainText mb-12">Sironem dicis et Philodemum</p>
+								<p class="mainText">Id esse laudabile</p>
 							</div>
-							<div class="logoContainer flex gap-3 mb-12">
-								<img src="/Images/x3Logo.png" alt=""/>
+							<div class="model md:block flex mb:pb-0 pb-12 flex-col">
+								<h4>14" Laptop</h4>
+								<p>X3-chip eller X3 Max-chip</p>
+								<hr class=" border-zinc-500 w-full">
+								<img class="" src="/Images/laptopDarkGrayAndBlack.png" alt=""/>
+								<div class="flex justify-between mt-1 mb-12 modelColor">
+									<p class=" text-sm">Black</p>
+									<p class=" text-sm">Grey</p>
+								</div>
+								<div class="logoContainer flex gap-3 mb-12">
+									<img src="/Images/x3MaxLogo.png" alt=""/>
+									<img src="/Images/x3ProLogo.png" alt=""/>
+								</div>
+								<p class="mainText mb-12">Sironem dicis et Philodemum</p>
+								<p class="mainText">Id esse laudabile</p>
 							</div>
-							<p class="mainText mb-12">Sironem dicis et Philodemum</p>
-							<p class="mainText">Id esse laudabile</p>
-						</div>
-						<div class="model md:block flex mb:pb-0 pb-12 flex-col items-center">
-							<h4>14" Laptop</h4>
-							<p>X3-chip eller X3 Max-chip</p>
-							<hr class=" border-zinc-500 w-full">
-							<img class="" src="/Images/laptopDarkGrayAndBlack.png" alt=""/>
-							<div class="flex justify-between mt-1 mb-12 modelColor">
-								<p class=" text-sm">Black</p>
-								<p class=" text-sm">Grey</p>
+							<div id="modelLast" class="model md:block flex mb:pb-0 pb-12 pr-4 flex-col">
+								<h4>16" Laptop</h4>
+								<p>X3-chip eller X3 Max-chip</p>
+								<hr class=" border-zinc-500 w-full">
+								<img src="/Images/laptopDarkGrayAndBlack.png" />
+								<div class="flex justify-between mt-1 mb-12 modelColor">
+									<p class=" text-sm">Black</p>
+									<p class=" text-sm">Grey</p>
+								</div>
+								<div class="logoContainer flex gap-3 mb-12">
+									<img src="/Images/x3MaxLogo.png" />
+									<img src="/Images/x3ProLogo.png" />
+								</div>
+								<p class="mainText mb-12">Sironem dicis et Philodemum</p>
+								<p class="mainText">Id esse laudabile</p>
 							</div>
-							<div class="logoContainer flex gap-3 mb-12">
-								<img src="/Images/x3MaxLogo.png" alt=""/>
-								<img src="/Images/x3ProLogo.png" alt=""/>
-							</div>
-							<p class="mainText mb-12">Sironem dicis et Philodemum</p>
-							<p class="mainText">Id esse laudabile</p>
-						</div>
-						<div id="modelLast" class="model md:block flex mb:pb-0 pb-12 pr-4 flex-col items-center">
-							<h4>16" Laptop</h4>
-							<p>X3-chip eller X3 Max-chip</p>
-							<hr class=" border-zinc-500 w-full">
-							<img src="/Images/laptopDarkGrayAndBlack.png" />
-							<div class="flex justify-between mt-1 mb-12 modelColor">
-								<p class=" text-sm">Black</p>
-								<p class=" text-sm">Grey</p>
-							</div>
-							<div class="logoContainer flex gap-3 mb-12">
-								<img src="/Images/x3MaxLogo.png" />
-								<img src="/Images/x3ProLogo.png" />
-							</div>
-							<p class="mainText mb-12">Sironem dicis et Philodemum</p>
-							<p class="mainText">Id esse laudabile</p>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="mobileScrollBtns flex gap-4 w-fit ml-auto mt-4">
-			<div @click="modelsScrollLeft" class="scrollLeft scrollBtn bg-zinc-500 rounded-full cursor-pointer">
+			<div class="mobileScrollBtns md:hidden flex gap-4 w-fit float-right mr-24 mt-4 mb-4">
+			<div @click="slideLeft()" class="scrollLeft scrollBtn bg-zinc-700 rounded-full cursor-pointer">
 				<font-awesome-icon icon="fa-solid fa-chevron-left" />
 			</div>
-			<div @click="modelsScrollRight" class="scrollRight scrollBtn  bg-zinc-500 rounded-full cursor-pointer">
+			<div @click="slideRight()" class="scrollRight scrollBtn  bg-zinc-700 rounded-full cursor-pointer">
 				<font-awesome-icon icon="fa-solid fa-chevron-right" />
 			</div>
+		</div>
 		</div>
 	</div>
 </template>
@@ -145,14 +147,20 @@ const sliderImages = ref([
 },
 ])
 const sliderName = ref("batterySlider")
-function modelsScrollLeft(){
-	const fristModel = document.getElementById('modelFrist')
-	fristModel.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' })
+function slideLeft(){
+	const textBoxContainer = document.querySelector(".laptopModel");
+	textBoxContainer.scrollTo({
+	left: 0,
+	behavior: "smooth",});
 }
-function modelsScrollRight(){
-	const fristModel = document.getElementById('modelLast')
-	fristModel.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' })
+
+function slideRight(){
+	const textBoxContainer = document.querySelector(".laptopModel");
+	textBoxContainer.scrollTo({
+	left: 300,
+	behavior: "smooth",});
 }
+
 </script>
 <style lang="scss" scoped>
 .mainText{
@@ -170,12 +178,24 @@ function modelsScrollRight(){
     width: 40%;
 }
 .laptopModelTitle{
-		font-size: 52px;
+		font-size:clamp(25px, 5vw, 52px);
 		font-weight: 500;
 }
 .laptopModel{
+	overflow-x: scroll;
+	scrollbar-width:none;
+	transition: 250ms ease-in;
+	scroll-snap-type: x mandatory;
+	&::-webkit-scrollbar {
+	display: none;
+	}
+	&-inner{
+	width: fit-content;
+	padding-left:calc(max(45px, (100% - (1280px)) / 2));
+	padding-right:calc(max(45px, (100% - (1280px)) / 2));
+	}
 	.model{
-		width: 225px;
+		width:max(252px, 33%);
 		@media (max-width:768px) {
 			width: 100%;
 		}

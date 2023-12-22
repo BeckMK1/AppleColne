@@ -30,7 +30,7 @@
 						<p>Up til x GB sammlet RAM</p>
 					</div>
 				</div>
-				<div class="mobileScrollBtns flex gap-4 w-fit ml-auto mt-4">
+				<div class="mobileScrollBtns sm:hidden flex gap-4 w-fit ml-auto mt-4">
 					<div @click="scrollLeftChips()" class="scrollLeft scrollBtn bg-zinc-500 rounded-full cursor-pointer">
 						<font-awesome-icon icon="fa-solid fa-chevron-left" />
 					</div>

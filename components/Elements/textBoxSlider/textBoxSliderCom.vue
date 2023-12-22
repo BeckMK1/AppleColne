@@ -42,23 +42,27 @@ const TextBoxes = ref([
 		link:'#'
 	},
 ])
+const maxScroll = ref(0)
 const isSlideLeft = ref(false)
 function slideLeft(){
 	if(isSlideLeft.value == true){
 		const textBoxContainer = document.querySelector(".textBoxes");
-		textBoxContainer.scrollTo({  
-			left: 0,
-			behavior: "smooth",});
-		isSlideLeft.value = false
+		const textBoxWidth = document.querySelector(".slideTextBoxes").scrollWidth;
+		textBoxContainer.scrollLeft -= textBoxWidth;
+		maxScroll.value = textBoxContainer.offsetWidth / textBoxWidth
 	}
 }
 function slideRight(){
 	if(isSlideLeft.value == false){
 		const textBoxContainer = document.querySelector(".textBoxes");
-		textBoxContainer.scrollTo({  
-			left: 300,
-			behavior: "smooth",});
-		isSlideLeft.value = true
+		const textBoxWidth = document.querySelector(".slideTextBoxes").scrollWidth;
+		textBoxContainer.scrollLeft += textBoxWidth;
+		maxScroll.value = textBoxContainer.scrollWidth / textBoxWidth;
+		const allElement = textBoxWidth * maxScroll.value
+		console.log(textBoxContainer.scrollWidth == allElement)
+		if(textBoxContainer.scrollWidth == allElement){
+			isSlideLeft.value = true
+		}
 	}
 }
 </script>
@@ -68,6 +72,7 @@ function slideRight(){
 		scrollbar-width:none;
 		transition: 250ms ease-in;
 		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
 		&::-webkit-scrollbar {
 			display: none;
 		}
