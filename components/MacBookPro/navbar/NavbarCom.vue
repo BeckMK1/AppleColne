@@ -4,7 +4,7 @@
             <div class="w-1/3 pl-4">
                 <MacBookProNavbarLinkCom :title="true" class="font-bold" link="#topNav" linkName="Laptop Pro" />
             </div>
-            <div :class="isMobile == true ? 'mobileMenu' : '', isMobileNav == true ? 'menuOpen' : 'menuClose'" class="flex flex-col justify-center lg:justify-between lg:flex-row lg:gap-12 gap-1 pr-4">
+            <div :class="isMobile == true ? 'mobileMenu' : '', isMobileNav == true ? 'menuOpen border-b border-zinc-600 border-solid' : 'menuClose'" class="flex flex-col justify-center  lg:justify-between lg:flex-row lg:gap-12 gap-1 pr-4">
                 <MacBookProNavbarLinkCom link="#" linkName="Oversigt" />
                 <MacBookProNavbarLinkCom link="#" linkName="Tekniske Specifikationer" />
                 <MacBookProNavbarLinkCom link="#" linkName="Sammenlign" />
@@ -12,13 +12,14 @@
                 <MacBookProNavbarLinkCom class="md:flex items-center bg-blue-600 px-3 py-1 rounded-2xl text-white mr-4 hidden" link="#" linkName="Køb" />
             </div>
             <div class="flex gap-4 items-center lg:hidden">
-                <font-awesome-icon v-if="isMobile == true" @click="isMobileNav = !isMobileNav" :class="isMobileNav == true ? 'arrowOpen' : 'arrowClose'" class="mobileMenuArrow" icon="fa-solid fa-chevron-down" />
+                <font-awesome-icon v-if="isMobile == true" @click="isMobileNav = !isMobileNav, store.subNavOn()" :class="isMobileNav == true ? 'arrowOpen' : 'arrowClose'" class="mobileMenuArrow" icon="fa-solid fa-chevron-down" />
                 <MacBookProNavbarLinkCom class="flex items-center bg-blue-600 px-3 py-1 rounded-2xl text-white mr-4" link="#" linkName="Køb" />
             </div>
         </div>
     </div>
 </template>
 <script setup>
+const store = useStore()
 const navWhiteText = ref(false)
 const isMobileNav = ref(false)
 const isMobile = ref(false)
@@ -104,7 +105,7 @@ const isMobile = ref(false)
         .mobileMenu{
             background-color: rgba(251,251,253,0.1);
             div{
-                border-color:rgba(255,  255, 255, 0.5);
+                border-color: white;
                 a{
                     color: white;
                 }

@@ -15,7 +15,7 @@
                 <NavbarNavLinkCom link="#" linkName="Support" />
             </div>
             <div class="flex gap-12">
-            <font-awesome-icon v-if="isMobile == true" @click="isMobileNav = !isMobileNav, store.mainNavOn()" :class="isMobileNav == true ? 'arrowOpen' : 'arrowClose'" class="mobileMenuArrow" icon="fa-solid fa-chevron-down" />
+            <font-awesome-icon v-if="isMobile == true" @click="isMobileNav = !isMobileNav, store.mainNavOn()" :class="isMobileNav == true ? 'arrowOpen' : 'arrowClose'" class="mobileMenuArrow cursor-pointer" icon="fa-solid fa-chevron-down" />
             <NavbarNavLinkCom :isIcon="true" link="#" icon="fa-solid fa-magnifying-glass" />
             <NavbarNavLinkCom :isIcon="true" link="#" icon="fa-solid fa-bag-shopping" />
             </div>

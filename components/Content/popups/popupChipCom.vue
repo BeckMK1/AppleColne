@@ -29,16 +29,11 @@
 				</div>
 			</div>
 			<div class="colorContainer py-8 mb-52">
-				<div class="containerInner mx-auto ">
+				<div class="containerInner mx-auto relative">
 					<h2 class="sectionTitle ovserveContent">X3 onsectetur adipiscing elit. An potest cupiditas finiri.</h2>
 					<p class="text-3xl">Lorem ipsum / dolor sit / amet consectetur / adipiscing elit / Simus igitur contenti</p>
 					<p class="text-3xl mt-6 mb-3 heighlight">Nunc omni virtuti vitium contrario nomine opponitur.</p>
-					<div class="mb-3 ovserveContent observerOp bars1">
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x3" NumberTextColor="numberColorPurple" barNumber="17.4x" :barMax="100" barColor="barPurple" :isObserved="countBarObserved1"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x2" NumberTextColor="numberColorBlue" barNumber="14.4x" :barMax="80" barColor="barBlue" :isObserved="countBarObserved1"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x1" :barMax="66" barColor="barGray" :isObserved="countBarObserved1"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit Intel x7" :barMax="5" barColor="barDarkGray" :isObserved="countBarObserved1"></ElementsCountUpBarCom>
-					</div>
+					<ElementsCountBarsContainerCom :containerName="'firstContainer'" :bars16="firstBars" :barsIs16="true"></ElementsCountBarsContainerCom>
 				</div>
 			</div>
 			<div class="ovserveContent containerInner mx-auto">
@@ -68,25 +63,14 @@
 			<div class="colorContainer py-8 mb-52">
 				<div class="containerInner mx-auto">
 					<h2 class="sectionTitle ovserveContent">X3 Pro onsectetur adipiscing elit. An potest cupiditas finiri.</h2>
-					<div class="SelectModel bg-zinc-500 p-3 relative flex w-fit gap-6 my-16">
-						<div class="selector bg-white absolute" :class="isModel16 == true ? 'model16':'model14'"></div>
-						<div @click="isModel16 = false, resetBar()" :class="isModel16 == true ? 'model14Text' : ''" class=" relative z-10 model cursor-pointer"><p class=" select-none">Model på 14"</p></div>
-						<div @click="isModel16 = true, resetBar()" :class="isModel16 == false ? 'model16Text' : ''" class=" relative z-10 model cursor-pointer"><p class=" select-none">Model på 16"</p></div>
+					<div class="SelectModel bg-zinc-700 p-3 relative flex w-fit gap-6 my-16">
+						<div class="selector bg-white absolute" :class="isModelfirst16 == true ? 'model16':'model14'"></div>
+						<div @click="isModelfirst16 = false, resetBar()" :class="isModelfirst16 == true ? 'model14Text' : ''" class=" relative z-10 model cursor-pointer"><p class=" select-none">Model på 14"</p></div>
+						<div @click="isModelfirst16 = true, resetBar()" :class="isModelfirst16 == false ? 'model16Text' : ''" class=" relative z-10 model cursor-pointer"><p class=" select-none">Model på 16"</p></div>
 					</div>
 					<p class="text-3xl">Lorem ipsum / dolor sit / amet consectetur / adipiscing elit / Simus igitur contenti</p>
 					<p class="text-3xl mt-6 mb-3 heighlight">Nunc omni virtuti vitium contrario nomine opponitur.</p>
-					<div class="mb-3 ovserveContent observerOp bars2" v-if="isModel16 == true">
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x3" NumberTextColor="numberColorPurple" barNumber="2,8x" :barMax="100" barColor="barPurple" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x2" NumberTextColor="numberColorBlue" barNumber="1,5x" :barMax="50" barColor="barBlue" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x1" :barMax="40" barColor="barGray" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit Intel x7" :barMax="35" barColor="barDarkGray" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-					</div>
-					<div class="mb-3 ovserveContent observerOp bars2" v-if="isModel16 == false">
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x3" NumberTextColor="numberColorPurple" barNumber="24,7x" :barMax="100" barColor="barPurple" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x2" NumberTextColor="numberColorBlue" barNumber="13,1x" :barMax="50" barColor="barBlue" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x1" :barMax="40" barColor="barGray" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit Intel x7" :barMax="35" barColor="barDarkGray" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-					</div>
+					<ElementsCountBarsContainerCom :containerName="'secoundContainer'" :bars14="secound14Bars" :bars16="secound16Bars" :barsIs16="isModelfirst16"></ElementsCountBarsContainerCom>
 				</div>
 			</div>
 			<div class="ovserveContent containerInner mx-auto">
@@ -120,33 +104,112 @@
 				<div class="containerInner mx-auto">
 					<h2 class="sectionTitle ovserveContent">X3 Pro onsectetur adipiscing elit. An potest cupiditas finiri.</h2>
 					<div class="SelectModel bg-zinc-500 p-3 relative flex w-fit gap-6 my-16">
-						<div class="selector bg-white absolute" :class="isModel16 == true ? 'model16':'model14'"></div>
-						<div @click="isModel16 = false, resetBar()" :class="isModel16 == true ? 'model14Text' : ''" class=" relative z-10 model cursor-pointer"><p class=" select-none">Model på 14"</p></div>
-						<div @click="isModel16 = true, resetBar()" :class="isModel16 == false ? 'model16Text' : ''" class=" relative z-10 model cursor-pointer"><p class=" select-none">Model på 16"</p></div>
+						<div class="selector bg-white absolute" :class="isModelSecound16 == true ? 'model16':'model14'"></div>
+						<div @click="isModelSecound16 = false, resetBar()" :class="isModelSecound16 == true ? 'model14Text' : ''" class=" relative z-10 model cursor-pointer"><p class=" select-none">Model på 14"</p></div>
+						<div @click="isModelSecound16 = true, resetBar()" :class="isModelSecound16 == false ? 'model16Text' : ''" class=" relative z-10 model cursor-pointer"><p class=" select-none">Model på 16"</p></div>
 					</div>
 					<p class="text-3xl">Lorem ipsum / dolor sit / amet consectetur / adipiscing elit / Simus igitur contenti</p>
 					<p class="text-3xl mt-6 mb-3 heighlight">Nunc omni virtuti vitium contrario nomine opponitur.</p>
-					<div class="mb-3 ovserveContent observerOp bars2" v-if="isModel16 == true">
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x3" NumberTextColor="numberColorPurple" barNumber="5,3x" :barMax="100" barColor="barPurple" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x2" NumberTextColor="numberColorBlue" barNumber="2,7x" :barMax="50" barColor="barBlue" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x1" :barMax="40" barColor="barGray" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit Intel x7" :barMax="35" barColor="barDarkGray" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-					</div>
-					<div class="mb-3 ovserveContent observerOp bars2" v-if="isModel16 == false">
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x3" NumberTextColor="numberColorPurple" barNumber="49,1x" :barMax="100" barColor="barPurple" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x2" NumberTextColor="numberColorBlue" barNumber="23,8x" :barMax="50" barColor="barBlue" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit x1" :barMax="40" barColor="barGray" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-						<ElementsCountUpBarCom text="Consectetur adipiscing elit Intel x7" :barMax="35" barColor="barDarkGray" :isObserved="countBarObserved2"></ElementsCountUpBarCom>
-					</div>
+					<ElementsCountBarsContainerCom :containerName="'thirdContainer'" :bars14="secound14Bars" :bars16="secound16Bars" :barsIs16="isModelSecound16"></ElementsCountBarsContainerCom>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
 <script setup>
-const isModel16 = ref(true)
-const countBarObserved1 = ref(false)
-const countBarObserved2 = ref(false)
+const isModelfirst16 = ref(false)
+const isModelSecound16 = ref(false)
+
+const firstBars = ref([
+	{
+	text:'14" Laptop Pro med X3',
+	barNumber:'17,7x',
+	barMax:100,
+	barColor:'barPurple',
+	NumberTextColor:'text-violet-800 '
+	},
+	{
+	text:'13" Laptop Pro med X2',
+	barNumber:'14,9x',
+	barMax:80,
+	barColor:'barBlue',
+	NumberTextColor:'text-indigo-800'
+	},
+	{
+	text:'13" Laptop Pro med X1',
+	barNumber:'',
+	barMax:66,
+	barColor:'barGray',
+	NumberTextColor:'text-indigo-800'
+	},
+	{
+	text:'13" Laptop Pro med i7',
+	barNumber:'',
+	barMax:5,
+	barColor:'bg-neutral-500',
+	NumberTextColor:'bg-neutral-600'
+	},
+])
+const secound16Bars = ref([
+	{
+	text:'16" Laptop Pro med X3',
+	barNumber:'5,3x',
+	barMax:100,
+	barColor:'barPurple',
+	NumberTextColor:'text-violet-800 '
+	},
+	{
+	text:'16" Laptop Pro med X2',
+	barNumber:'2.7x',
+	barMax:60,
+	barColor:'barBlue',
+	NumberTextColor:'text-indigo-800'
+	},
+	{
+	text:'16" Laptop Pro med X1',
+	barNumber:'',
+	barMax:50,
+	barColor:'barGray',
+	NumberTextColor:'text-indigo-800'
+	},
+	{
+	text:'16" Laptop Pro med i7',
+	barNumber:'',
+	barMax:10,
+	barColor:'bg-neutral-500',
+	NumberTextColor:'bg-neutral-600'
+	},
+])
+const secound14Bars = ref([
+	{
+	text:'14" Laptop Pro med X3',
+	barNumber:'17,7x',
+	barMax:100,
+	barColor:'barPurple',
+	NumberTextColor:'text-violet-800 '
+	},
+	{
+	text:'13" Laptop Pro med X2',
+	barNumber:'14,9x',
+	barMax:80,
+	barColor:'barBlue',
+	NumberTextColor:'text-indigo-800'
+	},
+	{
+	text:'13" Laptop Pro med X1',
+	barNumber:'',
+	barMax:66,
+	barColor:'barGray',
+	NumberTextColor:'text-indigo-800'
+	},
+	{
+	text:'13" Laptop Pro med i7',
+	barNumber:'',
+	barMax:5,
+	barColor:'bg-neutral-500',
+	NumberTextColor:'bg-neutral-600'
+	},
+])
 	function setCountObserver(){
 		const textSections = document.querySelectorAll(".ovserveContent");
 		let options = {
@@ -255,6 +318,7 @@ const countBarObserved2 = ref(false)
 .model p{
 	color:black;
 	font-weight: 500;
+	transition: 550ms;
 }
 .model16Text p{
 	color:white;

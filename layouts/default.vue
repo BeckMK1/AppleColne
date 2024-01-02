@@ -3,6 +3,9 @@
     <NavbarCom></NavbarCom>
     <MacBookProNavbarCom v-if="isSrolled == true, isPopup == false" class="navbarDefault" :class="navbarAnimate == true ? 'navbarDown' : 'navbarUp'"></MacBookProNavbarCom>
     <div>
+        <Transition name="fade">
+            <div v-if="subNavOpen == true" class="h-screen w-screen fixed top-0 z-10 subNavBg"></div>
+        </Transition>
         <slot />
     </div>
     </div>
@@ -11,6 +14,7 @@
     import { useStore } from '/stores/store'
     const store = useStore()
     const isPopup = computed(()=>store.popupOpen)
+    const subNavOpen = computed(()=>store.isSubMobileNav)
     const isSrolled = ref(false)
     const navbarAnimate = ref (false)
     function CheckScroll(){
@@ -62,5 +66,16 @@
     to{
         transform: translateY(0);
     }
+}
+.subNavBg{
+    background-color: hsla(0, 0%, 100%, 5%);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
 </style>

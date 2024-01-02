@@ -10,8 +10,8 @@
 			</div>
 		</div>
 		<div class=" flex gap-2 w-fit ml-auto mr-80 sliderNavBtn pt-6">
-			<button :class="isSlideLeft == false ? 'btnActive' : ''" @click="slideLeft"><font-awesome-icon icon="fa-solid fa-chevron-left" /></button>
-			<button :class="isSlideLeft == true ? 'btnActive' : ''" @click="slideRight"><font-awesome-icon icon="fa-solid fa-chevron-right" /></button>
+			<button :class="isSlideLeft == 'right' ? 'btnActive' : '', isSlideLeft == 'center' ? 'btnActive' : ''" @click="slideLeft"><font-awesome-icon icon="fa-solid fa-chevron-left" /></button>
+			<button :class="isSlideLeft == 'left' ? 'btnActive' : '', isSlideLeft == 'center' ? 'btnActive' : ''" @click="slideRight"><font-awesome-icon icon="fa-solid fa-chevron-right" /></button>
 		</div>
 	</div>
 </template>
@@ -43,25 +43,39 @@ const TextBoxes = ref([
 	},
 ])
 const maxScroll = ref(0)
-const isSlideLeft = ref(false)
+const isSlideLeft = ref('right')
+const currentScrollPos = ref(0)
 function slideLeft(){
-	if(isSlideLeft.value == true){
+	if(isSlideLeft.value == 'left' || isSlideLeft.value == 'center' ){
 		const textBoxContainer = document.querySelector(".textBoxes");
 		const textBoxWidth = document.querySelector(".slideTextBoxes").scrollWidth;
 		textBoxContainer.scrollLeft -= textBoxWidth;
-		maxScroll.value = textBoxContainer.offsetWidth / textBoxWidth
+		maxScroll.value = Math.round(textBoxContainer.scrollWidth / textBoxWidth) - 1;
+		const elementOnScreen = textBoxContainer.offsetWidth / textBoxWidth;
+		currentScrollPos.value -= Math.round(elementOnScreen)
+		if(currentScrollPos.value != maxScroll.value){
+			isSlideLeft.value = 'center'
+		}
+		if(currentScrollPos.value == 0){
+			isSlideLeft.value = 'right'
+			currentScrollPos.value == 0
+		}
 	}
 }
 function slideRight(){
-	if(isSlideLeft.value == false){
+	if(isSlideLeft.value == 'right' || isSlideLeft.value == 'center'){
 		const textBoxContainer = document.querySelector(".textBoxes");
 		const textBoxWidth = document.querySelector(".slideTextBoxes").scrollWidth;
 		textBoxContainer.scrollLeft += textBoxWidth;
-		maxScroll.value = textBoxContainer.scrollWidth / textBoxWidth;
-		const allElement = textBoxWidth * maxScroll.value
-		console.log(textBoxContainer.scrollWidth == allElement)
-		if(textBoxContainer.scrollWidth == allElement){
-			isSlideLeft.value = true
+		maxScroll.value = Math.round(textBoxContainer.scrollWidth / textBoxWidth) - 1;
+		const elementOnScreen = textBoxContainer.offsetWidth / textBoxWidth;
+		currentScrollPos.value += Math.round(elementOnScreen)
+		if(currentScrollPos.value == maxScroll.value){
+			isSlideLeft.value = 'left'
+			currentScrollPos.value = maxScroll.value
+		}
+		if(currentScrollPos.value != maxScroll.value){
+			isSlideLeft.value = 'center'
 		}
 	}
 }

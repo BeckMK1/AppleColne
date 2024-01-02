@@ -15,10 +15,10 @@
                 <div class="accordionBox bg-zinc-200 p-16 rounded-3xl">
                 <div class="flex md:flex-row flex-col justify-between">
                 <div class="accordionWrapper md:w-1/3 w-full">
-                    <ElementsAccordionCom @click="accordionOpen(accordion.name)" v-for="accordion in accordions" :name="accordion.name" class="mb-4"></ElementsAccordionCom>
+                    <ElementsAccordionCom @click="accordionOpen(accordion.name)" v-for="accordion in accordions" :image="accordion.image" :name="accordion.name" class="mb-4"></ElementsAccordionCom>
                 </div>
                 <div class="md:w-1/2 w-full accordionImageContainer">
-                        <img class="accordionImage" :class="accordion.name == currentAccordion ? 'accordionImageShow': 'accordionImageHide'"  v-show="accordion.name == currentAccordion" v-for='accordion in accordions' :src="accordion.image" />
+                        <img class="accordionImage hidden lg:block" :class="accordion.name == currentAccordion ? 'accordionImageShow': 'accordionImageHide'"  v-show="accordion.name == currentAccordion" v-for='accordion in accordions' :src="accordion.image" />
                 </div>
             </div>
                 </div>
@@ -40,4 +40,10 @@ function accordionOpen(name){
     store.accordionOpen = name
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.accordionImage{
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+</style>

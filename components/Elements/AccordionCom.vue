@@ -2,12 +2,13 @@
 	<div :id="name" class="border-b-2 border-solid pb-4 border-zinc-500 cursor-pointer">
         <div class="spoiler flex justify-between items-center">
             <h4>Lorem ipsum dolor</h4>
-            <font-awesome-icon v-if="currentOpen == name" icon="fa-solid fa-chevron-down" /> 
-            <font-awesome-icon v-if="currentOpen != name" icon="fa-solid fa-chevron-up" />
+                <font-awesome-icon  v-show="currentOpen == name" icon="fa-solid fa-chevron-down" />
+                <font-awesome-icon  v-show="currentOpen != name" icon="fa-solid fa-chevron-up" />
         </div>
         <div class="content overflow-hidden max-h-full">
             <div class="inner">
                 <p>I stante, hoc natura videlicet vult, salvam esse se, quod concedimus; Te ipsum, dignissimum maioribus tuis, voluptasne induxit, ut adolescentulus eriperes P, dignissimum maioribus tuis.</p>
+                <img class=" lg:hidden pt-3" :src="image">
             </div>
         </div>
     </div>
@@ -18,6 +19,10 @@ const props = defineProps({
         default:"phoneAndLaptop",
         type:String
     },
+    image:{
+        default:'',
+        type:String
+    }
 })
 const emits = defineEmits(['sendOpen'])
 import { useStore } from '/stores/store'
