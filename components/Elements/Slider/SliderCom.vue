@@ -5,7 +5,7 @@
 					<ElementsSliderImageCom :imageCurrent="sliderImage.isActive" :image="sliderImage.image"></ElementsSliderImageCom>
 				</div>
 			</div>
-			<div v-if="navTypes == 'section1Slider'"  :class="IsNavigation == true ? 'sliderNavShow' : 'sliderNavShowHide', isSliderNavReletive == true ? 'relative' : 'fixed', navFixed == true ? 'fixed bottom-4 left-1/2 -translate-x-1/2':''" class="flex justify-center gap-3 items-center" >
+			<div v-if="navTypes == 'section1Slider'"  :class="IsNavigation == true ? 'sliderNavShow' : 'sliderNavShowHide ', isSliderNavReletive == true ? 'relative' : 'fixed', navFixed == true ? 'fixed bottom-4 left-1/2 -translate-x-1/2':''" class="flex justify-center gap-3 items-center sliderNavContainer" >
 				<div class="sliderNav flex flex-row-reverse gap-4 w-fit px-8 py-6 rounded-3xl items-center">
 					<div  @click="setSlideActive(sliderImage.image, sliderImage.id)" v-for="sliderImage in sliderImages">
 						<ElementsSliderNavCom :isAutoPlay="isAutoPlay" @sendCount="scrollnext" :isActive="sliderImage.isActive"></ElementsSliderNavCom>
@@ -92,7 +92,6 @@ function scrollnext(){
 			nextIndex.value = 0
 		}
 		if(index == nextIndex.value){
-			console.log("run")
 			sliderImage.isActive = true
 			const slide = document.getElementById(sliderImage.id);
 			const slideWidth = slide.offsetWidth + 96;
@@ -173,7 +172,6 @@ function sliderNavsCat(catIndex){
 }
 function checkCatScrollPos(){
 	const catagorySlider = document.querySelector("#catagorySlider");
-	console.log(catagorySlider.scrollLeft)
 	if(catagorySlider.scrollLeft != 0 && catagorySlider.scrollLeft != 705){
 		scrolledZeroed.value = 'center'
 	}
@@ -198,6 +196,7 @@ watch(nextIndex, async (newValue,)=>{
 
 </script>
 <style lang="scss" scoped>
+@import"/assets/Scss/btnAnimateIn";
 .slider{
 	width:1280px;
 	margin:0 auto;
@@ -246,6 +245,7 @@ svg{
 .sliderNav{
 	background-color: hsla(0, 0%, 85%, 0.8);
     backdrop-filter: saturate(180%) blur(20px);
+	transition: 1s ease;
 }
 .sliderNavShow{
 	opacity: 1;
@@ -310,4 +310,10 @@ svg{
 }
 @media (max-width:1300px) {
 }
+@media (max-width:700px){
+	.catSliderContainer{
+		max-width: 88vw;
+	}
+}
+
 </style>

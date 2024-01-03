@@ -41,18 +41,6 @@ const props = defineProps({
 </script>
 <style lang="scss" scoped>
 @import"/assets/Scss/barColor.scss";
-.barPurple{
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 1%, rgba(126, 34, 206,1) 28%, rgba(126, 34, 206,1) 100%); 
-}
-.barBlue{
-    background: rgb(255,255,255);
-background: linear-gradient(90deg, rgba(255,255,255,1) 1%,rgba(55, 48, 163,1) 28%, rgba(55, 48, 163,1) 100%); 
-}
-.barGray{
-    background: rgb(255,255,255);
-background: linear-gradient(90deg, rgba(255,255,255,1) 1%,rgba(82, 82, 82,1) 28%, rgba(82, 82, 82,1) 100%); 
-}
 .count{
 	height: 6px;
 	border-radius: 2rem;

@@ -49,6 +49,7 @@ watch(() => props.isActive,(newValue, oldValue) =>{
 .NavIndicator{
     border-radius: 20px;
 }
+
 .navActive{
     width: 50px;
 

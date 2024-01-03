@@ -126,14 +126,14 @@ const firstBars = ref([
 	barNumber:'17,7x',
 	barMax:100,
 	barColor:'barPurple',
-	NumberTextColor:'text-violet-800 '
+	NumberTextColor:'numberColorPurple '
 	},
 	{
 	text:'13" Laptop Pro med X2',
 	barNumber:'14,9x',
 	barMax:80,
 	barColor:'barBlue',
-	NumberTextColor:'text-indigo-800'
+	NumberTextColor:'numberColorBlue'
 	},
 	{
 	text:'13" Laptop Pro med X1',
@@ -156,14 +156,14 @@ const secound16Bars = ref([
 	barNumber:'5,3x',
 	barMax:100,
 	barColor:'barPurple',
-	NumberTextColor:'text-violet-800 '
+	NumberTextColor:'numberColorPurple'
 	},
 	{
 	text:'16" Laptop Pro med X2',
 	barNumber:'2.7x',
 	barMax:60,
 	barColor:'barBlue',
-	NumberTextColor:'text-indigo-800'
+	NumberTextColor:'numberColorBlue'
 	},
 	{
 	text:'16" Laptop Pro med X1',
@@ -186,14 +186,14 @@ const secound14Bars = ref([
 	barNumber:'17,7x',
 	barMax:100,
 	barColor:'barPurple',
-	NumberTextColor:'text-violet-800 '
+	NumberTextColor:'numberColorPurple '
 	},
 	{
 	text:'13" Laptop Pro med X2',
 	barNumber:'14,9x',
 	barMax:80,
 	barColor:'barBlue',
-	NumberTextColor:'text-indigo-800'
+	NumberTextColor:'numberColorBlue'
 	},
 	{
 	text:'13" Laptop Pro med X1',

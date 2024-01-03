@@ -31,10 +31,10 @@
 					</div>
 				</div>
 				<div class="mobileScrollBtns sm:hidden flex gap-4 w-fit ml-auto mt-4">
-					<div @click="scrollLeftChips()" class="scrollLeft scrollBtn bg-zinc-500 rounded-full cursor-pointer">
+					<div @click="scrollLeftChips()" :class="mobileBtnIsLeft == false ? 'opacity-0': ''" class="scrollLeft scrollBtn bg-zinc-500 rounded-full cursor-pointer">
 						<font-awesome-icon icon="fa-solid fa-chevron-left" />
 					</div>
-					<div @click="scrollRightChips()" class="scrollRight scrollBtn  bg-zinc-500 rounded-full cursor-pointer">
+					<div @click="scrollRightChips()" :class="mobileBtnIsLeft == true ? 'opacity-0': ''" class="scrollRight scrollBtn  bg-zinc-500 rounded-full cursor-pointer">
 						<font-awesome-icon icon="fa-solid fa-chevron-right" />
 					</div>
 				</div>
@@ -92,6 +92,7 @@
 	</div>
 </template>
 <script setup>
+const mobileBtnIsLeft = ref(true) 
 	function setTextObserver(){
 		const textSections = document.querySelectorAll(".ovserveContent");
 		let options = {
@@ -114,10 +115,12 @@
 	function scrollRightChips(){
 		const lastChip = document.getElementById('lastChip');
 		lastChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' })
+		mobileBtnIsLeft.value = true
 	}
 	function scrollLeftChips(){
 		const lastChip = document.getElementById('firstChip');
 		lastChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' })
+		mobileBtnIsLeft.value = false
 	}
 	onMounted(()=>{
 		setTextObserver()
