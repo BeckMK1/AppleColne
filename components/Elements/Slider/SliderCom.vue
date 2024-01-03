@@ -17,7 +17,7 @@
 				</div>
 			</div>
 			<div  id="sliderNavigation"></div>
-			<div class="flex justify-center w-fit mx-auto" v-if="navTypes == 'section4Slider'">
+			<div class="flex justify-center w-full mx-auto" v-if="navTypes == 'section4Slider'">
 				<div @click="scrollCatagoryLeft" :class="scrolledZeroed == 'left' ? 'catEndBorderLeft' : '', scrolledZeroed == 'center' ? 'catEndBorderCenter' : '' " class="catEndBorder cursor-pointer">
 					<font-awesome-icon icon="fa-solid fa-chevron-left" />
 				</div>
@@ -312,7 +312,7 @@ svg{
 	}
 }
 .catSliderContainer{
-	max-width: 700px;
+	max-width: 100%;
 	overflow-x: hidden;
 }
 @media (max-width:1300px) {
