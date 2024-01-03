@@ -1,7 +1,7 @@
 <template>
     <div :class="navWhiteText == true ? 'navWhite': ''" class="fixed w-screen fixedNavBg top-0">
         <div class="flex 2xl:max-w-5xl justify-between mx-auto py-2 md:px-0 px-4 items-center">
-            <div class="w-1/3 pl-4">
+            <div class="w-1/2 lg:w-1/3 pl-4">
                 <MacBookProNavbarLinkCom :title="true" class="font-bold" link="#topNav" linkName="Laptop Pro" />
             </div>
             <div :class="isMobile == true ? 'mobileMenu' : '', isMobileNav == true ? 'menuOpen border-b border-zinc-600 border-solid' : 'menuClose'" class="flex flex-col justify-center  lg:justify-between lg:flex-row lg:gap-12 gap-1 pr-4">

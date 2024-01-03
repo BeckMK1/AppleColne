@@ -31,14 +31,14 @@
 					</div>
 				</div>
 				<div class="mobileScrollBtns sm:hidden flex gap-4 w-fit ml-auto mt-4">
-					<div @click="scrollLeftChips()" :class="mobileBtnIsLeft == false ? 'opacity-0': ''" class="scrollLeft scrollBtn bg-zinc-500 rounded-full cursor-pointer">
+					<div @click="scrollLeftChips()" :class="mobileBtnIsLeft == 'right' ? 'btnActive': '', mobileBtnIsLeft == 'center' ? 'btnActive': ''" class="scrollLeft scrollBtn opacity-60 bg-zinc-500 rounded-full cursor-pointer">
 						<font-awesome-icon icon="fa-solid fa-chevron-left" />
 					</div>
-					<div @click="scrollRightChips()" :class="mobileBtnIsLeft == true ? 'opacity-0': ''" class="scrollRight scrollBtn  bg-zinc-500 rounded-full cursor-pointer">
+					<div @click="scrollRightChips()" :class="mobileBtnIsLeft == 'left' ? 'btnActive': '', mobileBtnIsLeft == 'center' ? 'btnActive': ''" class="scrollRight scrollBtn opacity-60  bg-zinc-500 rounded-full cursor-pointer">
 						<font-awesome-icon icon="fa-solid fa-chevron-right" />
 					</div>
 				</div>
-				<h2 class="sectionTitle text-white pt-48">Uo modo autem philosophus loquitur.</h2>
+				<h2 class="sectionTitle text-white pt-48">Uo modo autem philo&shy;sophus loquitur.</h2>
 			</div>
 		</div>
 		<ElementsImageExplodeCom></ElementsImageExplodeCom>
@@ -92,7 +92,9 @@
 	</div>
 </template>
 <script setup>
-const mobileBtnIsLeft = ref(true) 
+const mobileBtnIsLeft = ref('left') 
+const maxScroll = ref(0)
+const currentScrollPos = ref(0)
 	function setTextObserver(){
 		const textSections = document.querySelectorAll(".ovserveContent");
 		let options = {
@@ -113,14 +115,34 @@ const mobileBtnIsLeft = ref(true)
 		}
 	}
 	function scrollRightChips(){
-		const lastChip = document.getElementById('lastChip');
-		lastChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' })
-		mobileBtnIsLeft.value = true
+		const chipsContainer = document.querySelector('.chipsContainer');
+		const chips = document.querySelector('.chip').scrollWidth;
+		chipsContainer.scrollLeft += chips;
+		maxScroll.value = Math.round(chipsContainer.scrollWidth / chips) - 1;
+		const elementOnScreen = chipsContainer.offsetWidth / chips;
+		currentScrollPos.value += Math.round(elementOnScreen)
+		if(currentScrollPos.value == maxScroll.value){
+			mobileBtnIsLeft.value = 'right'
+			currentScrollPos.value = maxScroll.value
+		}
+		if(currentScrollPos.value != maxScroll.value){
+			mobileBtnIsLeft.value = 'center'
+		}
 	}
 	function scrollLeftChips(){
-		const lastChip = document.getElementById('firstChip');
-		lastChip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' })
-		mobileBtnIsLeft.value = false
+		const chipsContainer = document.querySelector('.chipsContainer');
+		const chips = document.querySelector('.chip').scrollWidth;
+		chipsContainer.scrollLeft -= chips;
+		maxScroll.value = Math.round(chipsContainer.scrollWidth / chips) - 1;
+		const elementOnScreen = chipsContainer.offsetWidth / chips;
+		currentScrollPos.value -= Math.round(elementOnScreen)
+		if(currentScrollPos.value <= 0){
+			mobileBtnIsLeft.value = 'left'
+			currentScrollPos.value = 0
+		}
+		if(currentScrollPos.value != 0){
+			mobileBtnIsLeft.value = 'center'
+		}
 	}
 	onMounted(()=>{
 		setTextObserver()
@@ -164,5 +186,9 @@ const mobileBtnIsLeft = ref(true)
 }
 .grayText p{
 	color: hsla(0, 0%, 100%, 0.7);
+}
+.btnActive{
+	opacity: 100%;
+
 }
 </style>

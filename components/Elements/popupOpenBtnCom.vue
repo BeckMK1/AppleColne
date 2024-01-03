@@ -82,7 +82,9 @@ onMounted(()=>{
     backdrop-filter: saturate(150%) blur(20px);
     color: black;
     border-radius: 3rem;
-    z-index: 98;
+    z-index: 97;
+    width: fit-content;
+  white-space: nowrap;
     .fa-plus{
         height: 20px;
         color: white;

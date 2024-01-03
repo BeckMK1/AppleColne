@@ -108,6 +108,8 @@
 	</div>
 </template>
 <script setup>
+const maxScroll = ref(0)
+const currentScrollPos = ref(0)
 const sliderImages = ref([
 {
 	image:"Images/slider1/image1.jpg",
@@ -149,18 +151,21 @@ const sliderImages = ref([
 const sliderName = ref("batterySlider")
 function slideLeft(){
 	const textBoxContainer = document.querySelector(".laptopModel");
-	textBoxContainer.scrollTo({
-	left: 0,
-	behavior: "smooth",});
+	const model = document.querySelector('.laptopModel .model').scrollWidth;
+	textBoxContainer.scrollLeft -= model;
+		maxScroll.value = Math.round(textBoxContainer.scrollWidth / model) - 1;
+		const elementOnScreen = textBoxContainer.offsetWidth / model;
+		currentScrollPos.value -= Math.round(elementOnScreen)
 }
 
 function slideRight(){
 	const textBoxContainer = document.querySelector(".laptopModel");
-	textBoxContainer.scrollTo({
-	left: 300,
-	behavior: "smooth",});
+	const model = document.querySelector('.laptopModel .model').scrollWidth;
+	textBoxContainer.scrollLeft += model;
+		maxScroll.value = Math.round(textBoxContainer.scrollWidth / model) - 1;
+		const elementOnScreen = textBoxContainer.offsetWidth / model;
+		currentScrollPos.value += Math.round(elementOnScreen)
 }
-
 </script>
 <style lang="scss" scoped>
 .mainText{
@@ -183,6 +188,7 @@ function slideRight(){
 }
 .laptopModel{
 	overflow-x: scroll;
+	scroll-behavior: smooth;
 	scrollbar-width:none;
 	transition: 250ms ease-in;
 	scroll-snap-type: x mandatory;

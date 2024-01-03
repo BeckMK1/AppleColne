@@ -16,5 +16,6 @@
 .heroPlacehoder{
     height: 500px;
     width: auto;
+    object-fit: contain;
 }
 </style>

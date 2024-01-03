@@ -58,7 +58,9 @@ const isAutoPlay = ref(false)
 const IsNavigation = ref(false)
 const navFixed = ref(true)
 const isSliderNavReletive = ref(false)
-const scrolledZeroed = ref('left')
+const scrolledZeroed = ref('right')
+const maxScroll = ref(0)
+const currentScrollPos = ref(0)
 function setSlideActive(currentSlide, imageId){
 	for(let [index ,sliderImage] of props.sliderImages.entries()){
 		if(sliderImage.isActive == true && sliderImage.image != currentSlide){
@@ -153,33 +155,38 @@ observer.observe(section);
 }
 function scrollCatagoryLeft(){
 	const catagorySlider = document.querySelector("#catagorySlider");
-	const catWidth = document.querySelector(".catagoryContainer").offsetWidth;
-	catagorySlider.scrollLeft -= catWidth * 3
-	checkCatScrollPos()
+	const catWidth = document.querySelector(".catagory").scrollWidth;
+	catagorySlider.scrollLeft -= catWidth;
+		maxScroll.value = Math.round(catagorySlider.scrollWidth / catWidth) - 1;
+		const elementOnScreen = catagorySlider.offsetWidth / catWidth;
+		currentScrollPos.value -= Math.round(elementOnScreen)
+		if(currentScrollPos.value != maxScroll.value){
+			scrolledZeroed.value = 'center'
+		}
+		if(currentScrollPos.value == 0){
+			scrolledZeroed.value = 'right'
+			currentScrollPos.value == 0
+		}
 }
 function scrollCatagoryRight(){
 	const catagorySlider = document.querySelector("#catagorySlider");
-	const catWidth = document.querySelector(".catagoryContainer").offsetWidth;
-	catagorySlider.scrollLeft += catWidth * 3
-	checkCatScrollPos()
+	const catWidth = document.querySelector(".catagory").scrollWidth;
+	catagorySlider.scrollLeft += catWidth;
+		maxScroll.value = Math.round(catagorySlider.scrollWidth / catWidth) - 1;
+		const elementOnScreen = catagorySlider.offsetWidth / catWidth;
+		currentScrollPos.value += Math.round(elementOnScreen)
+		if(currentScrollPos.value != maxScroll.value){
+			scrolledZeroed.value = 'center'
+		}
+		if(currentScrollPos.value == maxScroll.value){
+			scrolledZeroed.value = 'left'
+			currentScrollPos.value == 0
+		}
 }
 function sliderNavsCat(catIndex){
 	const catWidth = document.querySelector("#catNav-" + catIndex);
 	if(catIndex != props.sliderImages.length - 1){
 		catWidth.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
-	}
-	checkCatScrollPos()
-}
-function checkCatScrollPos(){
-	const catagorySlider = document.querySelector("#catagorySlider");
-	if(catagorySlider.scrollLeft != 0 && catagorySlider.scrollLeft != 705){
-		scrolledZeroed.value = 'center'
-	}
-	if(catagorySlider.scrollLeft >= 680){
-		scrolledZeroed.value = 'left'
-	}
-	if(catagorySlider.scrollLeft <= 20){
-		scrolledZeroed.value = 'right'
 	}
 }
 onMounted(()=>{
@@ -310,9 +317,9 @@ svg{
 }
 @media (max-width:1300px) {
 }
-@media (max-width:700px){
+@media (max-width:750px){
 	.catSliderContainer{
-		max-width: 88vw;
+		max-width: 70vw;
 	}
 }
 

@@ -22,16 +22,16 @@ const checkPopup = computed(()=>store.popupOpen)
 const mainNavOpen = computed(()=>store.isMainMobileNav)
 watch(checkPopup, async (newValue) =>{
     if(newValue == true){
-        document.body.style.overflowY = "hidden";
+        document.documentElement.style.overflowY = "hidden";
     }else{
-        document.body.style.overflowY = "auto";
+        document.documentElement.style.overflowY = "auto";
     }
 })
 watch(mainNavOpen, async (newValue) =>{
     if(newValue == true){
-        document.body.style.overflowY = "hidden";
+        document.documentElement.style.overflowY = "hidden";
     }else{
-        document.body.style.overflowY = "auto";
+        document.documentElement.style.overflowY = "auto";
     }
 })
 </script>

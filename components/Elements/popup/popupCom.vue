@@ -83,4 +83,9 @@ onMounted(()=>{
         transform: translateY(-50px);
         padding-bottom: 50px;
     }
+    @media (max-width:600px){
+        .imageContainer{
+            max-height: 30vh;
+        }
+    }
 </style>

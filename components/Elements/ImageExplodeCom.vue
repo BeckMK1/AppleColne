@@ -44,6 +44,7 @@ onMounted(()=>{
 .mainImage img{
     height: 500px;
     width: auto;
+    object-fit: contain;
 }
 .imageContainer{
     height: 1000px;
@@ -78,5 +79,31 @@ onMounted(()=>{
     .image5{
         transform: translateX(520px) translateY(-100px);
     }
+}
+@media (max-width:800px){
+    .image{
+        height: 150px;
+    }
+    .exploade{
+    .image1{
+        transform: translateX(233px) translateY(430px);
+    }
+    .image2{
+        transform: translateX(-225px) translateY(80px);
+        height: 150px;
+    }
+    .image3{
+        transform: translateX(-404px) translateY(450px);
+        height: 200px;
+    }
+    .image4{
+        transform: translateX(319px) translateY(250px);
+        height: 100px;
+    }
+    
+    .image5{
+        transform: translateX(148px) translateY(-0px);
+    }
+}
 }
 </style>

@@ -26,4 +26,6 @@ const props = defineProps({
 
     }
 }
+@media(max-width:750px){
+}
 </style>

@@ -326,10 +326,30 @@ const secound14Bars = ref([
 .model14Text p{
 	color: white;
 }
+.image{
+	img{
+		object-fit: contain;
+	}
+}
 @media (max-width:1300px) {
 	.containerInner{
 		width: 100%;
 		padding: 1rem;
 	}
+}
+@media (max-width:600px){
+	.colorContainer{
+		border-radius: 1rem;
+	}
+	.PopupText{
+	.mainText{
+		width: 100%;
+	}
+}
+.specs{
+	p{
+		width: 100%;
+	}
+}
 }
 </style>

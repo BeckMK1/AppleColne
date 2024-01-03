@@ -4,7 +4,7 @@
     <MacBookProNavbarCom v-if="isSrolled == true, isPopup == false" class="navbarDefault" :class="navbarAnimate == true ? 'navbarDown' : 'navbarUp'"></MacBookProNavbarCom>
     <div>
         <Transition name="fade">
-            <div v-if="subNavOpen == true" class="h-screen w-screen fixed top-0 z-10 subNavBg"></div>
+            <div v-if="subNavOpen == true" class="h-screen w-screen fixed top-0 subNavBg"></div>
         </Transition>
         <slot />
     </div>
@@ -70,6 +70,7 @@
 .subNavBg{
     background-color: hsla(0, 0%, 100%, 5%);
     backdrop-filter: saturate(180%) blur(20px);
+    z-index: 98;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s ease;
