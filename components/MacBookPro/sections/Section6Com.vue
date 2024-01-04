@@ -7,12 +7,11 @@
             </div>
         </div>
     </div>
-    <ElementsTextBoxSliderCom></ElementsTextBoxSliderCom>
     <div class="pt-12 contentContainer mx-auto">
         <div>
             <div class=" mx-auto pb-32">
                 <h3 class="pb-4 text-5xl font-medium">Consectetur adipiscing elit</h3>
-                <div class="accordionBox bg-zinc-200 p-16 rounded-3xl">
+                <div class="accordionBox bg-neutral-50 p-16 rounded-3xl">
                 <div class="flex md:flex-row flex-col justify-between">
                 <div class="accordionWrapper md:w-1/3 w-full">
                     <ElementsAccordionCom @click="accordionOpen(accordion.name)" v-for="accordion in accordions" :image="accordion.image" :name="accordion.name" class="mb-4"></ElementsAccordionCom>
@@ -25,6 +24,7 @@
             </div>
         </div>
     </div>
+    <ElementsTextBoxSliderCom></ElementsTextBoxSliderCom>
 </div>
 </template>
 <script setup>

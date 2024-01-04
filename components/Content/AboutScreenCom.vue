@@ -10,12 +10,12 @@
                         <p class="headText pt-12 xl:pb-0 pb-12 ovserveContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil opus estexemplis hoc facere longius. <span class="heightlight">Cum praesertim illa perdiscere</span> ludusesset. Primum in nostrane potestate est, quid meminerimus? <span class="heightlight">At iam decimum annum in spelunca iacet.</span> Dicet pro me ipsa virtus nec dubitabit isti vestro beato M.</p>
                 </div>
         </div>
-        <div class=" bg-zinc-100 w-full screenSplitContainer contentMid py-12 mb-4 overflow-hidden">
+        <div class=" bg-neutral-50 w-full screenSplitContainer contentMid py-12 mb-4 overflow-hidden">
                 <div class="splitScreen">
                 <ElementsImageSplitCom :isObserved="isObserved"></ElementsImageSplitCom>
                 </div>
         </div>
-        <div class="flex justify-between contentMid px-6 displaySplitText">
+        <div class="flex justify-between contentMid px-6 pt-12 displaySplitText">
                 <div>
                         <p>1</p>
                         <p>Ista explanatio naturae nempe</p>

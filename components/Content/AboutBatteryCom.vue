@@ -39,7 +39,7 @@
 		<div class="contentBig -ml-4 lg:ml-0">
 			<ElementsSliderCom class="mb-24" :sliderLeft="false" :sliderId="sliderName" :sliderImages="sliderImages" navTypes="section4Slider"></ElementsSliderCom>
 		</div>
-		<div class="lapTopModelsContainer -mx-7 md:mx-0 bg-[#1D1D1F] overflow-hidden rounded-2xl">
+		<div class="lapTopModelsContainer -mx-7 md:mx-0 bg-[#161617] overflow-hidden rounded-2xl">
 			<div class="contentMid">
 				<div class="contentMid-inner">
 					<h3 class=" w-fit laptopModelTitle p-11">Qui permulcet sensum</h3>
@@ -97,10 +97,10 @@
 				</div>
 			</div>
 			<div class="mobileScrollBtns md:hidden flex gap-4 w-fit float-right mr-24 mt-4 mb-4">
-			<div @click="slideLeft()" class="scrollLeft scrollBtn bg-zinc-700 rounded-full cursor-pointer">
+			<div @click="slideLeft()" :class="mobileBtnIsLeft == 'left' ? 'btnActive':'', mobileBtnIsLeft == 'center' ? 'btnActive':'' " class="scrollLeft opacity-60 scrollBtn bg-zinc-700 rounded-full cursor-pointer">
 				<font-awesome-icon icon="fa-solid fa-chevron-left" />
 			</div>
-			<div @click="slideRight()" class="scrollRight scrollBtn  bg-zinc-700 rounded-full cursor-pointer">
+			<div @click="slideRight()" :class="mobileBtnIsLeft == 'right' ? 'btnActive':'', mobileBtnIsLeft == 'center' ? 'btnActive':''" class="scrollRight opacity-60 scrollBtn  bg-zinc-700 rounded-full cursor-pointer">
 				<font-awesome-icon icon="fa-solid fa-chevron-right" />
 			</div>
 		</div>
@@ -110,6 +110,7 @@
 <script setup>
 const maxScroll = ref(0)
 const currentScrollPos = ref(0)
+const mobileBtnIsLeft = ref('right')
 const sliderImages = ref([
 {
 	image:"Images/slider1/image1.jpg",
@@ -149,22 +150,45 @@ const sliderImages = ref([
 },
 ])
 const sliderName = ref("batterySlider")
+
 function slideLeft(){
 	const textBoxContainer = document.querySelector(".laptopModel");
 	const model = document.querySelector('.laptopModel .model').scrollWidth;
-	textBoxContainer.scrollLeft -= model;
-		maxScroll.value = Math.round(textBoxContainer.scrollWidth / model) - 1;
+	if(maxScroll.value == 0){
+	maxScroll.value = textBoxContainer.scrollWidth / model;
+	}
+	if(mobileBtnIsLeft.value == 'left' || mobileBtnIsLeft.value == 'center'){
+		textBoxContainer.scrollLeft -= model;
 		const elementOnScreen = textBoxContainer.offsetWidth / model;
-		currentScrollPos.value -= Math.round(elementOnScreen)
+		currentScrollPos.value -= elementOnScreen
+	}
+		if(currentScrollPos.value <= 1){
+			mobileBtnIsLeft.value = 'right'
+			currentScrollPos.value = 1
+		}
+		if(currentScrollPos.value != 1){
+			mobileBtnIsLeft.value = 'center'
+		}
 }
 
 function slideRight(){
 	const textBoxContainer = document.querySelector(".laptopModel");
 	const model = document.querySelector('.laptopModel .model').scrollWidth;
+	if(maxScroll.value == 0){
+	maxScroll.value = textBoxContainer.scrollWidth / model;
+	}
+	if(mobileBtnIsLeft.value == 'right' || mobileBtnIsLeft.value == 'center'){
 	textBoxContainer.scrollLeft += model;
-		maxScroll.value = Math.round(textBoxContainer.scrollWidth / model) - 1;
 		const elementOnScreen = textBoxContainer.offsetWidth / model;
-		currentScrollPos.value += Math.round(elementOnScreen)
+		currentScrollPos.value += elementOnScreen
+	}
+		if(currentScrollPos.value >= maxScroll.value){
+			mobileBtnIsLeft.value = 'left'
+			currentScrollPos.value = maxScroll.value
+		}
+		if(currentScrollPos.value != maxScroll.value){
+			mobileBtnIsLeft.value = 'center'
+		}
 }
 </script>
 <style lang="scss" scoped>
@@ -225,6 +249,9 @@ function slideRight(){
 		width: 200px;
 		margin-top: 1rem;
 	}
+}
+.btnActive{
+	opacity: 100%;
 }
 .logoContainer{
 	img{

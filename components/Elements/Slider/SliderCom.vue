@@ -185,8 +185,19 @@ function scrollCatagoryRight(){
 }
 function sliderNavsCat(catIndex){
 	const catWidth = document.querySelector("#catNav-" + catIndex);
-	if(catIndex != props.sliderImages.length - 1){
-		catWidth.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+	const container = document.querySelector("#catagorySlider");
+	if(catIndex != props.sliderImages.length){
+		const catLeft = catWidth.scrollWidth * catIndex;
+		container.scrollLeft = catLeft - 100;
+	}
+	if(container.scrollLeft > 0){
+		scrolledZeroed.value = 'center'
+	}
+	if(catWidth.scrollWidth  * catIndex == catWidth.scrollWidth * (props.sliderImages.length - 1)){
+		scrolledZeroed.value = 'left'
+	}
+	if(container.scrollLeft == 0){
+		scrolledZeroed.value = 'right'
 	}
 }
 onMounted(()=>{
@@ -315,12 +326,9 @@ svg{
 	max-width: 100%;
 	overflow-x: hidden;
 }
+#catagorySlider{
+	scroll-behavior: smooth;
+}
 @media (max-width:1300px) {
 }
-@media (max-width:750px){
-	.catSliderContainer{
-		max-width: 70vw;
-	}
-}
-
 </style>

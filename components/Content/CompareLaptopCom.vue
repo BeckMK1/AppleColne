@@ -1,5 +1,9 @@
 <template>
 	<div>
+        <div class="flex justify-between">
+            <h2 class="text-5xl font-medium pb-12">Lorem ipsum dolor.</h2>
+            <NuxtLink to="#" class=" text-blue-500 text-xl">Se All Max-modeller ></NuxtLink>
+        </div>
         <div class="contentMid">
             <div class="contentMid-inner">
                 <div class="flex md:flex-row flex-col gap-24 pb-8">

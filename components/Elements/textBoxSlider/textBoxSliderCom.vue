@@ -1,6 +1,6 @@
 <template>
-	<div class=" bg-zinc-100 py-28">
-		<div class="contentContainer mx-auto flex justify-between items-end pb-6">
+	<div class=" bg-neutral-50 py-28">
+		<div class="contentContainer mx-auto flex justify-between items-end pb-16">
 			<h2 class=" text-5xl w-1/2">Censent, oportunitatis esse beate vivere.</h2>
 			<NuxtLink class="buyLink text-blue-500 text-xl">Køb Laptop ></NuxtLink>
 		</div>

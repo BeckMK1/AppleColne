@@ -31,10 +31,10 @@
 					</div>
 				</div>
 				<div class="mobileScrollBtns sm:hidden flex gap-4 w-fit ml-auto mt-4">
-					<div @click="scrollLeftChips()" :class="mobileBtnIsLeft == 'right' ? 'btnActive': '', mobileBtnIsLeft == 'center' ? 'btnActive': ''" class="scrollLeft scrollBtn opacity-60 bg-zinc-500 rounded-full cursor-pointer">
+					<div @click="scrollLeftChips()" :class="mobileBtnIsLeft == 'left' ? 'btnActive': '', mobileBtnIsLeft == 'center' ? 'btnActive': ''" class="scrollLeft scrollBtn opacity-60 bg-zinc-500 rounded-full cursor-pointer">
 						<font-awesome-icon icon="fa-solid fa-chevron-left" />
 					</div>
-					<div @click="scrollRightChips()" :class="mobileBtnIsLeft == 'left' ? 'btnActive': '', mobileBtnIsLeft == 'center' ? 'btnActive': ''" class="scrollRight scrollBtn opacity-60  bg-zinc-500 rounded-full cursor-pointer">
+					<div @click="scrollRightChips()" :class="mobileBtnIsLeft == 'right' ? 'btnActive': '', mobileBtnIsLeft == 'center' ? 'btnActive': ''" class="scrollRight scrollBtn opacity-60  bg-zinc-500 rounded-full cursor-pointer">
 						<font-awesome-icon icon="fa-solid fa-chevron-right" />
 					</div>
 				</div>
@@ -51,9 +51,9 @@
 						<p class="mainText md:w-1/3 w-full pt-12">Cave putes quicquam esse verius. Suam denique cuique naturam esse ad vivendum ducem.  <span class="heightlight">cuique verso rem subicia</span> eatum esse numquam probabis; Sin aliud quid voles, postea. <span class="heightlight">neque eam causam Zenoni desciscendi fuisse.</span> Nec vero alia sunt quaerenda contra Carneadeam illam sententiam.</p>
 					</div>
 					<div class="flex justify-between overflow-hidden ovserveContent">
-						<div class="w-1/3 ">
+						<div class="w-full sm:w-1/3 ">
 							<p class="mainText mb-2">Op til</p>
-							<h3 class=" text-6xl font-medium mb-2">2,5x consectetur adipiscing.</h3>
+							<h3 class=" text-6xl font-medium mb-2">2,5x <br /> con&shy;sectetur <br /> adip&shy;iscing.</h3>
 							<p class=" mainText ">Quae diligentissime contra Aristonem dicuntur a Chryippo</p>
 						</div>
 						<div class="w-1/3"></div>
@@ -76,7 +76,7 @@
 					<div class="flex justify-between md:flex-row flex-col ovserveContent">
 						<div class="md:w-1/3 w-full ">
 							<p class="mainText mb-2">Op til</p>
-							<h3 class=" text-6xl font-medium mb-2">80 % consectetur adipiscing.</h3>
+							<h3 class=" text-6xl font-medium mb-2">80 % conse&shy;ctetur adipisc&shy;ing.</h3>
 							<p class=" mainText ">Quae diligentissime contra Aristonem dicuntur a Chryippo</p>
 						</div>
 						<div class="md:w-1/3 w-full">
@@ -92,7 +92,7 @@
 	</div>
 </template>
 <script setup>
-const mobileBtnIsLeft = ref('left') 
+const mobileBtnIsLeft = ref('right') 
 const maxScroll = ref(0)
 const currentScrollPos = ref(0)
 	function setTextObserver(){
@@ -117,12 +117,16 @@ const currentScrollPos = ref(0)
 	function scrollRightChips(){
 		const chipsContainer = document.querySelector('.chipsContainer');
 		const chips = document.querySelector('.chip').scrollWidth;
+		if(maxScroll.value == 0){
+			maxScroll.value = chipsContainer.scrollWidth / chips;
+		}
+	if(mobileBtnIsLeft.value == 'right' || mobileBtnIsLeft.value == 'center'){
 		chipsContainer.scrollLeft += chips;
-		maxScroll.value = Math.round(chipsContainer.scrollWidth / chips) - 1;
 		const elementOnScreen = chipsContainer.offsetWidth / chips;
-		currentScrollPos.value += Math.round(elementOnScreen)
-		if(currentScrollPos.value == maxScroll.value){
-			mobileBtnIsLeft.value = 'right'
+		currentScrollPos.value += elementOnScreen
+	}
+		if(currentScrollPos.value >= maxScroll.value){
+			mobileBtnIsLeft.value = 'left'
 			currentScrollPos.value = maxScroll.value
 		}
 		if(currentScrollPos.value != maxScroll.value){
@@ -132,15 +136,19 @@ const currentScrollPos = ref(0)
 	function scrollLeftChips(){
 		const chipsContainer = document.querySelector('.chipsContainer');
 		const chips = document.querySelector('.chip').scrollWidth;
-		chipsContainer.scrollLeft -= chips;
-		maxScroll.value = Math.round(chipsContainer.scrollWidth / chips) - 1;
-		const elementOnScreen = chipsContainer.offsetWidth / chips;
-		currentScrollPos.value -= Math.round(elementOnScreen)
-		if(currentScrollPos.value <= 0){
-			mobileBtnIsLeft.value = 'left'
-			currentScrollPos.value = 0
+		if(maxScroll.value == 0){
+			maxScroll.value = chipsContainer.scrollWidth / chips;
 		}
-		if(currentScrollPos.value != 0){
+	if(mobileBtnIsLeft.value == 'left' || mobileBtnIsLeft.value == 'center'){
+		chipsContainer.scrollLeft -= chips;
+		const elementOnScreen = chipsContainer.offsetWidth / chips;
+		currentScrollPos.value -= elementOnScreen
+	}
+		if(currentScrollPos.value <= 1){
+			mobileBtnIsLeft.value = 'right'
+			currentScrollPos.value = 1
+		}
+		if(currentScrollPos.value != 1){
 			mobileBtnIsLeft.value = 'center'
 		}
 	}

@@ -222,16 +222,6 @@ const secound14Bars = ref([
 			}else{
 				entry.target.classList.remove("isObserved")
 			}
-			if(entry.target.classList.contains("observerOp") == true && entry.isIntersecting == true){
-				if(entry.target.classList.contains("bars1") == true){
-					countBarObserved1.value = true
-				}
-				if(entry.target.classList.contains("bars2") == true){
-					countBarObserved2.value = true
-				}
-
-				entry.target.classList.remove("isObserved")
-			}
 		})
 		}
 		let observer =  new IntersectionObserver(callback, options);
