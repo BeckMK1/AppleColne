@@ -30,7 +30,7 @@
 			</div>
 			<div class="colorContainer py-8 mb-52">
 				<div class="containerInner mx-auto relative">
-					<h2 class="sectionTitle ovserveContent">X3 onsectetur adipiscing elit. An potest cupiditas finiri.</h2>
+					<h2 class="sectionTitle ovserveContent pb-12">X3 onsectetur adipiscing elit. An potest cupiditas finiri.</h2>
 					<p class="text-3xl">Lorem ipsum / dolor sit / amet consectetur / adipiscing elit / Simus igitur contenti</p>
 					<p class="text-3xl mt-6 mb-3 heighlight">Nunc omni virtuti vitium contrario nomine opponitur.</p>
 					<ElementsCountBarsContainerCom :containerName="'firstContainer'" :bars16="firstBars" :barsIs16="true"></ElementsCountBarsContainerCom>
@@ -102,7 +102,7 @@
 			</div>
 			<div class="colorContainer py-8 mb-52">
 				<div class="containerInner mx-auto">
-					<h2 class="sectionTitle ovserveContent">X3 Pro onsectetur adipiscing elit. An potest cupiditas finiri.</h2>
+					<h2 class="sectionTitle ovserveContent pb-1">X3 Pro onsectetur adipiscing elit. An potest cupiditas finiri.</h2>
 					<div class="SelectModel bg-zinc-500 p-3 relative flex w-fit gap-6 my-16">
 						<div class="selector bg-white absolute" :class="isModelSecound16 == true ? 'model16':'model14'"></div>
 						<div @click="isModelSecound16 = false, resetBar()" :class="isModelSecound16 == true ? 'model14Text' : ''" class=" relative z-10 model cursor-pointer"><p class=" select-none">Model på 14"</p></div>
