@@ -5,7 +5,7 @@
 					<ElementsSliderImageCom :imageCurrent="sliderImage.isActive" :image="sliderImage.image"></ElementsSliderImageCom>
 				</div>
 			</div>
-			<div v-if="navTypes == 'section1Slider'"  :class="IsNavigation == true ? 'sliderNavShow' : 'sliderNavShowHide ', isSliderNavReletive == true ? 'relative' : 'fixed', navFixed == true ? 'fixed bottom-4 left-1/2 -translate-x-1/2':''" class="flex justify-center gap-3 items-center sliderNavContainer" >
+			<div v-if="navTypes == 'section1Slider'"  :class="IsNavigation == true ? 'sliderNavShow' : 'sliderNavShowHide ', isSliderNavReletive == true ? 'relative' : 'fixed', navFixed == true ? 'bottom-4 left-1/2 -translate-x-1/2':''" class="flex justify-center gap-3 items-center sliderNavContainer" >
 				<div class="sliderNav flex flex-row-reverse gap-4 w-fit px-8 py-6 rounded-3xl items-center">
 					<div  @click="setSlideActive(sliderImage.image, sliderImage.id)" v-for="sliderImage in sliderImages">
 						<ElementsSliderNavCom :isAutoPlay="isAutoPlay" @sendCount="scrollnext" :isActive="sliderImage.isActive"></ElementsSliderNavCom>
@@ -55,7 +55,7 @@ const props = defineProps({
 })
 const nextIndex = ref(0)
 const isAutoPlay = ref(false)
-const IsNavigation = ref(false)
+const IsNavigation = ref(true)
 const navFixed = ref(true)
 const isSliderNavReletive = ref(false)
 const scrolledZeroed = ref('right')
@@ -137,8 +137,8 @@ let observer =  new IntersectionObserver(callback, options);
 observer.observe(section);
 }
 function setSliderNavPosObserver(){
-	const section = document.querySelector( "#section1 #sliderNavigation");
-	let options = {
+	const section2 = document.querySelector( "#sliderNavigation");
+		let options = {
     threshold: 0.1
   };
 let callback = (entries, observer) => {
@@ -150,8 +150,8 @@ let callback = (entries, observer) => {
 	}
  })
 }
-let observer =  new IntersectionObserver(callback, options);
-observer.observe(section);
+let observer2 =  new IntersectionObserver(callback, options);
+observer2.observe(section2);
 }
 function scrollCatagoryLeft(){
 	const catagorySlider = document.querySelector("#catagorySlider");

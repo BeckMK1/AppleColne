@@ -1,5 +1,5 @@
 <template>
-	<div id="section2" class="h-screen relative mb-32">
+	<div id="section2" class="h-fit xl:h-screen relative mb-32">
 		<div v-if="isModel == true" class="modelViewer flex justify-center">
 			<div class="modelContainer overflow-hidden">
 				<div :class="isBig == true ? 'selectedBig' : 'selectedSmall'" class="flex flex-row-reverse justify-between pl-4 slideContainer">
